@@ -1,0 +1,15 @@
+{
+ "app": "falcon_hr",
+ "docstatus": 0,
+ "doctype": "Desktop Icon",
+ "hidden": 0,
+ "icon_type": "App",
+ "idx": 0,
+ "label": "Falcon HR",
+ "link": "/app/falcon-hr-dashboard",
+ "link_type": "External",
+ "logo_url": "/assets/falcon_hr/images/falcon-hr-logo.svg",
+ "name": "Falcon HR",
+ "roles": [],
+ "standard": 1
+}

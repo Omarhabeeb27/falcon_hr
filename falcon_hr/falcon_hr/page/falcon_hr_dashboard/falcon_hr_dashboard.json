@@ -1,0 +1,14 @@
+{
+ "doctype": "Page",
+ "name": "falcon-hr-dashboard",
+ "page_name": "falcon-hr-dashboard",
+ "title": "HR Dashboard",
+ "module": "Falcon HR",
+ "standard": "Yes",
+ "icon": "layout-dashboard",
+ "roles": [
+  {"role": "HR Manager"},
+  {"role": "HR User"},
+  {"role": "System Manager"}
+ ]
+}

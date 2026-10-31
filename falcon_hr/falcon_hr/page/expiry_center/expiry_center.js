@@ -1,10 +1,17 @@
+frappe.pages["expiry-center"].on_page_show = function (wrapper) {
+	if (wrapper.ec && frappe.route_options) {
+		wrapper.ec.apply_route_options();
+		wrapper.ec.refresh();
+	}
+};
+
 frappe.pages["expiry-center"].on_page_load = function (wrapper) {
 	const page = frappe.ui.make_app_page({
 		parent: wrapper,
 		title: __("Expiry Center"),
 		single_column: true,
 	});
-	new ExpiryCenter(page);
+	wrapper.ec = new ExpiryCenter(page);
 };
 
 class ExpiryCenter {
@@ -15,6 +22,7 @@ class ExpiryCenter {
 		this.$body = $('<div class="expiry-center"></div>').appendTo(page.main);
 		page.set_primary_action(__("Refresh"), () => this.refresh(), "refresh");
 		page.add_inner_button(__("Download CSV"), () => this.download());
+		this.apply_route_options();
 		this.refresh();
 	}
 
@@ -30,6 +38,12 @@ class ExpiryCenter {
 				options: "\nExpired\nCritical\nExpiring Soon\nValid", change }),
 			search: p.add_field({ fieldname: "search", label: __("Search"), fieldtype: "Data", change }),
 		};
+	}
+
+	apply_route_options() {
+		const ro = frappe.route_options || {};
+		frappe.route_options = null;
+		Object.keys(ro).forEach((k) => this.f[k] && this.f[k].set_value(ro[k]));
 	}
 
 	values() {
