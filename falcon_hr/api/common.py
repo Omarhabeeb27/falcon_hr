@@ -35,5 +35,7 @@ def safe_list(doctype, filters=None, fields=None, **kwargs):
 		fields = [f for f in fields if ok(f)] or ["name"]
 	if isinstance(filters, dict):
 		filters = {k: v for k, v in filters.items() if ok(k)}
+	if isinstance(kwargs.get("or_filters"), dict):
+		kwargs["or_filters"] = {k: v for k, v in kwargs["or_filters"].items() if ok(k)}
 	kwargs.setdefault("limit_page_length", 0)
 	return frappe.get_list(doctype, filters=filters, fields=fields, **kwargs)

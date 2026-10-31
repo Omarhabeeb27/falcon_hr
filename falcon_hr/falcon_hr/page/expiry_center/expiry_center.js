@@ -138,12 +138,15 @@ class ExpiryCenter {
 		const ro = frappe.route_options || {};
 		frappe.route_options = null;
 		Object.entries(ro).forEach(([k, v]) => {
-			if (this.c && this.c[k]) this.c[k].set_value(v);
-			else this.state[k] = v;
+			// Set state first: Select controls (project/location) may not have their options yet.
+			this.state[k] = v;
+			// project/location options arrive with the data; fill_options() selects them then.
+			if (this.c && this.c[k] && !["project", "location"].includes(k)) this.c[k].set_value(v);
 		});
 	}
 
 	on_filter(key, value) {
+		if (this._silent) return;
 		if ((this.state[key] || "") === (value || "")) return;
 		this.state[key] = value || "";
 		this.refresh();
@@ -191,12 +194,15 @@ class ExpiryCenter {
 	fill_options() {
 		const o = this.data.options || {};
 		[["project", o.projects], ["location", o.locations]].forEach(([k, list]) => {
-			const c = this.c[k], cur = c.get_value();
+			const c = this.c[k], cur = this.state[k] || c.get_value();
 			const opts = [{ value: "", label: k === "project" ? __("All projects") : __("All locations") }].concat(list || []);
 			if (JSON.stringify(c.df.options) !== JSON.stringify(opts)) {
 				c.df.options = opts;
 				c.refresh();
-				if (cur) c.set_value(cur);
+				if (cur) {
+					this._silent = true;
+					c.set_value(cur).then(() => (this._silent = false));
+				}
 			}
 		});
 	}

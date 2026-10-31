@@ -21,8 +21,14 @@ def _top(counter, n, other_label="Other"):
 
 
 @frappe.whitelist()
-def get_dashboard(employee_status="Active"):
+def get_dashboard(employee_status="Active", company=None, branch=None, project=None, nationality=None):
 	emp_filters = {} if employee_status == "All" else {"status": employee_status}
+	if company:
+		emp_filters["company"] = company
+	if branch:
+		emp_filters["branch"] = branch
+	if nationality:
+		emp_filters["custom_nationality"] = nationality
 	emps = safe_list(
 		"Employee",
 		filters=emp_filters,
@@ -30,13 +36,24 @@ def get_dashboard(employee_status="Active"):
 			"custom_project_assigned_to", "custom_project_location", "custom_iqama_expiry_date"],
 		limit_page_length=0,
 	)
+	if project:
+		emps = [e for e in emps if norm(e.custom_project_assigned_to) == project]
+	all_projects = sorted(
+		{norm(p) for p in safe_list("Employee", filters={"status": "Active"}, pluck="custom_project_assigned_to")}
+		if frappe.get_meta("Employee").has_field("custom_project_assigned_to") else []
+	)
 	left = frappe.db.count("Employee", {"status": "Left"})
-	branches = safe_list("Branch", fields=["name", "custom_company"], limit_page_length=0)
+	bf = {}
+	if branch:
+		bf["name"] = branch
+	if company:
+		bf["custom_company"] = company
+	branches = safe_list("Branch", filters=bf, fields=["name", "custom_company"], limit_page_length=0)
 
 	by_branch = Counter(e.branch or "No branch" for e in emps)
 	no_branch = by_branch.pop("No branch", 0)
 
-	nationality = Counter(e.custom_nationality or "Not set" for e in emps)
+	nat_counter = Counter(e.custom_nationality or "Not set" for e in emps)
 
 	# joiners per month, last 12 months (includes current month)
 	today = getdate(nowdate())
@@ -50,7 +67,9 @@ def get_dashboard(employee_status="Active"):
 	joined = Counter(str(e.date_of_joining)[:7] for e in all_emps if e.date_of_joining)
 	relieved = Counter(str(e.relieving_date)[:7] for e in all_emps if e.relieving_date)
 
-	expiry = get_expiry_data(employee_status=employee_status)
+	expiry = get_expiry_data(
+		employee_status=employee_status, company=company, branch=branch, project=project, nationality=nationality
+	)
 	rows = expiry["rows"]
 
 	doc_health = defaultdict(lambda: {"Expired": 0, "Critical": 0, "Expiring Soon": 0, "Valid": 0})
@@ -95,6 +114,9 @@ def get_dashboard(employee_status="Active"):
 		key=lambda c: -c["headcount"],
 	)
 
+	if project or nationality:
+		branch_cards = [c for c in branch_cards if c["headcount"]]
+
 	# projects / locations
 	projects = {}
 	locations = Counter()
@@ -129,6 +151,7 @@ def get_dashboard(employee_status="Active"):
 		"projects": project_list,
 		"locations": _top(locations, 10),
 		"employee_status": employee_status,
+		"filter_options": {"projects": all_projects},
 		"status_counts": expiry["employee_status_counts"],
 		"kpi": {
 			"active": len(emps),
@@ -142,9 +165,35 @@ def get_dashboard(employee_status="Active"):
 			**expiry["summary"],
 		},
 		"headcount": _top(by_branch, TOP_N),
-		"nationality": _top(nationality, 5),
+		"nationality": _top(nat_counter, 5),
 		"joiners": [{"month": m, "joined": joined.get(m, 0), "left": relieved.get(m, 0)} for m in months],
 		"doc_health": doc_health_list,
 		"upcoming": upcoming,
 		"branches": branch_cards,
 	}
+
+
+@frappe.whitelist()
+def search(q):
+	"""Global search box on the dashboard: employees (name, ID, Iqama, passport, phone) and branches."""
+	q = (q or "").strip()
+	if len(q) < 2:
+		return {"employees": [], "branches": []}
+	like = f"%{q}%"
+	meta = frappe.get_meta("Employee")
+	or_fields = [f for f in ("employee_name", "name", "custom_iqama_number", "passport_number", "cell_number",
+		"custom_project_assigned_to") if f == "name" or meta.has_field(f)]
+	employees = safe_list(
+		"Employee",
+		or_filters={f: ["like", like] for f in or_fields},
+		fields=["name", "employee_name", "status", "branch", "designation", "custom_project_assigned_to", "custom_iqama_number"],
+		limit_page_length=8,
+		order_by="status asc, employee_name asc",
+	)
+	branches = safe_list(
+		"Branch",
+		or_filters={"name": ["like", like], **({"custom_branch_name": ["like", like]} if frappe.get_meta("Branch").has_field("custom_branch_name") else {})},
+		fields=["name", "custom_company"],
+		limit_page_length=5,
+	)
+	return {"employees": employees, "branches": branches}
