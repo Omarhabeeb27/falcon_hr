@@ -1,0 +1,242 @@
+[
+ {
+  "doctype": "Notification",
+  "name": "Company Doc - Commercial Registration Expiry - 60 Days - System",
+  "subject": "[Company Document] Commercial Registration expires in 60 days - {{ doc.name }}",
+  "document_type": "Branch",
+  "event": "Days Before",
+  "date_changed": "custom_cr_expiry_date",
+  "days_in_advance": 60,
+  "channel": "System Notification",
+  "enabled": 1,
+  "module": "Falcon HR",
+  "message_type": "HTML",
+  "message": "<p>Dear HR Team,</p><p>The <b>Commercial Registration</b> of branch <b>{{ doc.name }}</b> is due to expire in 60 days.</p><p>Company: {{ doc.custom_company or '' }}<br>CR Number: {{ doc.custom_cr_number or '-' }}<br>Expiry Date: {{ doc.custom_cr_expiry_date }}</p><p>Please start the renewal.</p>",
+  "recipients": [
+   {
+    "doctype": "Notification Recipient",
+    "receiver_by_role": "HR Manager"
+   }
+  ]
+ },
+ {
+  "doctype": "Notification",
+  "name": "Company Doc - Commercial Registration Expiry - 15 Days - System",
+  "subject": "[Company Document] Commercial Registration expires in 15 days - {{ doc.name }}",
+  "document_type": "Branch",
+  "event": "Days Before",
+  "date_changed": "custom_cr_expiry_date",
+  "days_in_advance": 15,
+  "channel": "System Notification",
+  "enabled": 1,
+  "module": "Falcon HR",
+  "message_type": "HTML",
+  "message": "<p>Dear HR Team,</p><p>The <b>Commercial Registration</b> of branch <b>{{ doc.name }}</b> is due to expire in 15 days.</p><p>Company: {{ doc.custom_company or '' }}<br>CR Number: {{ doc.custom_cr_number or '-' }}<br>Expiry Date: {{ doc.custom_cr_expiry_date }}</p><p>Please start the renewal.</p>",
+  "recipients": [
+   {
+    "doctype": "Notification Recipient",
+    "receiver_by_role": "HR Manager"
+   }
+  ]
+ },
+ {
+  "doctype": "Notification",
+  "name": "Company Doc - Commercial Registration Expiry - 30 Days - Email",
+  "subject": "[Company Document] Commercial Registration expires in 30 days - {{ doc.name }}",
+  "document_type": "Branch",
+  "event": "Days Before",
+  "date_changed": "custom_cr_expiry_date",
+  "days_in_advance": 30,
+  "channel": "Email",
+  "enabled": 1,
+  "module": "Falcon HR",
+  "message_type": "HTML",
+  "message": "<p>Dear HR Team,</p><p>The <b>Commercial Registration</b> of branch <b>{{ doc.name }}</b> is due to expire in 30 days.</p><p>Company: {{ doc.custom_company or '' }}<br>CR Number: {{ doc.custom_cr_number or '-' }}<br>Expiry Date: {{ doc.custom_cr_expiry_date }}</p><p>Please start the renewal.</p>",
+  "recipients": [
+   {
+    "doctype": "Notification Recipient",
+    "receiver_by_role": "HR Manager"
+   }
+  ]
+ },
+ {
+  "doctype": "Notification",
+  "name": "Company Doc - VAT Certificate Expiry - 60 Days - System",
+  "subject": "[Company Document] VAT Certificate expires in 60 days - {{ doc.name }}",
+  "document_type": "Branch",
+  "event": "Days Before",
+  "date_changed": "custom_vat_certificate_expiry",
+  "days_in_advance": 60,
+  "channel": "System Notification",
+  "enabled": 1,
+  "module": "Falcon HR",
+  "message_type": "HTML",
+  "message": "<p>Dear HR Team,</p><p>The <b>VAT Certificate</b> of branch <b>{{ doc.name }}</b> is due to expire in 60 days.</p><p>Company: {{ doc.custom_company or '' }}<br>VAT Certificate Number: {{ doc.custom_vat_certificate_number or '-' }}<br>Expiry Date: {{ doc.custom_vat_certificate_expiry }}</p><p>Please start the renewal.</p>",
+  "recipients": [
+   {
+    "doctype": "Notification Recipient",
+    "receiver_by_role": "HR Manager"
+   }
+  ]
+ },
+ {
+  "doctype": "Notification",
+  "name": "Company Doc - VAT Certificate Expiry - 15 Days - System",
+  "subject": "[Company Document] VAT Certificate expires in 15 days - {{ doc.name }}",
+  "document_type": "Branch",
+  "event": "Days Before",
+  "date_changed": "custom_vat_certificate_expiry",
+  "days_in_advance": 15,
+  "channel": "System Notification",
+  "enabled": 1,
+  "module": "Falcon HR",
+  "message_type": "HTML",
+  "message": "<p>Dear HR Team,</p><p>The <b>VAT Certificate</b> of branch <b>{{ doc.name }}</b> is due to expire in 15 days.</p><p>Company: {{ doc.custom_company or '' }}<br>VAT Certificate Number: {{ doc.custom_vat_certificate_number or '-' }}<br>Expiry Date: {{ doc.custom_vat_certificate_expiry }}</p><p>Please start the renewal.</p>",
+  "recipients": [
+   {
+    "doctype": "Notification Recipient",
+    "receiver_by_role": "HR Manager"
+   }
+  ]
+ },
+ {
+  "doctype": "Notification",
+  "name": "Company Doc - VAT Certificate Expiry - 30 Days - Email",
+  "subject": "[Company Document] VAT Certificate expires in 30 days - {{ doc.name }}",
+  "document_type": "Branch",
+  "event": "Days Before",
+  "date_changed": "custom_vat_certificate_expiry",
+  "days_in_advance": 30,
+  "channel": "Email",
+  "enabled": 1,
+  "module": "Falcon HR",
+  "message_type": "HTML",
+  "message": "<p>Dear HR Team,</p><p>The <b>VAT Certificate</b> of branch <b>{{ doc.name }}</b> is due to expire in 30 days.</p><p>Company: {{ doc.custom_company or '' }}<br>VAT Certificate Number: {{ doc.custom_vat_certificate_number or '-' }}<br>Expiry Date: {{ doc.custom_vat_certificate_expiry }}</p><p>Please start the renewal.</p>",
+  "recipients": [
+   {
+    "doctype": "Notification Recipient",
+    "receiver_by_role": "HR Manager"
+   }
+  ]
+ },
+ {
+  "doctype": "Notification",
+  "name": "Company Doc - Qiwa Establishment Expiry - 60 Days - System",
+  "subject": "[Company Document] Qiwa Establishment expires in 60 days - {{ doc.name }}",
+  "document_type": "Branch",
+  "event": "Days Before",
+  "date_changed": "custom_qiwa_expiry_date",
+  "days_in_advance": 60,
+  "channel": "System Notification",
+  "enabled": 1,
+  "module": "Falcon HR",
+  "message_type": "HTML",
+  "message": "<p>Dear HR Team,</p><p>The <b>Qiwa Establishment</b> of branch <b>{{ doc.name }}</b> is due to expire in 60 days.</p><p>Company: {{ doc.custom_company or '' }}<br>Qiwa Number: {{ doc.custom_qiwa_number or '-' }}<br>Expiry Date: {{ doc.custom_qiwa_expiry_date }}</p><p>Please start the renewal.</p>",
+  "recipients": [
+   {
+    "doctype": "Notification Recipient",
+    "receiver_by_role": "HR Manager"
+   }
+  ]
+ },
+ {
+  "doctype": "Notification",
+  "name": "Company Doc - Qiwa Establishment Expiry - 15 Days - System",
+  "subject": "[Company Document] Qiwa Establishment expires in 15 days - {{ doc.name }}",
+  "document_type": "Branch",
+  "event": "Days Before",
+  "date_changed": "custom_qiwa_expiry_date",
+  "days_in_advance": 15,
+  "channel": "System Notification",
+  "enabled": 1,
+  "module": "Falcon HR",
+  "message_type": "HTML",
+  "message": "<p>Dear HR Team,</p><p>The <b>Qiwa Establishment</b> of branch <b>{{ doc.name }}</b> is due to expire in 15 days.</p><p>Company: {{ doc.custom_company or '' }}<br>Qiwa Number: {{ doc.custom_qiwa_number or '-' }}<br>Expiry Date: {{ doc.custom_qiwa_expiry_date }}</p><p>Please start the renewal.</p>",
+  "recipients": [
+   {
+    "doctype": "Notification Recipient",
+    "receiver_by_role": "HR Manager"
+   }
+  ]
+ },
+ {
+  "doctype": "Notification",
+  "name": "Company Doc - Qiwa Establishment Expiry - 30 Days - Email",
+  "subject": "[Company Document] Qiwa Establishment expires in 30 days - {{ doc.name }}",
+  "document_type": "Branch",
+  "event": "Days Before",
+  "date_changed": "custom_qiwa_expiry_date",
+  "days_in_advance": 30,
+  "channel": "Email",
+  "enabled": 1,
+  "module": "Falcon HR",
+  "message_type": "HTML",
+  "message": "<p>Dear HR Team,</p><p>The <b>Qiwa Establishment</b> of branch <b>{{ doc.name }}</b> is due to expire in 30 days.</p><p>Company: {{ doc.custom_company or '' }}<br>Qiwa Number: {{ doc.custom_qiwa_number or '-' }}<br>Expiry Date: {{ doc.custom_qiwa_expiry_date }}</p><p>Please start the renewal.</p>",
+  "recipients": [
+   {
+    "doctype": "Notification Recipient",
+    "receiver_by_role": "HR Manager"
+   }
+  ]
+ },
+ {
+  "doctype": "Notification",
+  "name": "Company Doc - Muqeem Subscription Expiry - 60 Days - System",
+  "subject": "[Company Document] Muqeem Subscription expires in 60 days - {{ doc.name }}",
+  "document_type": "Branch",
+  "event": "Days Before",
+  "date_changed": "custom_muqeem_expiry_date",
+  "days_in_advance": 60,
+  "channel": "System Notification",
+  "enabled": 1,
+  "module": "Falcon HR",
+  "message_type": "HTML",
+  "message": "<p>Dear HR Team,</p><p>The <b>Muqeem Subscription</b> of branch <b>{{ doc.name }}</b> is due to expire in 60 days.</p><p>Company: {{ doc.custom_company or '' }}<br>Muqeem Number: {{ doc.custom_muqeem_number or '-' }}<br>Expiry Date: {{ doc.custom_muqeem_expiry_date }}</p><p>Please start the renewal.</p>",
+  "recipients": [
+   {
+    "doctype": "Notification Recipient",
+    "receiver_by_role": "HR Manager"
+   }
+  ]
+ },
+ {
+  "doctype": "Notification",
+  "name": "Company Doc - Muqeem Subscription Expiry - 15 Days - System",
+  "subject": "[Company Document] Muqeem Subscription expires in 15 days - {{ doc.name }}",
+  "document_type": "Branch",
+  "event": "Days Before",
+  "date_changed": "custom_muqeem_expiry_date",
+  "days_in_advance": 15,
+  "channel": "System Notification",
+  "enabled": 1,
+  "module": "Falcon HR",
+  "message_type": "HTML",
+  "message": "<p>Dear HR Team,</p><p>The <b>Muqeem Subscription</b> of branch <b>{{ doc.name }}</b> is due to expire in 15 days.</p><p>Company: {{ doc.custom_company or '' }}<br>Muqeem Number: {{ doc.custom_muqeem_number or '-' }}<br>Expiry Date: {{ doc.custom_muqeem_expiry_date }}</p><p>Please start the renewal.</p>",
+  "recipients": [
+   {
+    "doctype": "Notification Recipient",
+    "receiver_by_role": "HR Manager"
+   }
+  ]
+ },
+ {
+  "doctype": "Notification",
+  "name": "Company Doc - Muqeem Subscription Expiry - 30 Days - Email",
+  "subject": "[Company Document] Muqeem Subscription expires in 30 days - {{ doc.name }}",
+  "document_type": "Branch",
+  "event": "Days Before",
+  "date_changed": "custom_muqeem_expiry_date",
+  "days_in_advance": 30,
+  "channel": "Email",
+  "enabled": 1,
+  "module": "Falcon HR",
+  "message_type": "HTML",
+  "message": "<p>Dear HR Team,</p><p>The <b>Muqeem Subscription</b> of branch <b>{{ doc.name }}</b> is due to expire in 30 days.</p><p>Company: {{ doc.custom_company or '' }}<br>Muqeem Number: {{ doc.custom_muqeem_number or '-' }}<br>Expiry Date: {{ doc.custom_muqeem_expiry_date }}</p><p>Please start the renewal.</p>",
+  "recipients": [
+   {
+    "doctype": "Notification Recipient",
+    "receiver_by_role": "HR Manager"
+   }
+  ]
+ }
+]

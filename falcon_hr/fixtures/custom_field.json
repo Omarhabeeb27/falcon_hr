@@ -1,0 +1,82 @@
+[
+ {
+  "doctype": "Custom Field",
+  "dt": "Branch",
+  "module": "Falcon HR",
+  "fieldname": "custom_qiwa_muqeem_section",
+  "label": "Qiwa & Muqeem",
+  "fieldtype": "Section Break",
+  "insert_after": "custom_national_address_documentation_on_file",
+  "name": "Branch-custom_qiwa_muqeem_section"
+ },
+ {
+  "doctype": "Custom Field",
+  "dt": "Branch",
+  "module": "Falcon HR",
+  "fieldname": "custom_qiwa_number",
+  "label": "Qiwa Establishment Number",
+  "fieldtype": "Data",
+  "insert_after": "custom_qiwa_muqeem_section",
+  "name": "Branch-custom_qiwa_number"
+ },
+ {
+  "doctype": "Custom Field",
+  "dt": "Branch",
+  "module": "Falcon HR",
+  "fieldname": "custom_qiwa_issue_date",
+  "label": "Qiwa Issue Date",
+  "fieldtype": "Date",
+  "insert_after": "custom_qiwa_number",
+  "name": "Branch-custom_qiwa_issue_date"
+ },
+ {
+  "doctype": "Custom Field",
+  "dt": "Branch",
+  "module": "Falcon HR",
+  "fieldname": "custom_qiwa_expiry_date",
+  "label": "Qiwa Expiry Date",
+  "fieldtype": "Date",
+  "insert_after": "custom_qiwa_issue_date",
+  "name": "Branch-custom_qiwa_expiry_date"
+ },
+ {
+  "doctype": "Custom Field",
+  "dt": "Branch",
+  "module": "Falcon HR",
+  "fieldname": "custom_qiwa_muqeem_col",
+  "label": "",
+  "fieldtype": "Column Break",
+  "insert_after": "custom_qiwa_expiry_date",
+  "name": "Branch-custom_qiwa_muqeem_col"
+ },
+ {
+  "doctype": "Custom Field",
+  "dt": "Branch",
+  "module": "Falcon HR",
+  "fieldname": "custom_muqeem_number",
+  "label": "Muqeem Account Number",
+  "fieldtype": "Data",
+  "insert_after": "custom_qiwa_muqeem_col",
+  "name": "Branch-custom_muqeem_number"
+ },
+ {
+  "doctype": "Custom Field",
+  "dt": "Branch",
+  "module": "Falcon HR",
+  "fieldname": "custom_muqeem_start_date",
+  "label": "Muqeem Subscription Start Date",
+  "fieldtype": "Date",
+  "insert_after": "custom_muqeem_number",
+  "name": "Branch-custom_muqeem_start_date"
+ },
+ {
+  "doctype": "Custom Field",
+  "dt": "Branch",
+  "module": "Falcon HR",
+  "fieldname": "custom_muqeem_expiry_date",
+  "label": "Muqeem Subscription Expiry Date",
+  "fieldtype": "Date",
+  "insert_after": "custom_muqeem_start_date",
+  "name": "Branch-custom_muqeem_expiry_date"
+ }
+]

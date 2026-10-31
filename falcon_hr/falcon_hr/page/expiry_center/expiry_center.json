@@ -1,0 +1,14 @@
+{
+ "doctype": "Page",
+ "name": "expiry-center",
+ "page_name": "expiry-center",
+ "title": "Expiry Center",
+ "module": "Falcon HR",
+ "standard": "Yes",
+ "icon": "calendar",
+ "roles": [
+  {"role": "HR Manager"},
+  {"role": "HR User"},
+  {"role": "System Manager"}
+ ]
+}

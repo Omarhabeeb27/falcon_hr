@@ -8,7 +8,7 @@ app_license = "mit"
 # Apps
 # ------------------
 
-# required_apps = []
+required_apps = ["frappe", "erpnext", "hrms"]
 
 # Each item in the list will be shown as an app in the apps page
 # add_to_apps_screen = [
@@ -43,7 +43,19 @@ app_license = "mit"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
+doctype_js = {
+	"Employee": "public/js/employee.js",
+	"Branch": "public/js/branch.js",
+}
+
+after_migrate = ["falcon_hr.setup.install.after_migrate"]
+after_install = ["falcon_hr.setup.install.after_migrate"]
+
+fixtures = [
+	{"dt": "Custom Field", "filters": [["name", "like", "Branch-custom_qiwa%"]]},
+	{"dt": "Custom Field", "filters": [["name", "like", "Branch-custom_muqeem%"]]},
+	{"dt": "Notification", "filters": [["name", "like", "Company Doc%"]]},
+]
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
