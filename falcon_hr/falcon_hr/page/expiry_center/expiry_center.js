@@ -74,7 +74,7 @@ class ExpiryCenter {
 						${r.scope === "Employee" ? `<div class="text-muted small">${r.name}</div>` : ""}</td>
 					<td>${__(r.document)}</td>
 					<td>${frappe.utils.escape_html(r.number || "")}</td>
-					<td>${frappe.utils.escape_html(r.scope === "Employee" ? r.branch || "" : r.company || "")}</td>
+					<td>${frappe.utils.escape_html(r.scope === "Employee" ? r.branch || r.company || "" : r.company || "")}</td>
 					<td>${frappe.datetime.str_to_user(r.expiry_date)}</td>
 					<td><b>${days}</b></td>
 					<td><span class="indicator-pill ${color[r.status]}">${__(r.status)}</span></td></tr>`;
