@@ -71,7 +71,7 @@ class ExpiryCenter {
 				return `<tr>
 					<td><span class="indicator-pill ${r.scope === "Employee" ? "blue" : "purple"}">${__(r.scope)}</span></td>
 					<td><a href="/app/${frappe.router.slug(r.doctype)}/${encodeURIComponent(r.name)}">${frappe.utils.escape_html(r.party)}</a>
-						${r.scope === "Employee" ? `<div class="text-muted small">${r.name}</div>` : ""}</td>
+						${r.scope === "Employee" ? `<div class="text-muted small">${frappe.utils.escape_html(r.name)}</div>` : ""}</td>
 					<td>${__(r.document)}</td>
 					<td>${frappe.utils.escape_html(r.number || "")}</td>
 					<td>${frappe.utils.escape_html(r.scope === "Employee" ? r.branch || r.company || "" : r.company || "")}</td>
