@@ -125,7 +125,7 @@ class ExpiryCenter {
 		const $b = $s.find("button").removeClass("active").filter(`[data-v="${this.state[seg]}"]`).addClass("active");
 		const $p = $s.find(".pill");
 		if (instant) $p.css("transition", "none");
-		$p.css({ left: $b.position().left, width: $b.outerWidth() });
+		$p.css({ transform: `translateX(${$b.position().left}px)`, width: $b.outerWidth() });
 		if (instant) setTimeout(() => $p.css("transition", ""), 30);
 	}
 
@@ -202,7 +202,7 @@ class ExpiryCenter {
 				<div class="lbl"><i style="background:${x.color}"></i>${__(x.key)}</div>
 				<div class="val">${(s[x.key] || 0).toLocaleString()}</div>
 				<div class="hint">${x.hint} · ${Math.round((100 * (s[x.key] || 0)) / total)}%</div>
-				<div class="bar"><span style="width:${(100 * (s[x.key] || 0)) / total}%;background:${x.color}"></span></div></div>`).join("")
+				<div class="bar"><span style="transform:scaleX(${(s[x.key] || 0) / total});background:${x.color}"></span></div></div>`).join("")
 		);
 		this.$root.find(".fec-stat").on("click", (e) => {
 			const k = $(e.currentTarget).data("status");

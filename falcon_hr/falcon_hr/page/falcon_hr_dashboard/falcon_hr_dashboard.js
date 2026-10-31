@@ -111,7 +111,7 @@ class FalconHRDashboard {
 		const $t = $tabs.filter(`[data-tab="${tab}"]`).addClass("active");
 		const $pill = this.$root.find(".fhd-pill");
 		if (instant) $pill.css("transition", "none");
-		$pill.css({ left: $t.position().left, width: $t.outerWidth() });
+		$pill.css({ transform: `translateX(${$t.position().left}px)`, width: $t.outerWidth() });
 		if (instant) setTimeout(() => $pill.css("transition", ""), 30);
 		const $body = this.$root.find(".fhd-body");
 		$body.html(this[`render_${tab}`]());
