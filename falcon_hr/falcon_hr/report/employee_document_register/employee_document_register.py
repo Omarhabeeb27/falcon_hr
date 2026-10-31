@@ -2,7 +2,7 @@ import frappe
 from frappe import _
 from frappe.utils import date_diff, nowdate
 
-from falcon_hr.api.common import norm
+from falcon_hr.api.common import norm, safe_list
 from falcon_hr.api.expiry import EMPLOYEE_DOCS
 
 
@@ -38,7 +38,7 @@ def execute(filters=None):
 	today = nowdate()
 	data = []
 	only = filters.get("document_state")
-	for e in frappe.get_list("Employee", filters=f, fields=fields, order_by="employee_name asc", limit_page_length=0):
+	for e in safe_list("Employee", filters=f, fields=fields, order_by="employee_name asc", limit_page_length=0):
 		row = {k: e.get(k) for k in ("name", "employee_name", "designation", "custom_nationality", "branch", "company")}
 		row["project"] = norm(e.custom_project_assigned_to)
 		row["location"] = norm(e.custom_project_location, "Not set")

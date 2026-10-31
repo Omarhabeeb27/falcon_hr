@@ -2,7 +2,7 @@ import frappe
 from frappe import _
 from frappe.utils import date_diff, nowdate
 
-from falcon_hr.api.common import norm
+from falcon_hr.api.common import norm, safe_list
 
 
 def execute(filters=None):
@@ -18,7 +18,7 @@ def execute(filters=None):
 		{"label": _("Top Nationality"), "fieldname": "top_nat", "fieldtype": "Data", "width": 160},
 	]
 	groups = {}
-	for e in frappe.get_list("Employee", filters={"status": "Active"}, fields=["branch", "custom_nationality",
+	for e in safe_list("Employee", filters={"status": "Active"}, fields=["branch", "custom_nationality",
 			"custom_iqama_expiry_date", "custom_project_assigned_to", "custom_project_location"], limit_page_length=0):
 		project, location = norm(e.custom_project_assigned_to), norm(e.custom_project_location, "Not set")
 		key, other = (project, location) if group_by == "Project" else (location, project)

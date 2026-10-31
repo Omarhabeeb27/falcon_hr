@@ -117,13 +117,13 @@ def get_expiry_data(
 			f["company"] = company
 		if designation:
 			f["designation"] = designation
-		if nationality:
+		if nationality and frappe.get_meta("Employee").has_field("custom_nationality"):
 			f["custom_nationality"] = nationality
 		rows += _rows("Employee", EMPLOYEE_DOCS, "employee_name", EMP_EXTRA, f)
 	# Company (branch) documents belong with the current workforce view only.
 	if scope in ("All", "Branch") and employee_status in ("Active", "All", None, "") and not (designation or nationality or project or location):
 		f = {"name": branch} if branch else {}
-		if company:
+		if company and frappe.get_meta("Branch").has_field("custom_company"):
 			f["custom_company"] = company
 		rows += _rows("Branch", BRANCH_DOCS, "name", BRANCH_EXTRA, f)
 
@@ -185,7 +185,9 @@ def employee_status_counts():
 def get_branch_summary(branch):
 	"""Employee headcount + Iqama status split for one branch (Branch form dashboard)."""
 	today = getdate(nowdate())
-	emps = frappe.get_list(
+	from falcon_hr.api.common import safe_list
+
+	emps = safe_list(
 		"Employee",
 		filters={"branch": branch, "status": "Active"},
 		fields=["name", "custom_iqama_expiry_date", "custom_iqama_number"],

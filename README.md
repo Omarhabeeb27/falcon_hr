@@ -1,33 +1,59 @@
-### Falcon HR
+## Falcon HR
 
-Falcon HR customizations: document expiry center, branch compliance, deployments, attendance import
+HR add-on for **Falcon Resource Management** on Frappe HR (HRMS) v16: document-expiry
+tracking for employees *and* branches (companies/sponsors), an HR dashboard, downloadable
+reports and notification-centre alerts. It only **adds** pages, reports, fields and
+alerts; it does not modify any HRMS/ERPNext doctype or code.
 
-### Installation
+### What's inside
 
-You can install this app using the [bench](https://github.com/frappe/bench) CLI:
+| Area | Where |
+|---|---|
+| HR Dashboard (Overview / Projects / Documents / Branches, employee-status switch) | `/app/falcon-hr-dashboard` |
+| Expiry Center (all employee + company documents, 9 filters, search, table/board, CSV) | `/app/expiry-center` |
+| Days-remaining under every expiry date | Employee and Branch forms |
+| Branch overview (headcount + Iqama status) | top of every Branch form |
+| Qiwa & Muqeem numbers/dates | Branch form, "Qiwa & Muqeem" section |
+| Company-document alerts (60/15-day system, 30-day email) | Notifications named `Company Doc - …` |
+| Daily bell alerts (60/30/15/7/3/1/0 days, day after, every 30 days overdue) | `falcon_hr.api.alerts.send_daily_alerts` |
+| Reports: Document Expiry Register, Employee Document Register, Branch Compliance Register, Branch Workforce Summary, Project Assignment Register, Project Location Summary | sidebar → Reports |
+| Desktop icon + grouped sidebar | "Falcon HR" |
+
+### Requirements
+
+- Frappe v16, ERPNext v16, HRMS v16 (declared in `pyproject.toml` and `required_apps`).
+- The Employee/Branch custom fields used by Falcon (Iqama, Visa, Qiwa contract, GOSI,
+  CR, VAT, project assigned to, …) live in the site database. If a site lacks some of
+  them, every page and report still loads — those columns are simply empty.
+
+### Install on Frappe Cloud
+
+1. Push this repo to GitHub (private is fine) and make sure the Frappe Cloud GitHub app
+   can see it.
+2. Frappe Cloud → your **Bench group** → **Apps** → **Add App** → pick the repo, branch
+   `main` (or the branch you push).
+3. **Deploy** the bench group so the app is built into it.
+4. Site → **Apps** → **Install App** → *Falcon HR*. Installing runs `migrate`, which loads
+   the fixtures (Branch Qiwa/Muqeem fields, Company Doc notifications), pages, reports,
+   desktop icon and sidebar.
+5. Hard-refresh the browser. The **Falcon HR** icon appears on the desktop.
+
+Updates: push to the branch → Frappe Cloud shows an update → deploy → update the site.
+
+### Install locally
 
 ```bash
-cd $PATH_TO_YOUR_BENCH
-bench get-app $URL_OF_THIS_REPO --branch n
-bench install-app falcon_hr
+bench get-app <repo-url>
+bench --site <site> install-app falcon_hr
+bench restart   # or restart `bench start`: sidebars are cached by the web workers
 ```
 
-### Contributing
+### Uninstalling
 
-This app uses `pre-commit` for code formatting and linting. Please [install pre-commit](https://pre-commit.com/#installation) and enable it for this repository:
-
-```bash
-cd apps/falcon_hr
-pre-commit install
-```
-
-Pre-commit is configured to use the following tools for checking and formatting your code:
-
-- ruff
-- eslint
-- prettier
-- pyupgrade
+Uninstall removes only what this app created (its pages, reports, sidebar, icon, the
+Qiwa/Muqeem Branch fields and the Company Doc notifications). Falcon's other existing
+Employee/Branch custom fields are not owned by this app and are left untouched.
 
 ### License
 
-mit
+MIT

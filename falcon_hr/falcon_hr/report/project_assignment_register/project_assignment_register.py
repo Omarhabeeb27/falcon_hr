@@ -1,7 +1,7 @@
 import frappe
 from frappe import _
 
-from falcon_hr.api.common import norm
+from falcon_hr.api.common import norm, safe_list
 
 
 def execute(filters=None):
@@ -21,7 +21,7 @@ def execute(filters=None):
 		{"label": _("Remarks"), "fieldname": "remarks", "fieldtype": "Data", "width": 200},
 	]
 	rows = []
-	for e in frappe.get_list("Employee", filters=f, fields=["name", "employee_name", "designation", "branch",
+	for e in safe_list("Employee", filters=f, fields=["name", "employee_name", "designation", "branch",
 			"custom_nationality", "custom_iqama_expiry_date", "custom_project_assigned_to",
 			"custom_project_location", "custom_project_assigned_to_remarks"], limit_page_length=0):
 		r = dict(e)

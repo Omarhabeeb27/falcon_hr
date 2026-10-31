@@ -1,4 +1,6 @@
 import frappe
+
+from falcon_hr.api.common import safe_list
 from frappe import _
 from frappe.utils import date_diff, nowdate
 
@@ -35,7 +37,7 @@ def execute(filters=None):
 
 	today = nowdate()
 	data = []
-	for b in frappe.get_list("Branch", filters=f, fields=fields, order_by="name asc", limit_page_length=0):
+	for b in safe_list("Branch", filters=f, fields=fields, order_by="name asc", limit_page_length=0):
 		row = {k: b.get(k) for k in ["name"] + extra}
 		missing = []
 		for label, date_f, num_f in BRANCH_DOCS:

@@ -5,7 +5,7 @@ from collections import Counter, defaultdict
 import frappe
 from frappe.utils import add_months, getdate, nowdate
 
-from falcon_hr.api.common import norm
+from falcon_hr.api.common import norm, safe_list
 from falcon_hr.api.expiry import BRANCH_DOCS, EMPLOYEE_DOCS, get_expiry_data
 
 TOP_N = 8
@@ -23,7 +23,7 @@ def _top(counter, n, other_label="Other"):
 @frappe.whitelist()
 def get_dashboard(employee_status="Active"):
 	emp_filters = {} if employee_status == "All" else {"status": employee_status}
-	emps = frappe.get_list(
+	emps = safe_list(
 		"Employee",
 		filters=emp_filters,
 		fields=["name", "branch", "custom_nationality", "date_of_joining", "gender",
@@ -31,7 +31,7 @@ def get_dashboard(employee_status="Active"):
 		limit_page_length=0,
 	)
 	left = frappe.db.count("Employee", {"status": "Left"})
-	branches = frappe.get_list("Branch", fields=["name", "custom_company"], limit_page_length=0)
+	branches = safe_list("Branch", fields=["name", "custom_company"], limit_page_length=0)
 
 	by_branch = Counter(e.branch or "No branch" for e in emps)
 	no_branch = by_branch.pop("No branch", 0)
@@ -44,7 +44,7 @@ def get_dashboard(employee_status="Active"):
 	for i in range(11, -1, -1):
 		d = add_months(today, -i)
 		months.append(d.strftime("%Y-%m"))
-	all_emps = frappe.get_list(
+	all_emps = safe_list(
 		"Employee", fields=["date_of_joining", "relieving_date"], limit_page_length=0
 	)
 	joined = Counter(str(e.date_of_joining)[:7] for e in all_emps if e.date_of_joining)

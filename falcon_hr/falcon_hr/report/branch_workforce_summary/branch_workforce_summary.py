@@ -2,7 +2,7 @@ import frappe
 from frappe import _
 from frappe.utils import date_diff, flt, nowdate
 
-from falcon_hr.api.common import is_saudi
+from falcon_hr.api.common import is_saudi, safe_list
 
 
 def execute(filters=None):
@@ -24,8 +24,8 @@ def execute(filters=None):
 		{"label": _("Insurance Expired"), "fieldname": "ins_expired", "fieldtype": "Int", "width": 120},
 		{"label": _("Projects"), "fieldname": "projects", "fieldtype": "Int", "width": 80},
 	]
-	branches = frappe.get_list("Branch", fields=["name", "custom_company", "custom_planned_employee_count"], limit_page_length=0)
-	emps = frappe.get_list("Employee", filters={"status": "Active"},
+	branches = safe_list("Branch", fields=["name", "custom_company", "custom_planned_employee_count"], limit_page_length=0)
+	emps = safe_list("Employee", filters={"status": "Active"},
 		fields=["branch", "custom_employee_category", "custom_nationality", "custom_iqama_expiry_date",
 			"custom_insurance_expiry_date", "custom_project_assigned_to"], limit_page_length=0)
 	stats = {}
