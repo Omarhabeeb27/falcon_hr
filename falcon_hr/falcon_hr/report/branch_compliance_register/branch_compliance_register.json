@@ -1,0 +1,23 @@
+{
+ "doctype": "Report",
+ "name": "Branch Compliance Register",
+ "report_name": "Branch Compliance Register",
+ "ref_doctype": "Branch",
+ "report_type": "Script Report",
+ "is_standard": "Yes",
+ "module": "Falcon HR",
+ "add_total_row": 0,
+ "disabled": 0,
+ "prepared_report": 0,
+ "roles": [
+  {
+   "role": "HR Manager"
+  },
+  {
+   "role": "HR User"
+  },
+  {
+   "role": "System Manager"
+  }
+ ]
+}

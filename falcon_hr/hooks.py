@@ -48,6 +48,10 @@ doctype_js = {
 	"Branch": "public/js/branch.js",
 }
 
+scheduler_events = {
+	"daily": ["falcon_hr.api.alerts.send_daily_alerts"],
+}
+
 after_migrate = ["falcon_hr.setup.install.after_migrate"]
 after_install = ["falcon_hr.setup.install.after_migrate"]
 

@@ -5,6 +5,7 @@ from collections import Counter, defaultdict
 import frappe
 from frappe.utils import add_months, getdate, nowdate
 
+from falcon_hr.api.common import norm
 from falcon_hr.api.expiry import BRANCH_DOCS, EMPLOYEE_DOCS, get_expiry_data
 
 TOP_N = 8
@@ -24,7 +25,8 @@ def get_dashboard():
 	emps = frappe.get_list(
 		"Employee",
 		filters={"status": "Active"},
-		fields=["name", "branch", "custom_nationality", "date_of_joining", "gender"],
+		fields=["name", "branch", "custom_nationality", "date_of_joining", "gender",
+			"custom_project_assigned_to", "custom_project_location", "custom_iqama_expiry_date"],
 		limit_page_length=0,
 	)
 	left = frappe.db.count("Employee", {"status": "Left"})
@@ -92,7 +94,39 @@ def get_dashboard():
 		key=lambda c: -c["headcount"],
 	)
 
+	# projects / locations
+	projects = {}
+	locations = Counter()
+	for e in emps:
+		pj = norm(e.custom_project_assigned_to)
+		loc = norm(e.custom_project_location, "Not set")
+		g = projects.setdefault(pj, {"project": pj, "headcount": 0, "locations": Counter(), "branches": set(), "iqama_expired": 0, "iqama_soon": 0})
+		g["headcount"] += 1
+		g["locations"][loc] += 1
+		if e.branch:
+			g["branches"].add(e.branch)
+		if e.custom_iqama_expiry_date:
+			dl = (getdate(e.custom_iqama_expiry_date) - today).days
+			if dl < 0:
+				g["iqama_expired"] += 1
+			elif dl <= 60:
+				g["iqama_soon"] += 1
+		if loc != "Not set":
+			locations[loc] += 1
+	project_list = sorted(
+		[
+			{**{k: v for k, v in g.items() if k not in ("locations", "branches")},
+				"locations": [{"label": k, "value": v} for k, v in g["locations"].most_common(4)],
+				"branches": len(g["branches"])}
+			for g in projects.values()
+		],
+		key=lambda x: (x["project"] == "Not assigned", -x["headcount"]),
+	)
+	unassigned = projects.get("Not assigned", {}).get("headcount", 0)
+
 	return {
+		"projects": project_list,
+		"locations": _top(locations, 10),
 		"kpi": {
 			"active": len(emps),
 			"left": left,
@@ -100,6 +134,8 @@ def get_dashboard():
 			"branches_staffed": len(by_branch),
 			"no_branch": no_branch,
 			"valid_pct": valid_pct,
+			"projects": len([p for p in projects if p != "Not assigned"]),
+			"unassigned": unassigned,
 			**expiry["summary"],
 		},
 		"headcount": _top(by_branch, TOP_N),

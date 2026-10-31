@@ -11,7 +11,7 @@ EMPLOYEE_DOCS = [
 	("Passport", "valid_upto", "passport_number"),
 	("Qiwa Contract", "custom_qiwa_contract_end_date", "custom_qiwa_contract_number"),
 	("Medical Insurance", "custom_insurance_expiry_date", "health_insurance_no"),
-	("GOSI", "custom_gosi_end_date", None),
+	("GOSI", "custom_gosi_end_date", "custom_gosi_id"),
 	("Driving License", "custom_driving_license_expiry_date", "custom_driving_license_number"),
 ]
 
@@ -41,7 +41,14 @@ def _existing(doctype, fields):
 	return [f for f in fields if f and meta.has_field(f)]
 
 
-def _rows(doctype, docs, name_fields, extra_fields, filters):
+EMP_EXTRA = ["employee_name", "branch", "company", "designation", "custom_nationality",
+	"custom_project_assigned_to", "custom_project_location", "cell_number"]
+BRANCH_EXTRA = ["custom_company", "custom_city", "custom_branch_manager_name"]
+
+
+def _rows(doctype, docs, name_field, extra_fields, filters):
+	from falcon_hr.api.common import norm
+
 	today = getdate(nowdate())
 	out = []
 	for label, date_field, number_field in docs:
@@ -55,16 +62,23 @@ def _rows(doctype, docs, name_fields, extra_fields, filters):
 			limit_page_length=0,
 		):
 			days = date_diff(r[date_field], today)
+			is_emp = doctype == "Employee"
 			out.append(
 				{
 					"scope": doctype,
 					"doctype": doctype,
 					"name": r.name,
-					"party": r.get(name_fields) or r.name,
+					"party": r.get(name_field) or r.name,
 					"document": label,
-					"number": r.get(number_field) if number_field else "",
-					"branch": r.get("branch") or (r.name if doctype == "Branch" else ""),
+					"number": (r.get(number_field) if number_field else "") or "",
+					"branch": r.get("branch") or (r.name if not is_emp else ""),
 					"company": r.get("company") or r.get("custom_company") or "",
+					"designation": r.get("designation") or "",
+					"nationality": r.get("custom_nationality") or "",
+					"project": norm(r.get("custom_project_assigned_to")) if is_emp else "",
+					"location": norm(r.get("custom_project_location"), "Not set") if is_emp else (r.get("custom_city") or ""),
+					"phone": r.get("cell_number") or "",
+					"manager": r.get("custom_branch_manager_name") or "",
 					"expiry_date": str(r[date_field]),
 					"days_left": days,
 					"status": status_for(days),
@@ -74,20 +88,53 @@ def _rows(doctype, docs, name_fields, extra_fields, filters):
 
 
 @frappe.whitelist()
-def get_expiry_data(scope="All", document=None, branch=None, status=None, search=None):
-	"""Return rows + summary for the Expiry Center page."""
+def get_expiry_data(
+	scope="All",
+	document=None,
+	branch=None,
+	status=None,
+	search=None,
+	company=None,
+	project=None,
+	location=None,
+	nationality=None,
+	designation=None,
+	within_days=None,
+	sort="days_left",
+):
+	"""Return rows + summary + filter options for the Expiry Center page."""
 	rows = []
 	if scope in ("All", "Employee"):
 		f = {"status": "Active"}
 		if branch:
 			f["branch"] = branch
-		rows += _rows("Employee", EMPLOYEE_DOCS, "employee_name", ["employee_name", "branch", "company"], f)
-	if scope in ("All", "Branch"):
+		if company:
+			f["company"] = company
+		if designation:
+			f["designation"] = designation
+		if nationality:
+			f["custom_nationality"] = nationality
+		rows += _rows("Employee", EMPLOYEE_DOCS, "employee_name", EMP_EXTRA, f)
+	if scope in ("All", "Branch") and not (designation or nationality or project or location):
 		f = {"name": branch} if branch else {}
-		rows += _rows("Branch", BRANCH_DOCS, "name", ["custom_company"], f)
+		if company:
+			f["custom_company"] = company
+		rows += _rows("Branch", BRANCH_DOCS, "name", BRANCH_EXTRA, f)
+
+	options = {
+		"projects": sorted({r["project"] for r in rows if r["scope"] == "Employee"}),
+		"locations": sorted({r["location"] for r in rows if r["scope"] == "Employee"}),
+	}
 
 	if document:
 		rows = [r for r in rows if r["document"] == document]
+	if project:
+		rows = [r for r in rows if r["project"] == project]
+	if location:
+		rows = [r for r in rows if r["location"] == location]
+	if within_days not in (None, ""):
+		n = int(within_days)
+		rows = [r for r in rows if r["days_left"] <= n]
 	if search:
 		s = search.lower()
 		rows = [r for r in rows if s in " ".join(str(v) for v in r.values()).lower()]
@@ -95,13 +142,26 @@ def get_expiry_data(scope="All", document=None, branch=None, status=None, search
 	summary = {"Expired": 0, "Critical": 0, "Expiring Soon": 0, "Valid": 0}
 	for r in rows:
 		summary[r["status"]] += 1
+	by_doc = {}
+	for r in rows:
+		by_doc.setdefault(r["document"], {"Expired": 0, "Critical": 0, "Expiring Soon": 0, "Valid": 0})[r["status"]] += 1
 	if status:
 		rows = [r for r in rows if r["status"] == status]
-	rows.sort(key=lambda r: r["days_left"])
+
+	keys = {
+		"days_left": lambda r: r["days_left"],
+		"name": lambda r: (r["party"] or "").lower(),
+		"branch": lambda r: (r["branch"] or "~").lower(),
+		"document": lambda r: (r["document"], r["days_left"]),
+		"project": lambda r: (r["project"] or "~", r["days_left"]),
+	}
+	rows.sort(key=keys.get(sort, keys["days_left"]))
 	return {
 		"rows": rows,
 		"summary": summary,
+		"by_document": by_doc,
 		"documents": [d[0] for d in EMPLOYEE_DOCS] + [d[0] for d in BRANCH_DOCS],
+		"options": options,
 	}
 
 

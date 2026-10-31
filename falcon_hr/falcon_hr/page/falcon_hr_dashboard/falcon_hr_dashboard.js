@@ -56,6 +56,8 @@ class FalconHRDashboard {
 				</div>
 				<div class="fhd-actions">
 					<button class="fhd-btn" data-go="employee">${__("Employees")}</button>
+					<button class="fhd-btn" data-go="branch">${__("Branches")}</button>
+					<button class="fhd-btn" data-go="reports">${__("Reports")}</button>
 					<button class="fhd-btn dark" data-go="expiry">${__("Expiry Center")}</button>
 				</div>
 			</div>
@@ -68,6 +70,7 @@ class FalconHRDashboard {
 			<div class="fhd-tabs">
 				<span class="fhd-pill"></span>
 				<button class="fhd-tab" data-tab="overview">${__("Overview")}</button>
+				<button class="fhd-tab" data-tab="projects">${__("Projects")}</button>
 				<button class="fhd-tab" data-tab="documents">${__("Documents")}</button>
 				<button class="fhd-tab" data-tab="branches">${__("Branches")}</button>
 			</div>
@@ -94,6 +97,9 @@ class FalconHRDashboard {
 			soon: () => { frappe.route_options = { status: "Critical" }; frappe.set_route("expiry-center"); },
 			expired: () => { frappe.route_options = { status: "Expired" }; frappe.set_route("expiry-center"); },
 			nobranch: () => frappe.set_route("List", "Employee", { status: "Active", branch: ["is", "not set"] }),
+			reports: () => frappe.set_route("query-report", "Branch Workforce Summary"),
+			project: () => frappe.set_route("query-report", "Project Assignment Register", { project: extra }),
+			unassigned: () => frappe.set_route("List", "Employee", { status: "Active", custom_project_assigned_to: ["in", ["", "-", "na", "NA"]] }),
 			doc: () => { frappe.route_options = { document: extra }; frappe.set_route("expiry-center"); },
 		};
 		routes[target] && routes[target]();
@@ -112,6 +118,11 @@ class FalconHRDashboard {
 		this.bind_tips($body);
 		$body.find("[data-doc]").on("click", (e) => this.go("doc", $(e.currentTarget).data("doc")));
 		$body.find("[data-go]").on("click", (e) => this.go($(e.currentTarget).data("go")));
+		$body.find("[data-project]").on("click", (e) => this.go("project", $(e.currentTarget).data("project")));
+		$body.find(".fhd-filter").on("input", (e) => {
+			const q = e.target.value.toLowerCase();
+			$body.find("[data-search]").each((_, el) => { el.style.display = el.dataset.search.includes(q) ? "" : "none"; });
+		});
 	}
 
 	/* ---------- Overview ---------- */
@@ -223,6 +234,37 @@ class FalconHRDashboard {
 			<div class="fhd-col-labels">${rows.map((r) => `<span>${month(r.month)}</span>`).join("")}</div>`;
 	}
 
+	/* ---------- Projects ---------- */
+	render_projects() {
+		const d = this.d, k = d.kpi;
+		const assigned = k.active - k.unassigned;
+		const projects = d.projects.filter((p) => p.project !== "Not assigned");
+		const max = Math.max(1, ...projects.map((p) => p.headcount));
+		const card = (p, i) => `<a class="fhd-pcard" href="javascript:void(0)" data-project="${esc(p.project)}" data-search="${esc(p.project.toLowerCase())}" style="animation-delay:${Math.min(i, 12) * 0.03}s">
+			<div class="fhd-pcard-top"><span class="fhd-pcard-name">${esc(p.project)}</span><span class="fhd-arrow">${ICON.arrow}</span></div>
+			<div class="fhd-pcard-num">${fmt(p.headcount)} <small>${__("employees")}</small></div>
+			<div class="fhd-pcard-bar"><span style="width:${(100 * p.headcount) / max}%"></span></div>
+			<div class="fhd-chips">
+				<span class="fhd-chip">${__("{0} sponsors", [p.branches])}</span>
+				${p.iqama_expired ? `<span class="fhd-chip"><span class="fhd-dot" style="background:#d03b3b"></span>${__("Iqama expired")}: ${p.iqama_expired}</span>` : ""}
+				${p.iqama_soon ? `<span class="fhd-chip"><span class="fhd-dot" style="background:#fab219"></span>${__("Iqama ≤60d")}: ${p.iqama_soon}</span>` : ""}
+			</div>
+			<div class="fhd-pcard-loc">${p.locations.map((l) => `<span>📍 ${esc(l.label)} · ${l.value}</span>`).join("")}</div></a>`;
+		return `<div class="fhd-grid" style="margin-bottom:14px">
+			<div class="fhd-card span-4 fhd-kpi-mini"><div class="fhd-card-sub">${__("Active projects")}</div><div class="fhd-big">${fmt(k.projects)}</div>
+				<div class="fhd-card-sub">${__("{0} of {1} employees assigned", [fmt(assigned), fmt(k.active)])}</div>
+				<div class="fhd-pcard-bar" style="margin-top:10px"><span style="width:${(100 * assigned) / (k.active || 1)}%"></span></div></div>
+			<div class="fhd-card span-4 fhd-kpi-mini" data-go="unassigned" style="cursor:pointer"><div class="fhd-card-sub">${__("Not assigned to a project")}</div>
+				<div class="fhd-big" style="color:#c2410c">${fmt(k.unassigned)}</div><div class="fhd-card-sub">${__("Click to review these employees")}</div></div>
+			<div class="fhd-card span-4">${this.card_head(__("Top locations"), __("Employees per project location"))}${this.hbars(d.locations)}</div>
+		</div>
+		<div class="fhd-card">
+			<div class="fhd-card-head"><div><h4>${__("Projects assigned to")}</h4><div class="fhd-card-sub">${__("Click a project for its full employee list (downloadable)")}</div></div>
+				<input class="fhd-filter" type="search" placeholder="${__("Filter projects…")}"></div>
+			<div class="fhd-projects">${projects.map(card).join("") || `<div class="fhd-empty">${__("No projects recorded yet")}</div>`}</div>
+		</div>`;
+	}
+
 	/* ---------- Documents ---------- */
 	render_documents() {
 		const legend = FHD_STATUS.map((s) => `<span><span class="fhd-dot" style="background:${s.color}"></span>${__(s.key)}${s.note ? ` (${s.note})` : ""}</span>`).join("");
@@ -251,7 +293,7 @@ class FalconHRDashboard {
 			return `<span class="fhd-chip"><span class="fhd-dot" style="background:${color}"></span>${label}: ${txt}</span>`;
 		};
 		const cards = this.d.branches
-			.map((b) => `<a class="fhd-bcard" href="/app/branch/${encodeURIComponent(b.name)}">
+			.map((b) => `<a class="fhd-bcard" data-search="${esc((b.name + " " + b.company).toLowerCase())}" href="/app/branch/${encodeURIComponent(b.name)}">
 				<div class="fhd-bcard-name" dir="auto">${esc(b.name)}</div><div class="fhd-bcard-co">${esc(b.company)}</div>
 				<div class="fhd-bcard-num">${fmt(b.headcount)} <small>${__("employees")}</small></div>
 				<div class="fhd-chips">
@@ -261,7 +303,10 @@ class FalconHRDashboard {
 					${chip("Qiwa", b.docs["Qiwa Establishment"])}${chip("Muqeem", b.docs["Muqeem Subscription"])}
 				</div></a>`)
 			.join("");
-		return `<div class="fhd-branches">${cards}</div>`;
+		return `<div class="fhd-card" style="margin-bottom:14px;padding:12px 16px"><div class="fhd-card-head" style="margin:0;align-items:center">
+			<div><h4>${__("Branches (sponsors)")}</h4><div class="fhd-card-sub">${__("Headcount, Iqama status and company document validity per branch")}</div></div>
+			<input class="fhd-filter" type="search" placeholder="${__("Filter branches…")}"></div></div>
+			<div class="fhd-branches">${cards}</div>`;
 	}
 
 	bind_tips($scope) {
