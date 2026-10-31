@@ -50,23 +50,33 @@ def _already_sent(user, subject):
 	)
 
 
+def _can_read(user, doctype, name, cache):
+	key = (user, doctype, name)
+	if key not in cache:
+		cache[key] = bool(frappe.has_permission(doctype, "read", doc=name, user=user))
+	return cache[key]
+
+
 def send_daily_alerts():
 	rows = [r for r in get_expiry_data()["rows"] if _due(r["days_left"])]
 	if not rows:
 		return 0
 	users = _recipients()
+	perm_cache = {}
 	sent = 0
 	for r in rows:
 		subject = _subject(r)
+		# No identity-document numbers in the alert body: it links to the record,
+		# which enforces the reader's own permissions.
 		body = (
-			f"<p><b>{frappe.utils.escape_html(_(r['document']))}</b> — {frappe.utils.escape_html(r['party'])}"
-			f" ({frappe.utils.escape_html(r['name'])})</p>"
-			f"<p>{_('Number')}: {frappe.utils.escape_html(r['number'] or '-')}<br>"
-			f"{_('Expiry Date')}: {r['expiry_date']}<br>"
-			f"{_('Branch')}: {frappe.utils.escape_html(r['branch'] or '-')}<br>"
-			f"{_('Project')}: {frappe.utils.escape_html(r.get('project') or '-')}</p>"
+			f"<p><b>{frappe.utils.escape_html(_(r['document']))}</b> — {frappe.utils.escape_html(r['party'])}</p>"
+			f"<p>{_('Expiry Date')}: {r['expiry_date']}<br>"
+			f"{_('Branch')}: {frappe.utils.escape_html(r['branch'] or '-')}</p>"
 		)
 		for user in users:
+			# Only alert users who may read this employee / branch (respects User Permissions).
+			if not _can_read(user, r["doctype"], r["name"], perm_cache):
+				continue
 			if _already_sent(user, subject):
 				continue
 			frappe.get_doc(
