@@ -30,7 +30,7 @@ class ExpiryCenter {
 	constructor(page) {
 		this.page = page;
 		page.wrapper.find(".page-head").hide();
-		this.state = { scope: "All", status: "", document: "", view: "table", sort: "days_left", search: "", within_days: "" };
+		this.state = { employee_status: "Active", scope: "All", status: "", document: "", view: "table", sort: "days_left", search: "", within_days: "" };
 		this.shown = EC_PAGE;
 		this.data = { rows: [], summary: {}, by_document: {}, documents: [], options: { projects: [], locations: [] } };
 		this.$root = $('<div class="fec"></div>').appendTo(page.main);
@@ -52,6 +52,10 @@ class ExpiryCenter {
 				</div>
 			</div>
 			<div class="fec-stats"></div>
+			<div class="fec-row">
+				<div class="fec-seg fec-emp" data-seg="employee_status"><span class="pill"></span>
+					${["Active", "Inactive", "Suspended", "Left", "All"].map((v) => `<button data-v="${v}">${__(v === "All" ? "All employees" : v)} <span class="cnt" data-cnt="${v}"></span></button>`).join("")}</div>
+			</div>
 			<div class="fec-row">
 				<div class="fec-seg" data-seg="scope"><span class="pill"></span>
 					<button data-v="All">${__("All")}</button><button data-v="Employee">${__("Employees")}</button><button data-v="Branch">${__("Branches")}</button></div>
@@ -111,9 +115,10 @@ class ExpiryCenter {
 			seg === "view" ? this.render_body() : this.refresh();
 		});
 		this.$root.find("[data-act]").on("click", (e) => this.action($(e.currentTarget).data("act")));
+		this.slide("employee_status", true);
 		this.slide("scope", true);
 		this.slide("view", true);
-		$(window).on("resize", frappe.utils.debounce(() => { this.slide("scope", true); this.slide("view", true); }, 150));
+		$(window).on("resize", frappe.utils.debounce(() => { ["employee_status", "scope", "view"].forEach((g) => this.slide(g, true)); }, 150));
 	}
 
 	slide(seg, instant) {
@@ -152,15 +157,16 @@ class ExpiryCenter {
 			Object.values(this.c).forEach((c) => c.set_value(""));
 			this.c.sort.set_value("days_left");
 			this.$root.find(".fec-search input").val("");
-			Object.assign(this.state, { status: "", document: "", search: "", scope: "All" });
+			Object.assign(this.state, { status: "", document: "", search: "", scope: "All", employee_status: "Active" });
 			this.slide("scope");
+			this.slide("employee_status");
 			this.refresh();
 		}
 	}
 
 	args() {
 		const s = this.state;
-		const a = { scope: s.scope, status: s.status, document: s.document, search: s.search, sort: s.sort || "days_left" };
+		const a = { employee_status: s.employee_status || "Active", scope: s.scope, status: s.status, document: s.document, search: s.search, sort: s.sort || "days_left" };
 		["branch", "company", "project", "location", "nationality", "designation"].forEach((k) => (a[k] = s[k] || ""));
 		a.within_days = s.within_days === "" || s.within_days == null ? "" : s.within_days === "0" ? -1 : s.within_days;
 		return a;
@@ -175,8 +181,9 @@ class ExpiryCenter {
 			this.render_chips();
 			this.render_active();
 			this.render_body();
-			this.slide("scope", true);
-			this.slide("view", true);
+			const cnt = this.data.employee_status_counts || {};
+			this.$root.find("[data-cnt]").each((_, el) => { el.textContent = cnt[el.dataset.cnt] ?? ""; });
+			["employee_status", "scope", "view"].forEach((g) => this.slide(g, true));
 			if (toast) this.toast(__("Updated · {0} documents", [this.data.rows.length]));
 		});
 	}
@@ -233,6 +240,7 @@ class ExpiryCenter {
 	render_active() {
 		const s = this.state, tags = [];
 		const add = (key, label) => tags.push(`<span class="fec-tag">${ec_esc(label)}<button data-clear="${key}">✕</button></span>`);
+		if (s.employee_status && s.employee_status !== "Active") tags.push(`<span class="fec-tag">${ec_esc(__("Employees: {0}", [__(s.employee_status)]))}</span>`);
 		if (s.status) add("status", __(s.status));
 		if (s.document) add("document", __(s.document));
 		["branch", "company", "project", "location", "nationality", "designation"].forEach((k) => s[k] && add(k, s[k]));
@@ -279,7 +287,7 @@ class ExpiryCenter {
 		const rows = this.data.rows.slice(0, this.shown);
 		const st = (r) => EC_STATUS.find((x) => x.key === r.status);
 		const body = rows.map((r, i) => `<tr data-i="${i}">
-			<td><div class="fec-person">${this.avatar(r, i)}<div><b dir="auto">${ec_esc(r.party)}</b>
+			<td><div class="fec-person">${this.avatar(r, i)}<div><b dir="auto">${ec_esc(r.party)}${this.emp_badge(r)}</b>
 				<small>${r.scope === "Employee" ? [r.name, r.designation, r.nationality].filter(Boolean).map(ec_esc).join(" · ") : __("Company document")}</small></div></div></td>
 			<td><span class="fec-doc">${ec_esc(__(r.document))}</span><div style="font-size:11.5px;color:#898781;margin-top:3px">${ec_esc(r.number || "—")}</div></td>
 			<td class="fec-two"><b dir="auto">${ec_esc(r.branch || "—")}</b><small>${ec_esc(r.company)}</small></td>
@@ -303,7 +311,7 @@ class ExpiryCenter {
 			<div class="fec-col-head"><i style="background:${g.color}"></i>${__(g.key)}<span>${g.rows.length}</span></div>
 			<div class="fec-cards">${g.rows.slice(0, 60).map((r, i) => `<div class="fec-card ${g.css}" data-k="${g.key}" data-i="${i}" style="animation-delay:${Math.min(i, 12) * 0.02}s">
 				<div class="t"><span>${ec_esc(__(r.document))}</span><span>${ec_esc(frappe.datetime.str_to_user(r.expiry_date))}</span></div>
-				<div class="n" dir="auto">${ec_esc(r.party)}</div>
+				<div class="n" dir="auto">${ec_esc(r.party)}${this.emp_badge(r)}</div>
 				<div class="s">${ec_esc(r.scope === "Employee" ? [r.project, r.branch || r.company].filter(Boolean).join(" · ") : r.company)}</div>
 				<div class="d">${r.days_left < 0 ? Math.abs(r.days_left) : r.days_left} <small>${r.days_left < 0 ? __("days overdue") : __("days left")}</small></div></div>`).join("")}
 				${g.rows.length > 60 ? `<div class="fec-empty" style="padding:10px">${__("+{0} more — use filters or the table view", [g.rows.length - 60])}</div>` : ""}
@@ -312,6 +320,12 @@ class ExpiryCenter {
 			const $c = $(e.currentTarget);
 			this.open(groups.find((g) => g.key === $c.data("k")).rows[$c.data("i")]);
 		});
+	}
+
+	emp_badge(r) {
+		if (r.scope !== "Employee" || !r.emp_status || r.emp_status === "Active") return "";
+		const tip = r.relieving_date ? __("Relieved on {0}", [frappe.datetime.str_to_user(r.relieving_date)]) : "";
+		return ` <span class="fec-empst ${ec_esc(r.emp_status)}" title="${ec_esc(tip)}">${ec_esc(__(r.emp_status))}</span>`;
 	}
 
 	open(r) {
@@ -325,9 +339,9 @@ class ExpiryCenter {
 	}
 
 	download() {
-		const head = ["Type", "Name", "ID", "Document", "Number", "Branch (Sponsor)", "Company", "Designation", "Nationality",
+		const head = ["Type", "Name", "ID", "Employee Status", "Document", "Number", "Branch (Sponsor)", "Company", "Designation", "Nationality",
 			"Project", "Project Location", "Expiry Date", "Days Left", "Status"];
-		const body = this.data.rows.map((r) => [r.scope, r.party, r.name, r.document, r.number, r.branch, r.company, r.designation,
+		const body = this.data.rows.map((r) => [r.scope, r.party, r.name, r.emp_status, r.document, r.number, r.branch, r.company, r.designation,
 			r.nationality, r.project, r.location, r.expiry_date, r.days_left, r.status]);
 		frappe.tools.downloadify([head].concat(body), null, "Expiry Center");
 		this.toast(__("Downloaded {0} rows", [body.length]));

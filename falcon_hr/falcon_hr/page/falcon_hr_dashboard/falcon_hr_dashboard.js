@@ -33,13 +33,14 @@ class FalconHRDashboard {
 	constructor(page) {
 		this.page = page;
 		this.tab = "overview";
+		this.emp_status = "Active";
 		this.$root = $('<div class="fhd"></div>').appendTo(page.main);
 		this.$tip = $('<div class="fhd-tip"></div>').appendTo(document.body);
 		page.wrapper.find(".page-head").hide();
 	}
 
 	load() {
-		frappe.call("falcon_hr.api.dashboard.get_dashboard").then((r) => {
+		frappe.call("falcon_hr.api.dashboard.get_dashboard", { employee_status: this.emp_status }).then((r) => {
 			this.d = r.message;
 			this.render();
 		});
@@ -62,21 +63,25 @@ class FalconHRDashboard {
 				</div>
 			</div>
 			<div class="fhd-kpis">
-				${this.kpi("hero", ICON.users, __("Active employees"), fmt(k.active), __("{0} left", [fmt(k.left)]), "employee")}
+				${this.kpi("hero", ICON.users, this.emp_status === "All" ? __("All employees") : __("{0} employees", [__(this.emp_status)]), fmt(k.active), __("{0} left the company", [fmt(k.left)]), "employee")}
 				${this.kpi("blue", ICON.building, __("Branches"), fmt(k.branches), __("{0} with staff", [fmt(k.branches_staffed)]), "branch")}
 				${this.kpi("sand", ICON.clock, __("Expiring in 60 days"), fmt(soon), __("{0} within 30 days", [fmt(k.Critical)]), "soon")}
 				${this.kpi("rose", ICON.alert, __("Expired documents"), fmt(k.Expired), __("{0}% of documents valid", [k.valid_pct]), "expired")}
 			</div>
-			<div class="fhd-tabs">
+			<div class="fhd-toolbar"><div class="fhd-tabs">
 				<span class="fhd-pill"></span>
 				<button class="fhd-tab" data-tab="overview">${__("Overview")}</button>
 				<button class="fhd-tab" data-tab="projects">${__("Projects")}</button>
 				<button class="fhd-tab" data-tab="documents">${__("Documents")}</button>
 				<button class="fhd-tab" data-tab="branches">${__("Branches")}</button>
 			</div>
+			<div class="fhd-status"><span class="fhd-status-lbl">${__("Employees")}</span>
+				${["Active", "Inactive", "Suspended", "Left", "All"].map((v) => `<button class="${this.emp_status === v ? "on" : ""}" data-emp="${v}">${__(v)} <span>${(this.d.status_counts || {})[v] ?? ""}</span></button>`).join("")}
+			</div></div>
 			<div class="fhd-body"></div>`);
 
 		this.$root.find("[data-go]").on("click", (e) => this.go($(e.currentTarget).data("go")));
+		this.$root.find("[data-emp]").on("click", (e) => { this.emp_status = $(e.currentTarget).data("emp"); this.load(); });
 		this.$root.find(".fhd-tab").on("click", (e) => this.set_tab($(e.currentTarget).data("tab")));
 		this.set_tab(this.tab, true);
 	}
@@ -91,11 +96,11 @@ class FalconHRDashboard {
 
 	go(target, extra) {
 		const routes = {
-			employee: () => frappe.set_route("List", "Employee", { status: "Active" }),
+			employee: () => frappe.set_route("List", "Employee", this.emp_status === "All" ? {} : { status: this.emp_status }),
 			branch: () => frappe.set_route("List", "Branch"),
 			expiry: () => frappe.set_route("expiry-center"),
-			soon: () => { frappe.route_options = { status: "Critical" }; frappe.set_route("expiry-center"); },
-			expired: () => { frappe.route_options = { status: "Expired" }; frappe.set_route("expiry-center"); },
+			soon: () => { frappe.route_options = { status: "Critical", employee_status: this.emp_status }; frappe.set_route("expiry-center"); },
+			expired: () => { frappe.route_options = { status: "Expired", employee_status: this.emp_status }; frappe.set_route("expiry-center"); },
 			nobranch: () => frappe.set_route("List", "Employee", { status: "Active", branch: ["is", "not set"] }),
 			reports: () => frappe.set_route("query-report", "Branch Workforce Summary"),
 			project: () => frappe.set_route("query-report", "Project Assignment Register", { project: extra }),
@@ -129,14 +134,14 @@ class FalconHRDashboard {
 	render_overview() {
 		const d = this.d;
 		const banner = d.kpi.no_branch
-			? `<div class="fhd-banner"><span>⚠️ ${__("{0} active employees have no Branch (sponsor) set, so branch figures below leave them out.", [fmt(d.kpi.no_branch)])}</span>
+			? `<div class="fhd-banner"><span>⚠️ ${__("{0} employees in this view have no Branch (sponsor) set, so branch figures below leave them out.", [fmt(d.kpi.no_branch)])}</span>
 				<button class="fhd-btn" data-go="nobranch">${__("Fix now")}</button></div>`
 			: "";
 		return `${banner}<div class="fhd-grid">
-			<div class="fhd-card span-7">${this.card_head(__("Headcount by branch"), __("Active employees per sponsoring branch"))}${this.hbars(d.headcount)}</div>
+			<div class="fhd-card span-7">${this.card_head(__("Headcount by branch"), __("Employees per sponsoring branch"))}${this.hbars(d.headcount)}</div>
 			<div class="fhd-card span-5">${this.card_head(__("Document health"), __("All employee + branch documents"))}${this.ring()}</div>
 			<div class="fhd-card span-8">${this.card_head(__("Upcoming expiries"), __("Next 60 days, soonest first"), "expiry")}${this.tiles()}</div>
-			<div class="fhd-card span-4">${this.card_head(__("Nationality mix"), __("Active employees"))}${this.segments(d.nationality)}</div>
+			<div class="fhd-card span-4">${this.card_head(__("Nationality mix"), __("Employees in this view"))}${this.segments(d.nationality)}</div>
 			<div class="fhd-card span-12">${this.card_head(__("Joiners and leavers"), __("Last 12 months"))}${this.columns(d.joiners)}</div>
 		</div>`;
 	}

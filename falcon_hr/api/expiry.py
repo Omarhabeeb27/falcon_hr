@@ -42,7 +42,7 @@ def _existing(doctype, fields):
 
 
 EMP_EXTRA = ["employee_name", "branch", "company", "designation", "custom_nationality",
-	"custom_project_assigned_to", "custom_project_location", "cell_number"]
+	"custom_project_assigned_to", "custom_project_location", "cell_number", "status", "relieving_date"]
 BRANCH_EXTRA = ["custom_company", "custom_city", "custom_branch_manager_name"]
 
 
@@ -78,6 +78,8 @@ def _rows(doctype, docs, name_field, extra_fields, filters):
 					"project": norm(r.get("custom_project_assigned_to")) if is_emp else "",
 					"location": norm(r.get("custom_project_location"), "Not set") if is_emp else (r.get("custom_city") or ""),
 					"phone": r.get("cell_number") or "",
+					"emp_status": r.get("status") if is_emp else "",
+					"relieving_date": str(r.get("relieving_date") or "") if is_emp else "",
 					"manager": r.get("custom_branch_manager_name") or "",
 					"expiry_date": str(r[date_field]),
 					"days_left": days,
@@ -101,11 +103,14 @@ def get_expiry_data(
 	designation=None,
 	within_days=None,
 	sort="days_left",
+	employee_status="Active",
 ):
 	"""Return rows + summary + filter options for the Expiry Center page."""
 	rows = []
 	if scope in ("All", "Employee"):
-		f = {"status": "Active"}
+		f = {}
+		if employee_status and employee_status != "All":
+			f["status"] = employee_status
 		if branch:
 			f["branch"] = branch
 		if company:
@@ -115,7 +120,8 @@ def get_expiry_data(
 		if nationality:
 			f["custom_nationality"] = nationality
 		rows += _rows("Employee", EMPLOYEE_DOCS, "employee_name", EMP_EXTRA, f)
-	if scope in ("All", "Branch") and not (designation or nationality or project or location):
+	# Company (branch) documents belong with the current workforce view only.
+	if scope in ("All", "Branch") and employee_status in ("Active", "All", None, "") and not (designation or nationality or project or location):
 		f = {"name": branch} if branch else {}
 		if company:
 			f["custom_company"] = company
@@ -162,7 +168,17 @@ def get_expiry_data(
 		"by_document": by_doc,
 		"documents": [d[0] for d in EMPLOYEE_DOCS] + [d[0] for d in BRANCH_DOCS],
 		"options": options,
+		"employee_status_counts": employee_status_counts(),
 	}
+
+
+def employee_status_counts():
+	"""Headcount per employee status (permission-aware) for the status switch."""
+	counts = {"Active": 0, "Inactive": 0, "Suspended": 0, "Left": 0}
+	for st in frappe.get_list("Employee", pluck="status", limit_page_length=0):
+		counts[st] = counts.get(st, 0) + 1
+	counts["All"] = sum(counts.values())
+	return counts
 
 
 @frappe.whitelist()

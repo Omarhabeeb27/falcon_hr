@@ -21,10 +21,11 @@ def _top(counter, n, other_label="Other"):
 
 
 @frappe.whitelist()
-def get_dashboard():
+def get_dashboard(employee_status="Active"):
+	emp_filters = {} if employee_status == "All" else {"status": employee_status}
 	emps = frappe.get_list(
 		"Employee",
-		filters={"status": "Active"},
+		filters=emp_filters,
 		fields=["name", "branch", "custom_nationality", "date_of_joining", "gender",
 			"custom_project_assigned_to", "custom_project_location", "custom_iqama_expiry_date"],
 		limit_page_length=0,
@@ -49,7 +50,7 @@ def get_dashboard():
 	joined = Counter(str(e.date_of_joining)[:7] for e in all_emps if e.date_of_joining)
 	relieved = Counter(str(e.relieving_date)[:7] for e in all_emps if e.relieving_date)
 
-	expiry = get_expiry_data()
+	expiry = get_expiry_data(employee_status=employee_status)
 	rows = expiry["rows"]
 
 	doc_health = defaultdict(lambda: {"Expired": 0, "Critical": 0, "Expiring Soon": 0, "Valid": 0})
@@ -127,6 +128,8 @@ def get_dashboard():
 	return {
 		"projects": project_list,
 		"locations": _top(locations, 10),
+		"employee_status": employee_status,
+		"status_counts": expiry["employee_status_counts"],
 		"kpi": {
 			"active": len(emps),
 			"left": left,
