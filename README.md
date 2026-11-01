@@ -5,6 +5,36 @@ tracking for employees *and* branches (companies/sponsors), an HR dashboard, dow
 reports and notification-centre alerts. It only **adds** pages, reports, fields and
 alerts; it does not modify any HRMS/ERPNext doctype or code.
 
+### Screenshots
+
+> Employee names and document numbers are masked in these images.
+
+**HR Dashboard — overview** (search, filters, headline tiles, employee-status switch, headcount by branch, document health)
+
+![HR Dashboard overview](docs/screenshots/02-dashboard-overview.png)
+
+**Upcoming expiries, nationality mix, joiners & leavers** — every tile, bar and segment is clickable
+
+![Dashboard charts](docs/screenshots/03-dashboard-overview-charts.png)
+
+| Projects tab | Documents tab |
+|---|---|
+| ![Projects](docs/screenshots/04-dashboard-projects.png) | ![Documents](docs/screenshots/05-dashboard-documents.png) |
+| **Branches tab** | **Filtered to one project (NOFA)** |
+| ![Branches](docs/screenshots/06-dashboard-branches.png) | ![Filtered](docs/screenshots/07-dashboard-filtered.png) |
+
+**Expiry Center — table** (status tiles, employee status, document chips, 9 filters, search)
+
+![Expiry Center table](docs/screenshots/08-expiry-center-table.png)
+
+| Expiry Center — board | Branch Workforce Summary report |
+|---|---|
+| ![Board](docs/screenshots/09-expiry-center-board.png) | ![Report](docs/screenshots/10-report-branch-workforce.png) |
+
+**Desktop icon**
+
+![Desktop](docs/screenshots/01-desktop-icon.png)
+
 ### What's inside
 
 | Area | Where |
