@@ -62,7 +62,7 @@ alerts; it does not modify any HRMS/ERPNext doctype or code.
 
 ### Requirements
 
-- Frappe v16, ERPNext v16, HRMS v16 (declared in `pyproject.toml` and `required_apps`).
+- Frappe ≥ 16.54, ERPNext ≥ 16.53, HRMS ≥ 16.53 (the new Sidebar / Dock navigation). Declared in `pyproject.toml` and `required_apps`.
 - The Employee/Branch custom fields used by Falcon (Iqama, Visa, Qiwa contract, GOSI,
   CR, VAT, project assigned to, …) live in the site database. If a site lacks some of
   them, every page and report still loads — those columns are simply empty.

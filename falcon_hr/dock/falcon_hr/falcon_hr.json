@@ -1,0 +1,19 @@
+{
+ "app": "falcon_hr",
+ "docstatus": 0,
+ "doctype": "Dock",
+ "idx": 0,
+ "name": "falcon_hr",
+ "standard": 1,
+ "user": "",
+ "items": [
+  {
+   "added": 0,
+   "hidden": 0,
+   "icon": "quality-seal-soft",
+   "link_to": "Falcon HR",
+   "link_type": "Sidebar",
+   "title": "Falcon HR"
+  }
+ ]
+}
