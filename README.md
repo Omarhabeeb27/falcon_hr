@@ -30,8 +30,9 @@ alerts; it does not modify any HRMS/ERPNext doctype or code.
 
 1. Push this repo to GitHub (private is fine) and make sure the Frappe Cloud GitHub app
    can see it.
-2. Frappe Cloud → your **Bench group** → **Apps** → **Add App** → pick the repo, branch
-   `main` (or the branch you push).
+2. Frappe Cloud → your **Bench group** → **Apps** → **Add App** → *GitHub* → repo
+   `Omarhabeeb27/falcon_hr`, branch `main`. (The Frappe Cloud GitHub app must have
+   access to this private repo: GitHub → Settings → Applications → Frappe Cloud → Configure.)
 3. **Deploy** the bench group so the app is built into it.
 4. Site → **Apps** → **Install App** → *Falcon HR*. Installing runs `migrate`, which loads
    the fixtures (Branch Qiwa/Muqeem fields, Company Doc notifications), pages, reports,
@@ -39,6 +40,21 @@ alerts; it does not modify any HRMS/ERPNext doctype or code.
 5. Hard-refresh the browser. The **Falcon HR** icon appears on the desktop.
 
 Updates: push to the branch → Frappe Cloud shows an update → deploy → update the site.
+
+### After installing — one-time setup on the site
+
+1. **Holiday List Assignment** (HR Setup): Applicable For *Company* → *Falcon Resource
+   Management* → Holiday List *2026* → from *01-01-2026* → Submit. HRMS v16 needs this
+   for attendance, leave and the *Upload Attendance* bulk template.
+2. **Email Account** (outgoing) if you want the email alerts; bell alerts work without it.
+3. Make sure HR staff have the **HR Manager** or **HR User** role — that's who gets alerts.
+
+### Verified
+
+- Clean install on a fresh frappe + erpnext + hrms site.
+- Install on a copy of the production database (restored Frappe Cloud backup):
+  all pages, reports, alerts and fixtures work; uninstall leaves the site's own
+  Employee/Branch custom fields and alert rules untouched.
 
 ### Install locally
 

@@ -55,7 +55,7 @@ scheduler_events = {
 }
 
 after_migrate = ["falcon_hr.setup.install.after_migrate"]
-after_install = ["falcon_hr.setup.install.after_migrate"]
+after_install = ["falcon_hr.setup.install.after_install"]
 
 fixtures = [
 	{"dt": "Custom Field", "filters": [["name", "like", "Branch-custom_qiwa%"]]},

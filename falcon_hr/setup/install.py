@@ -1,6 +1,15 @@
 import frappe
 
 
+def after_install():
+	# On a fresh install Frappe runs after_install *before* syncing fixtures, so load
+	# our fixtures (Qiwa/Muqeem fields, Company Doc notifications) first, then fix up.
+	from frappe.utils.fixtures import sync_fixtures
+
+	sync_fixtures("falcon_hr")
+	after_migrate()
+
+
 def after_migrate():
 	"""Idempotent post-migrate fixes."""
 	fix_branch_field_order()
