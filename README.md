@@ -31,6 +31,12 @@ alerts; it does not modify any HRMS/ERPNext doctype or code.
 |---|---|
 | ![Board](docs/screenshots/09-expiry-center-board.png) | ![Report](docs/screenshots/10-report-branch-workforce.png) |
 
+**Nitaqat dashboard** — Saudization vs target, Saudis needed, in-page reading guide, filters
+
+![Nitaqat dashboard](docs/screenshots/11-nitaqat-dashboard.png)
+
+![Nitaqat charts](docs/screenshots/12-nitaqat-charts.png)
+
 **Desktop icon**
 
 ![Desktop](docs/screenshots/01-desktop-icon.png)
@@ -47,6 +53,11 @@ alerts; it does not modify any HRMS/ERPNext doctype or code.
 | Company-document alerts (60/15-day system, 30-day email) | Notifications named `Company Doc - …` |
 | Daily bell alerts (60/30/15/7/3/1/0 days, day after, every 30 days overdue) | `falcon_hr.api.alerts.send_daily_alerts` |
 | Reports: Document Expiry Register, Employee Document Register, Branch Compliance Register, Branch Workforce Summary, Project Assignment Register, Project Location Summary | sidebar → Reports |
+| Nitaqat dashboard (Saudization vs target per branch, Saudis needed, band/size charts, filters, CSV) | `/app/nitaqat-dashboard` |
+| Sponsor & deployment history (one current sponsor per employee, durations, syncs Employee branch/project) | Employee form; `Employee Deployment` |
+| Leaver checklist (13 Saudi-specific steps on HRMS Employee Separation, auto-drafted when an employee is set to Left) | Employee (Left) → Leaver Checklist |
+| Monthly management PDF | HR / Nitaqat dashboard → Monthly PDF |
+| Arabic translations (358 strings; never overrides other apps' Arabic) | `falcon_hr/locale/ar.po` |
 | Desktop icon + grouped sidebar | "Falcon HR" |
 
 ### Requirements
@@ -93,6 +104,12 @@ bench get-app <repo-url>
 bench --site <site> install-app falcon_hr
 bench restart   # or restart `bench start`: sidebars are cached by the web workers
 ```
+
+### Data the app creates on install
+
+- `Employee Deployment` rows seeded from each employee's current Branch (once; idempotent).
+- Employee Separation Template **Falcon Leaver Checklist**.
+- Branch custom fields: Qiwa & Muqeem, Nitaqat (activity, band, target %, last checked).
 
 ### Uninstalling
 
