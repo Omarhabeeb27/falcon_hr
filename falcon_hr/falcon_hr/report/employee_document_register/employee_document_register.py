@@ -15,31 +15,77 @@ def execute(filters=None):
 
 	meta = frappe.get_meta("Employee")
 	cols = [
-		{"label": _("Employee"), "fieldname": "name", "fieldtype": "Link", "options": "Employee", "width": 130},
+		{
+			"label": _("Employee"),
+			"fieldname": "name",
+			"fieldtype": "Link",
+			"options": "Employee",
+			"width": 130,
+		},
 		{"label": _("Name"), "fieldname": "employee_name", "fieldtype": "Data", "width": 190},
 		{"label": _("Designation"), "fieldname": "designation", "fieldtype": "Data", "width": 140},
 		{"label": _("Nationality"), "fieldname": "custom_nationality", "fieldtype": "Data", "width": 110},
-		{"label": _("Branch (Sponsor)"), "fieldname": "branch", "fieldtype": "Link", "options": "Branch", "width": 200},
+		{
+			"label": _("Branch (Sponsor)"),
+			"fieldname": "branch",
+			"fieldtype": "Link",
+			"options": "Branch",
+			"width": 200,
+		},
 		{"label": _("Company"), "fieldname": "company", "fieldtype": "Data", "width": 170},
 		{"label": _("Project"), "fieldname": "project", "fieldtype": "Data", "width": 150},
 		{"label": _("Project Location"), "fieldname": "location", "fieldtype": "Data", "width": 150},
 	]
-	fields = ["name", "employee_name", "designation", "custom_nationality", "branch", "company",
-		"custom_project_assigned_to", "custom_project_location"]
+	fields = [
+		"name",
+		"employee_name",
+		"designation",
+		"custom_nationality",
+		"branch",
+		"company",
+		"custom_project_assigned_to",
+		"custom_project_location",
+	]
 	for label, date_f, num_f in EMPLOYEE_DOCS:
 		key = frappe.scrub(label)
 		if num_f and meta.has_field(num_f):
 			fields.append(num_f)
-			cols.append({"label": _("{0} No.").format(_(label)), "fieldname": f"{key}_no", "fieldtype": "Data", "width": 130})
+			cols.append(
+				{
+					"label": _("{0} No.").format(_(label)),
+					"fieldname": f"{key}_no",
+					"fieldtype": "Data",
+					"width": 130,
+				}
+			)
 		fields.append(date_f)
-		cols.append({"label": _("{0} Expiry").format(_(label)), "fieldname": f"{key}_expiry", "fieldtype": "Date", "width": 110})
-		cols.append({"label": _("{0} Days Left").format(_(label)), "fieldname": f"{key}_days_left", "fieldtype": "Int", "width": 100})
+		cols.append(
+			{
+				"label": _("{0} Expiry").format(_(label)),
+				"fieldname": f"{key}_expiry",
+				"fieldtype": "Date",
+				"width": 110,
+			}
+		)
+		cols.append(
+			{
+				"label": _("{0} Days Left").format(_(label)),
+				"fieldname": f"{key}_days_left",
+				"fieldtype": "Int",
+				"width": 100,
+			}
+		)
 
 	today = nowdate()
 	data = []
 	only = filters.get("document_state")
-	for e in safe_list("Employee", filters=f, fields=fields, order_by="employee_name asc", limit_page_length=0):
-		row = {k: e.get(k) for k in ("name", "employee_name", "designation", "custom_nationality", "branch", "company")}
+	for e in safe_list(
+		"Employee", filters=f, fields=fields, order_by="employee_name asc", limit_page_length=0
+	):
+		row = {
+			k: e.get(k)
+			for k in ("name", "employee_name", "designation", "custom_nationality", "branch", "company")
+		}
 		row["project"] = norm(e.custom_project_assigned_to)
 		row["location"] = norm(e.custom_project_location, "Not set")
 		worst = None

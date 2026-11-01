@@ -12,17 +12,42 @@ def execute(filters=None):
 		{"label": _(group_by), "fieldname": "key", "fieldtype": "Data", "width": 260},
 		{"label": _("Employees"), "fieldname": "employees", "fieldtype": "Int", "width": 100},
 		{"label": _("Branches (Sponsors)"), "fieldname": "branches", "fieldtype": "Int", "width": 140},
-		{"label": _("Projects") if group_by == "Location" else _("Locations"), "fieldname": "other", "fieldtype": "Int", "width": 100},
+		{
+			"label": _("Projects") if group_by == "Location" else _("Locations"),
+			"fieldname": "other",
+			"fieldtype": "Int",
+			"width": 100,
+		},
 		{"label": _("Iqama Expired"), "fieldname": "iqama_expired", "fieldtype": "Int", "width": 110},
 		{"label": _("Iqama ≤60d"), "fieldname": "iqama_soon", "fieldtype": "Int", "width": 100},
 		{"label": _("Top Nationality"), "fieldname": "top_nat", "fieldtype": "Data", "width": 160},
 	]
 	groups = {}
-	for e in safe_list("Employee", filters={"status": "Active"}, fields=["branch", "custom_nationality",
-			"custom_iqama_expiry_date", "custom_project_assigned_to", "custom_project_location"], limit_page_length=0):
+	for e in safe_list(
+		"Employee",
+		filters={"status": "Active"},
+		fields=[
+			"branch",
+			"custom_nationality",
+			"custom_iqama_expiry_date",
+			"custom_project_assigned_to",
+			"custom_project_location",
+		],
+		limit_page_length=0,
+	):
 		project, location = norm(e.custom_project_assigned_to), norm(e.custom_project_location, "Not set")
 		key, other = (project, location) if group_by == "Project" else (location, project)
-		g = groups.setdefault(key, {"employees": 0, "branches": set(), "other": set(), "iqama_expired": 0, "iqama_soon": 0, "nat": {}})
+		g = groups.setdefault(
+			key,
+			{
+				"employees": 0,
+				"branches": set(),
+				"other": set(),
+				"iqama_expired": 0,
+				"iqama_soon": 0,
+				"nat": {},
+			},
+		)
 		g["employees"] += 1
 		if e.branch:
 			g["branches"].add(e.branch)
@@ -38,8 +63,23 @@ def execute(filters=None):
 	data = []
 	for k, g in sorted(groups.items(), key=lambda x: -x[1]["employees"]):
 		nat = max(g["nat"].items(), key=lambda x: x[1]) if g["nat"] else ("", 0)
-		data.append({"key": k, "employees": g["employees"], "branches": len(g["branches"]), "other": len(g["other"]),
-			"iqama_expired": g["iqama_expired"], "iqama_soon": g["iqama_soon"], "top_nat": f"{nat[0]} ({nat[1]})"})
-	chart = {"data": {"labels": [d["key"] for d in data[:12]], "datasets": [{"name": _("Employees"), "values": [d["employees"] for d in data[:12]]}]},
-		"type": "bar", "colors": ["#2a78d6"]}
+		data.append(
+			{
+				"key": k,
+				"employees": g["employees"],
+				"branches": len(g["branches"]),
+				"other": len(g["other"]),
+				"iqama_expired": g["iqama_expired"],
+				"iqama_soon": g["iqama_soon"],
+				"top_nat": f"{nat[0]} ({nat[1]})",
+			}
+		)
+	chart = {
+		"data": {
+			"labels": [d["key"] for d in data[:12]],
+			"datasets": [{"name": _("Employees"), "values": [d["employees"] for d in data[:12]]}],
+		},
+		"type": "bar",
+		"colors": ["#2a78d6"],
+	}
 	return cols, data, None, chart

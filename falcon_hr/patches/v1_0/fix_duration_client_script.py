@@ -24,7 +24,9 @@ def execute():
 	script = frappe.db.get_value("Client Script", NAME, "script") or ""
 	if "falcon_hr: only write when it actually changes" in script:
 		return
-	pattern = re.compile(r"function calculate_duration\(frm, start_field, end_field, target_field\) \{.*?\n\}", re.S)
+	pattern = re.compile(
+		r"function calculate_duration\(frm, start_field, end_field, target_field\) \{.*?\n\}", re.S
+	)
 	if not pattern.search(script):
 		return
 	frappe.db.set_value("Client Script", NAME, "script", pattern.sub(lambda _m: NEW_FN, script, count=1))

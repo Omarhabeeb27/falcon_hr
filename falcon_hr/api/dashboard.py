@@ -32,15 +32,27 @@ def get_dashboard(employee_status="Active", company=None, branch=None, project=N
 	emps = safe_list(
 		"Employee",
 		filters=emp_filters,
-		fields=["name", "branch", "custom_nationality", "date_of_joining", "gender",
-			"custom_project_assigned_to", "custom_project_location", "custom_iqama_expiry_date"],
+		fields=[
+			"name",
+			"branch",
+			"custom_nationality",
+			"date_of_joining",
+			"gender",
+			"custom_project_assigned_to",
+			"custom_project_location",
+			"custom_iqama_expiry_date",
+		],
 		limit_page_length=0,
 	)
 	if project:
 		emps = [e for e in emps if norm(e.custom_project_assigned_to) == project]
 	all_projects = sorted(
-		{norm(p) for p in safe_list("Employee", filters={"status": "Active"}, pluck="custom_project_assigned_to")}
-		if frappe.get_meta("Employee").has_field("custom_project_assigned_to") else []
+		{
+			norm(p)
+			for p in safe_list("Employee", filters={"status": "Active"}, pluck="custom_project_assigned_to")
+		}
+		if frappe.get_meta("Employee").has_field("custom_project_assigned_to")
+		else []
 	)
 	left = frappe.db.count("Employee", {"status": "Left"})
 	bf = {}
@@ -61,14 +73,16 @@ def get_dashboard(employee_status="Active", company=None, branch=None, project=N
 	for i in range(11, -1, -1):
 		d = add_months(today, -i)
 		months.append(d.strftime("%Y-%m"))
-	all_emps = safe_list(
-		"Employee", fields=["date_of_joining", "relieving_date"], limit_page_length=0
-	)
+	all_emps = safe_list("Employee", fields=["date_of_joining", "relieving_date"], limit_page_length=0)
 	joined = Counter(str(e.date_of_joining)[:7] for e in all_emps if e.date_of_joining)
 	relieved = Counter(str(e.relieving_date)[:7] for e in all_emps if e.relieving_date)
 
 	expiry = get_expiry_data(
-		employee_status=employee_status, company=company, branch=branch, project=project, nationality=nationality
+		employee_status=employee_status,
+		company=company,
+		branch=branch,
+		project=project,
+		nationality=nationality,
 	)
 	rows = expiry["rows"]
 
@@ -77,7 +91,11 @@ def get_dashboard(employee_status="Active", company=None, branch=None, project=N
 		doc_health[r["document"]][r["status"]] += 1
 	order = [d[0] for d in EMPLOYEE_DOCS] + [d[0] for d in BRANCH_DOCS]
 	doc_health_list = [
-		{"document": d, "scope": "Employee" if d in dict((x[0], 1) for x in EMPLOYEE_DOCS) else "Branch", **doc_health[d]}
+		{
+			"document": d,
+			"scope": "Employee" if d in dict((x[0], 1) for x in EMPLOYEE_DOCS) else "Branch",
+			**doc_health[d],
+		}
 		for d in order
 		if d in doc_health
 	]
@@ -123,7 +141,17 @@ def get_dashboard(employee_status="Active", company=None, branch=None, project=N
 	for e in emps:
 		pj = norm(e.custom_project_assigned_to)
 		loc = norm(e.custom_project_location, "Not set")
-		g = projects.setdefault(pj, {"project": pj, "headcount": 0, "locations": Counter(), "branches": set(), "iqama_expired": 0, "iqama_soon": 0})
+		g = projects.setdefault(
+			pj,
+			{
+				"project": pj,
+				"headcount": 0,
+				"locations": Counter(),
+				"branches": set(),
+				"iqama_expired": 0,
+				"iqama_soon": 0,
+			},
+		)
 		g["headcount"] += 1
 		g["locations"][loc] += 1
 		if e.branch:
@@ -138,9 +166,11 @@ def get_dashboard(employee_status="Active", company=None, branch=None, project=N
 			locations[loc] += 1
 	project_list = sorted(
 		[
-			{**{k: v for k, v in g.items() if k not in ("locations", "branches")},
+			{
+				**{k: v for k, v in g.items() if k not in ("locations", "branches")},
 				"locations": [{"label": k, "value": v} for k, v in g["locations"].most_common(4)],
-				"branches": len(g["branches"])}
+				"branches": len(g["branches"]),
+			}
 			for g in projects.values()
 		],
 		key=lambda x: (x["project"] == "Not assigned", -x["headcount"]),
@@ -181,18 +211,43 @@ def search(q):
 		return {"employees": [], "branches": []}
 	like = f"%{q}%"
 	meta = frappe.get_meta("Employee")
-	or_fields = [f for f in ("employee_name", "name", "custom_iqama_number", "passport_number", "cell_number",
-		"custom_project_assigned_to") if f == "name" or meta.has_field(f)]
+	or_fields = [
+		f
+		for f in (
+			"employee_name",
+			"name",
+			"custom_iqama_number",
+			"passport_number",
+			"cell_number",
+			"custom_project_assigned_to",
+		)
+		if f == "name" or meta.has_field(f)
+	]
 	employees = safe_list(
 		"Employee",
 		or_filters={f: ["like", like] for f in or_fields},
-		fields=["name", "employee_name", "status", "branch", "designation", "custom_project_assigned_to", "custom_iqama_number"],
+		fields=[
+			"name",
+			"employee_name",
+			"status",
+			"branch",
+			"designation",
+			"custom_project_assigned_to",
+			"custom_iqama_number",
+		],
 		limit_page_length=8,
 		order_by="status asc, employee_name asc",
 	)
 	branches = safe_list(
 		"Branch",
-		or_filters={"name": ["like", like], **({"custom_branch_name": ["like", like]} if frappe.get_meta("Branch").has_field("custom_branch_name") else {})},
+		or_filters={
+			"name": ["like", like],
+			**(
+				{"custom_branch_name": ["like", like]}
+				if frappe.get_meta("Branch").has_field("custom_branch_name")
+				else {}
+			),
+		},
 		fields=["name", "custom_company"],
 		limit_page_length=5,
 	)

@@ -1,14 +1,16 @@
 app_name = "falcon_hr"
 app_title = "Falcon HR"
 app_publisher = "Omar Habeeb"
-app_description = "Falcon HR customizations: document expiry center, branch compliance, deployments, attendance import"
+app_description = (
+	"Falcon HR customizations: document expiry center, branch compliance, deployments, attendance import"
+)
 app_email = "omarhabeeb242@gmail.com"
 app_license = "mit"
 
 # Apps
 # ------------------
 
-required_apps = ["frappe", "erpnext", "hrms"]
+required_apps = ["frappe/erpnext", "frappe/hrms"]
 
 # Each item in the list will be shown as an app in the apps page
 # add_to_apps_screen = [
@@ -271,4 +273,3 @@ fixtures = [
 # ------------
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
-

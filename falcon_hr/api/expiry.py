@@ -41,8 +41,18 @@ def _existing(doctype, fields):
 	return [f for f in fields if f and meta.has_field(f)]
 
 
-EMP_EXTRA = ["employee_name", "branch", "company", "designation", "custom_nationality",
-	"custom_project_assigned_to", "custom_project_location", "cell_number", "status", "relieving_date"]
+EMP_EXTRA = [
+	"employee_name",
+	"branch",
+	"company",
+	"designation",
+	"custom_nationality",
+	"custom_project_assigned_to",
+	"custom_project_location",
+	"cell_number",
+	"status",
+	"relieving_date",
+]
 BRANCH_EXTRA = ["custom_company", "custom_city", "custom_branch_manager_name"]
 
 
@@ -52,13 +62,13 @@ def _rows(doctype, docs, name_field, extra_fields, filters):
 	today = getdate(nowdate())
 	out = []
 	for label, date_field, number_field in docs:
-		cols = _existing(doctype, [date_field, number_field] + extra_fields)
+		cols = _existing(doctype, [date_field, number_field, *extra_fields])
 		if date_field not in cols:
 			continue
 		for r in frappe.get_list(
 			doctype,
 			filters={**filters, date_field: ["is", "set"]},
-			fields=["name"] + cols,
+			fields=["name", *cols],
 			limit_page_length=0,
 		):
 			days = date_diff(r[date_field], today)
@@ -76,7 +86,9 @@ def _rows(doctype, docs, name_field, extra_fields, filters):
 					"designation": r.get("designation") or "",
 					"nationality": r.get("custom_nationality") or "",
 					"project": norm(r.get("custom_project_assigned_to")) if is_emp else "",
-					"location": norm(r.get("custom_project_location"), "Not set") if is_emp else (r.get("custom_city") or ""),
+					"location": norm(r.get("custom_project_location"), "Not set")
+					if is_emp
+					else (r.get("custom_city") or ""),
 					"phone": r.get("cell_number") or "",
 					"emp_status": r.get("status") if is_emp else "",
 					"relieving_date": str(r.get("relieving_date") or "") if is_emp else "",
@@ -121,7 +133,11 @@ def get_expiry_data(
 			f["custom_nationality"] = nationality
 		rows += _rows("Employee", EMPLOYEE_DOCS, "employee_name", EMP_EXTRA, f)
 	# Company (branch) documents belong with the current workforce view only.
-	if scope in ("All", "Branch") and employee_status in ("Active", "All", None, "") and not (designation or nationality or project or location):
+	if (
+		scope in ("All", "Branch")
+		and employee_status in ("Active", "All", None, "")
+		and not (designation or nationality or project or location)
+	):
 		f = {"name": branch} if branch else {}
 		if company and frappe.get_meta("Branch").has_field("custom_company"):
 			f["custom_company"] = company
@@ -150,7 +166,9 @@ def get_expiry_data(
 		summary[r["status"]] += 1
 	by_doc = {}
 	for r in rows:
-		by_doc.setdefault(r["document"], {"Expired": 0, "Critical": 0, "Expiring Soon": 0, "Valid": 0})[r["status"]] += 1
+		by_doc.setdefault(r["document"], {"Expired": 0, "Critical": 0, "Expiring Soon": 0, "Valid": 0})[
+			r["status"]
+		] += 1
 	if status:
 		rows = [r for r in rows if r["status"] == status]
 
@@ -205,7 +223,5 @@ def get_branch_summary(branch):
 			res["expiring"] += 1
 		else:
 			res["valid"] += 1
-	res["documents"] = [
-		r for r in _rows("Branch", BRANCH_DOCS, "name", ["custom_company"], {"name": branch})
-	]
+	res["documents"] = [r for r in _rows("Branch", BRANCH_DOCS, "name", ["custom_company"], {"name": branch})]
 	return res
