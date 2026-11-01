@@ -1,0 +1,655 @@
+# Arabic translations for falcon_hr.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the falcon_hr project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: falcon_hr VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-11-01 19:18+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ar\n"
+"Language-Team: ar <LL@li.org>\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=0 && n%100<=2 ? 4 : 5);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+msgid "(No branch set)"
+msgstr "(لم يُحدَّد فرع)"
+
+msgid "+{0} more — use filters or the table view"
+msgstr "+{0} أخرى — استخدم الفلاتر أو عرض الجدول"
+
+msgid "15 days"
+msgstr "15 يومًا"
+
+msgid "30 days"
+msgstr "30 يومًا"
+
+msgid "31-60 days"
+msgstr "31-60 يومًا"
+
+msgid "31–60 days"
+msgstr "31–60 يومًا"
+
+msgid "60 days"
+msgstr "60 يومًا"
+
+msgid "7 days"
+msgstr "7 أيام"
+
+msgid "90 days"
+msgstr "90 يومًا"
+
+msgid "Accommodation"
+msgstr "السكن"
+
+msgid "Active"
+msgstr "نشط"
+
+msgid "Active employees"
+msgstr "الموظفون النشطون"
+
+msgid "Active projects"
+msgstr "المشاريع النشطة"
+
+msgid "Alert Rules"
+msgstr "قواعد التنبيهات"
+
+msgid "All"
+msgstr "الكل"
+
+msgid "All documents"
+msgstr "جميع الوثائق"
+
+msgid "All employee + branch documents"
+msgstr "جميع وثائق الموظفين والفروع"
+
+msgid "All employees"
+msgstr "جميع الموظفين"
+
+msgid "All locations"
+msgstr "جميع المواقع"
+
+msgid "All projects"
+msgstr "جميع المشاريع"
+
+msgid "Already expired"
+msgstr "منتهية بالفعل"
+
+msgid "Any time"
+msgstr "أي وقت"
+
+msgid "Board"
+msgstr "لوحة"
+
+msgid "Branch (Sponsor)"
+msgstr "الفرع (الكفيل)"
+
+msgid "Branch (Sponsor) / Company"
+msgstr "الفرع (الكفيل) / الشركة"
+
+msgid "Branch (sponsor)"
+msgstr "الفرع (الكفيل)"
+
+msgid "Branch Compliance Register"
+msgstr "سجل امتثال الفروع"
+
+msgid "Branch Overview"
+msgstr "نظرة عامة على الفرع"
+
+msgid "Branch Workforce Summary"
+msgstr "ملخص القوى العاملة للفروع"
+
+msgid "Branch {0}"
+msgstr "الفرع {0}"
+
+msgid "Branches"
+msgstr "الفروع"
+
+msgid "Branches (Sponsors)"
+msgstr "الفروع (الكفلاء)"
+
+msgid "Branches (sponsors)"
+msgstr "الفروع (الكفلاء)"
+
+msgid "City"
+msgstr "المدينة"
+
+msgid "Clear all filters"
+msgstr "مسح جميع الفلاتر"
+
+msgid "Click a project for its full employee list (downloadable)"
+msgstr "اضغط على مشروع لعرض قائمة موظفيه كاملة (قابلة للتنزيل)"
+
+msgid "Click a row to open it in the Expiry Center"
+msgstr "اضغط على صف لفتحه في مركز انتهاء الصلاحية"
+
+msgid "Click to review these employees"
+msgstr "اضغط لمراجعة هؤلاء الموظفين"
+
+msgid "Commercial Registration"
+msgstr "السجل التجاري"
+
+msgid "Company Document"
+msgstr "وثيقة الشركة"
+
+msgid "Company document"
+msgstr "وثيقة الشركة"
+
+msgid "Critical"
+msgstr "حرجة"
+
+msgid "Days Left"
+msgstr "الأيام المتبقية"
+
+msgid "Department"
+msgstr "القسم"
+
+msgid "Designation"
+msgstr "المسمى الوظيفي"
+
+msgid "Document Expiry Register"
+msgstr "سجل انتهاء الوثائق"
+
+msgid "Document health"
+msgstr "حالة الوثائق"
+
+msgid "Documents"
+msgstr "الوثائق"
+
+msgid "Download CSV"
+msgstr "تنزيل CSV"
+
+msgid "Downloaded {0} rows"
+msgstr "تم تنزيل {0} صفًا"
+
+msgid "Driving License"
+msgstr "رخصة القيادة"
+
+msgid "EXPIRED {0} days ago"
+msgstr "منتهية منذ {0} يومًا"
+
+msgid "Employee / Branch"
+msgstr "الموظف / الفرع"
+
+msgid "Employee / Branch ID"
+msgstr "رقم الموظف / الفرع"
+
+msgid "Employee Document"
+msgstr "وثيقة موظف"
+
+msgid "Employee Document Register"
+msgstr "سجل وثائق الموظفين"
+
+msgid "Employee Status"
+msgstr "حالة الموظف"
+
+msgid "Employees"
+msgstr "الموظفون"
+
+msgid "Employees & Iqama status"
+msgstr "الموظفون وحالة الإقامة"
+
+msgid "Employees in this view"
+msgstr "الموظفون في هذا العرض"
+
+msgid "Employees per project location"
+msgstr "الموظفون حسب موقع المشروع"
+
+msgid "Employees per sponsoring branch"
+msgstr "الموظفون حسب الفرع الكفيل"
+
+msgid "Employees: {0}"
+msgstr "الموظفون: {0}"
+
+msgid "Every employee and company document, sorted by what needs attention first"
+msgstr "جميع وثائق الموظفين والشركة، مرتبة حسب الأكثر حاجة للمتابعة"
+
+msgid "Expired"
+msgstr "منتهية"
+
+msgid "Expired documents"
+msgstr "الوثائق المنتهية"
+
+msgid "Expiring Soon"
+msgstr "تنتهي قريبًا"
+
+msgid "Expiring in 60 days"
+msgstr "تنتهي خلال 60 يومًا"
+
+msgid "Expiring within"
+msgstr "تنتهي خلال"
+
+msgid "Expiry / Time left"
+msgstr "الانتهاء / المدة المتبقية"
+
+msgid "Expiry Center"
+msgstr "مركز انتهاء الصلاحية"
+
+msgid "Falcon HR"
+msgstr "فالكون للموارد البشرية"
+
+msgid "Falcon Resource Management"
+msgstr "Falcon Resource Management"
+
+msgid "Filter branches…"
+msgstr "تصفية الفروع…"
+
+msgid "Filter projects…"
+msgstr "تصفية المشاريع…"
+
+msgid "Fix now"
+msgstr "إصلاح الآن"
+
+msgid "Frappe HR"
+msgstr "Frappe HR"
+
+msgid "GOSI"
+msgstr "التأمينات الاجتماعية (GOSI)"
+
+msgid "GOSI Sub-Est. No."
+msgstr "رقم المنشأة الفرعية في التأمينات"
+
+msgid "Gap vs Plan"
+msgstr "الفرق عن المخطط"
+
+msgid "HR Dashboard"
+msgstr "لوحة الموارد البشرية"
+
+msgid "HR Overview"
+msgstr "نظرة عامة على الموارد البشرية"
+
+msgid "HR Setup"
+msgstr "إعداد الموارد البشرية"
+
+msgid "Headcount by branch"
+msgstr "عدد الموظفين حسب الفرع"
+
+msgid "Headcount, Iqama status and company document validity per branch"
+msgstr "عدد الموظفين وحالة الإقامة وصلاحية وثائق الشركة لكل فرع"
+
+msgid "Insurance Expired"
+msgstr "تأمين منتهٍ"
+
+msgid "Iqama"
+msgstr "الإقامة"
+
+msgid "Iqama Expired"
+msgstr "إقامة منتهية"
+
+msgid "Iqama Expiry"
+msgstr "انتهاء الإقامة"
+
+msgid "Iqama Valid"
+msgstr "إقامة سارية"
+
+msgid "Iqama expired"
+msgstr "إقامة منتهية"
+
+msgid "Iqama valid"
+msgstr "إقامة سارية"
+
+msgid "Iqama ≤60d"
+msgstr "إقامة ≤ 60 يومًا"
+
+msgid "Joined"
+msgstr "انضموا"
+
+msgid "Joiners and leavers"
+msgstr "المنضمون والمغادرون"
+
+msgid "Last 12 months"
+msgstr "آخر 12 شهرًا"
+
+msgid "Location"
+msgstr "الموقع"
+
+msgid "Location contains"
+msgstr "الموقع يحتوي على"
+
+msgid "Locations"
+msgstr "المواقع"
+
+msgid "Medical Insurance"
+msgstr "التأمين الطبي"
+
+msgid "Missing Documents"
+msgstr "الوثائق الناقصة"
+
+msgid "Muqeem Account Number"
+msgstr "رقم حساب مقيم"
+
+msgid "Muqeem Subscription"
+msgstr "اشتراك مقيم"
+
+msgid "Muqeem Subscription Expiry Date"
+msgstr "تاريخ انتهاء اشتراك مقيم"
+
+msgid "Muqeem Subscription Start Date"
+msgstr "تاريخ بدء اشتراك مقيم"
+
+msgid "Name"
+msgstr "الاسم"
+
+msgid "Nationality"
+msgstr "الجنسية"
+
+msgid "Nationality mix"
+msgstr "توزيع الجنسيات"
+
+msgid "Next 60 days, soonest first"
+msgstr "الـ 60 يومًا القادمة، الأقرب أولًا"
+
+msgid "No Iqama Date"
+msgstr "لا يوجد تاريخ إقامة"
+
+msgid "No Iqama date"
+msgstr "لا يوجد تاريخ إقامة"
+
+msgid "No branch assignments yet"
+msgstr "لا توجد فروع مُسندة بعد"
+
+msgid "No document dates recorded"
+msgstr "لا توجد تواريخ وثائق مسجلة"
+
+msgid "No matches for “{0}”"
+msgstr "لا توجد نتائج لـ «{0}»"
+
+msgid "No projects recorded yet"
+msgstr "لا توجد مشاريع مسجلة بعد"
+
+msgid "Non-Saudi"
+msgstr "غير سعودي"
+
+msgid "Not assigned"
+msgstr "غير مُسند"
+
+msgid "Not assigned to a project"
+msgstr "غير مُسند إلى مشروع"
+
+msgid "Not set"
+msgstr "غير محدد"
+
+msgid "Nothing expires in the next 60 days 🎉"
+msgstr "لا شيء ينتهي خلال الـ 60 يومًا القادمة 🎉"
+
+msgid "Nothing matches these filters"
+msgstr "لا توجد نتائج مطابقة لهذه الفلاتر"
+
+msgid "Only branches with staff"
+msgstr "الفروع التي بها موظفون فقط"
+
+msgid "Overview"
+msgstr "نظرة عامة"
+
+msgid "Passport"
+msgstr "جواز السفر"
+
+msgid "People & Organization"
+msgstr "الموظفون والمنظمة"
+
+msgid "Performance"
+msgstr "الأداء"
+
+msgid "Project"
+msgstr "المشروع"
+
+msgid "Project / Location"
+msgstr "المشروع / الموقع"
+
+msgid "Project Assignment Register"
+msgstr "سجل إسناد المشاريع"
+
+msgid "Project Location"
+msgstr "موقع المشروع"
+
+msgid "Project Location Summary"
+msgstr "ملخص مواقع المشاريع"
+
+msgid "Project contains"
+msgstr "المشروع يحتوي على"
+
+msgid "Projects assigned to"
+msgstr "المشاريع المُسندة"
+
+msgid "Qiwa & Muqeem"
+msgstr "قوى ومقيم"
+
+msgid "Qiwa Contract"
+msgstr "عقد قوى"
+
+msgid "Qiwa Establishment"
+msgstr "منشأة قوى"
+
+msgid "Qiwa Establishment Number"
+msgstr "رقم المنشأة في قوى"
+
+msgid "Qiwa Expiry Date"
+msgstr "تاريخ انتهاء قوى"
+
+msgid "Qiwa Issue Date"
+msgstr "تاريخ إصدار قوى"
+
+msgid "Recruitment"
+msgstr "التوظيف"
+
+msgid "Refresh"
+msgstr "تحديث"
+
+msgid "Relieved on {0}"
+msgstr "تاريخ إخلاء الطرف {0}"
+
+msgid "Reports"
+msgstr "التقارير"
+
+msgid "Saudi"
+msgstr "سعودي"
+
+msgid "Saudization %"
+msgstr "نسبة السعودة %"
+
+msgid "Search employee, ID, Iqama no., passport, project or branch…"
+msgstr "ابحث عن موظف أو رقم وظيفي أو رقم إقامة أو جواز أو مشروع أو فرع…"
+
+msgid "Search name, ID, Iqama no., project, branch…"
+msgstr "ابحث بالاسم أو الرقم الوظيفي أو رقم الإقامة أو المشروع أو الفرع…"
+
+msgid "Shift Assignment Tool"
+msgstr "أداة إسناد الورديات"
+
+msgid "Shift Location"
+msgstr "موقع الوردية"
+
+msgid "Shift Schedule"
+msgstr "جدول الورديات"
+
+msgid "Shift Schedule Assignment"
+msgstr "إسناد جدول الورديات"
+
+msgid "Shifts & Roster"
+msgstr "الورديات وجدول المناوبات"
+
+msgid "Show {0} more"
+msgstr "عرض {0} أخرى"
+
+msgid "Sort"
+msgstr "الترتيب"
+
+msgid "Sort: branch"
+msgstr "الترتيب: الفرع"
+
+msgid "Sort: document"
+msgstr "الترتيب: الوثيقة"
+
+msgid "Sort: name"
+msgstr "الترتيب: الاسم"
+
+msgid "Sort: project"
+msgstr "الترتيب: المشروع"
+
+msgid "Sort: soonest expiry"
+msgstr "الترتيب: الأقرب انتهاءً"
+
+msgid "Status"
+msgstr "الحالة"
+
+msgid "Status by document"
+msgstr "الحالة حسب الوثيقة"
+
+msgid "Suspended"
+msgstr "موقوف"
+
+msgid "Tax & Benefits"
+msgstr "الضرائب والمزايا"
+
+msgid "Tenure"
+msgstr "مدة الخدمة"
+
+msgid "Tools & Settings"
+msgstr "الأدوات والإعدادات"
+
+msgid "Top Nationality"
+msgstr "الجنسية الأكثر"
+
+msgid "Top locations"
+msgstr "أبرز المواقع"
+
+msgid "Try clearing a filter or widening the date window."
+msgstr "جرّب إزالة أحد الفلاتر أو توسيع النطاق الزمني."
+
+msgid "Type"
+msgstr "النوع"
+
+msgid "Upcoming expiries"
+msgstr "الانتهاءات القادمة"
+
+msgid "Updated · {0} documents"
+msgstr "تم التحديث · {0} وثيقة"
+
+msgid "Upload Attendance (bulk)"
+msgstr "رفع الحضور (جماعي)"
+
+msgid "VAT Certificate"
+msgstr "شهادة ضريبة القيمة المضافة"
+
+msgid "View"
+msgstr "عرض"
+
+msgid "Visa"
+msgstr "التأشيرة"
+
+msgid "Within 30 days"
+msgstr "خلال 30 يومًا"
+
+msgid "click to open"
+msgstr "اضغط للفتح"
+
+msgid "days left"
+msgstr "يومًا متبقية"
+
+msgid "days overdue"
+msgstr "يومًا متأخرة"
+
+msgid "document"
+msgstr "وثيقة"
+
+msgid "documents"
+msgstr "وثائق"
+
+msgid "employees"
+msgstr "موظفين"
+
+msgid "expired"
+msgstr "منتهية"
+
+msgid "expired {0} days ago"
+msgstr "انتهت منذ {0} يومًا"
+
+msgid "expires TODAY"
+msgstr "تنتهي اليوم"
+
+msgid "expires in {0} days"
+msgstr "تنتهي خلال {0} يومًا"
+
+msgid "more than 60 days"
+msgstr "أكثر من 60 يومًا"
+
+msgid "need action"
+msgstr "تحتاج إجراء"
+
+msgid "not set"
+msgstr "غير محدد"
+
+msgid "past expiry date"
+msgstr "تجاوزت تاريخ الانتهاء"
+
+msgid "today"
+msgstr "اليوم"
+
+msgid "valid"
+msgstr "سارية"
+
+msgid "within 30 days"
+msgstr "خلال 30 يومًا"
+
+msgid "{0} Days Left"
+msgstr "{0} - الأيام المتبقية"
+
+msgid "{0} Expiry"
+msgstr "انتهاء {0}"
+
+msgid "{0} No."
+msgstr "رقم {0}"
+
+msgid "{0} days remaining"
+msgstr "متبقٍ {0} يومًا"
+
+msgid "{0} days remaining - renew now"
+msgstr "متبقٍ {0} يومًا - جدّد الآن"
+
+msgid "{0} employees"
+msgstr "{0} موظفين"
+
+msgid "{0} employees in this view have no Branch (sponsor) set, so branch figures below leave them out."
+msgstr "{0} موظفًا في هذا العرض بدون فرع (كفيل)، لذلك لا تشملهم أرقام الفروع أدناه."
+
+msgid "{0} left the company"
+msgstr "{0} غادروا الشركة"
+
+msgid "{0} of {1} employees assigned"
+msgstr "{0} من {1} موظف مُسندون"
+
+msgid "{0} sponsors"
+msgstr "{0} كفلاء"
+
+msgid "{0} with staff"
+msgstr "{0} بها موظفون"
+
+msgid "{0} within 30 days"
+msgstr "{0} خلال 30 يومًا"
+
+#, python-format
+msgid "{0}% of documents valid"
+msgstr "{0}% من الوثائق سارية"
+
+msgid "{0}d"
+msgstr "{0} ي"
+
+msgid "{0}d left"
+msgstr "متبقٍ {0} ي"
+
+msgid "{0}d overdue"
+msgstr "متأخرة {0} ي"
+
+msgid "≤ 30 days"
+msgstr "≤ 30 يومًا"
+
+msgid "≤ {0} days"
+msgstr "≤ {0} يومًا"
+

@@ -1,0 +1,1073 @@
+# Translations template for Falcon HR.
+# Copyright (C) 2026 Omar Habeeb
+# This file is distributed under the same license as the Falcon HR project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Falcon HR VERSION\n"
+"Report-Msgid-Bugs-To: omarhabeeb242@gmail.com\n"
+"POT-Creation-Date: 2026-11-01 19:17+0307\n"
+"PO-Revision-Date: 2026-11-01 19:17+0307\n"
+"Last-Translator: omarhabeeb242@gmail.com\n"
+"Language-Team: omarhabeeb242@gmail.com\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.16.0\n"
+
+#: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:115
+msgid "(No branch set)"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:328
+msgid "+{0} more — use filters or the table view"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:96
+msgid "15 days"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:96
+msgid "30 days"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.py:55
+msgid "31-60 days"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:16
+msgid "31–60 days"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:96
+msgid "60 days"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:95
+msgid "7 days"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:96
+msgid "90 days"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Accommodation"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:21
+#: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:120
+msgid "Active"
+msgstr ""
+
+#: falcon_hr/public/js/branch.js:36
+msgid "Active employees"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:370
+msgid "Active projects"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Alert Rules"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:61
+msgid "All"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:239
+msgid "All documents"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:251
+msgid "All employee + branch documents"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:57
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:75
+msgid "All employees"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:90
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:203
+msgid "All locations"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:89
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:203
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:117
+msgid "All projects"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:95
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:258
+msgid "Already expired"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:95
+msgid "Any time"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Attendance"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Attendance Request"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:63
+msgid "Board"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/api/alerts.py:74
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:87
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:143
+#: falcon_hr/falcon_hr/report/branch_compliance_register/branch_compliance_register.py:24
+#: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.js:5
+#: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.py:27
+#: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.js:3
+#: falcon_hr/falcon_hr/report/project_assignment_register/project_assignment_register.js:5
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Branch"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:13
+#: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.py:29
+#: falcon_hr/falcon_hr/report/project_assignment_register/project_assignment_register.py:25
+msgid "Branch (Sponsor)"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:310
+msgid "Branch (Sponsor) / Company"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:87
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:115
+msgid "Branch (sponsor)"
+msgstr ""
+
+#. Name of a report
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/falcon_hr/report/branch_compliance_register/branch_compliance_register.json
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Branch Compliance Register"
+msgstr ""
+
+#: falcon_hr/public/js/branch.js:41
+msgid "Branch Overview"
+msgstr ""
+
+#. Name of a report
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.json
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Branch Workforce Summary"
+msgstr ""
+
+#: falcon_hr/api/alerts.py:43
+msgid "Branch {0}"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:61
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:64
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:76
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:85
+msgid "Branches"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/project_location_summary/project_location_summary.py:14
+msgid "Branches (Sponsors)"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:423
+msgid "Branches (sponsors)"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/branch_compliance_register/branch_compliance_register.py:27
+msgid "City"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:72
+msgid "Clear"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:72
+msgid "Clear all filters"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:378
+msgid "Click a project for its full employee list (downloadable)"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:399
+msgid "Click a row to open it in the Expiry Center"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:374
+msgid "Click to review these employees"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/branch_compliance_register/branch_compliance_register.py:25
+msgid "Code"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:88
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:114
+#: falcon_hr/falcon_hr/report/branch_compliance_register/branch_compliance_register.js:2
+#: falcon_hr/falcon_hr/report/branch_compliance_register/branch_compliance_register.py:26
+#: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:19
+#: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.py:28
+#: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.js:3
+#: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.py:35
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Company"
+msgstr ""
+
+#: falcon_hr/api/alerts.py:36
+msgid "Company Document"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:302
+msgid "Company document"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Data Import"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.py:31
+msgid "Days Left"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Department"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:92
+#: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.js:4
+#: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.py:26
+#: falcon_hr/falcon_hr/report/project_assignment_register/project_assignment_register.py:23
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Designation"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:310
+#: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.js:4
+#: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.py:17
+msgid "Document"
+msgstr ""
+
+#. Name of a report
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.json
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Document Expiry Register"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:251
+msgid "Document health"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:84
+msgid "Documents"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:50
+msgid "Download CSV"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:358
+msgid "Downloaded {0} rows"
+msgstr ""
+
+#: falcon_hr/public/js/branch.js:14 falcon_hr/public/js/employee.js:16
+msgid "EXPIRED {0} days ago"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.py:19
+#: falcon_hr/falcon_hr/report/project_assignment_register/project_assignment_register.py:16
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Employee"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:310
+msgid "Employee / Branch"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.py:19
+msgid "Employee / Branch ID"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Employee Attendance Tool"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Employee Checkin"
+msgstr ""
+
+#: falcon_hr/api/alerts.py:36
+msgid "Employee Document"
+msgstr ""
+
+#. Name of a report
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.json
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Employee Document Register"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.js:5
+msgid "Employee Status"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:61
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:63
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:87
+#: falcon_hr/falcon_hr/report/project_assignment_register/project_assignment_register.py:82
+#: falcon_hr/falcon_hr/report/project_location_summary/project_location_summary.py:13
+#: falcon_hr/falcon_hr/report/project_location_summary/project_location_summary.py:80
+#: falcon_hr/public/js/branch.js:24
+msgid "Employees"
+msgstr ""
+
+#: falcon_hr/public/js/branch.js:35
+msgid "Employees & Iqama status"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:253
+msgid "Employees in this view"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:375
+msgid "Employees per project location"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:250
+msgid "Employees per sponsoring branch"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:254
+msgid "Employees: {0}"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:47
+msgid "Every employee and company document, sorted by what needs attention first"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Expenses"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.py:43
+msgid "Expired"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:78
+msgid "Expired documents"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:77
+msgid "Expiring in 60 days"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:94
+msgid "Expiring within"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:311
+msgid "Expiry / Time left"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:2
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:46
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:66
+#: falcon_hr/public/js/branch.js:25 falcon_hr/public/js/employee.js:34
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Expiry Center"
+msgstr ""
+
+#: falcon_hr/api/alerts.py:73
+#: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.py:30
+msgid "Expiry Date"
+msgstr ""
+
+#. Label of a Desktop Icon
+#. Title of a Workspace Sidebar
+#: falcon_hr/desktop_icon/falcon_hr.json
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Falcon HR"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:60
+msgid "Falcon Resource Management"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:424
+msgid "Filter branches…"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:379
+msgid "Filter projects…"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:247
+msgid "Fix now"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Frappe HR"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/branch_compliance_register/branch_compliance_register.py:30
+msgid "GOSI Sub-Est. No."
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:22
+msgid "Gap vs Plan"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/project_location_summary/project_location_summary.js:2
+msgid "Group by"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:2
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "HR Dashboard"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:59
+msgid "HR Overview"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "HR Settings"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "HR Setup"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:250
+msgid "Headcount by branch"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:423
+msgid "Headcount, Iqama status and company document validity per branch"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Holiday List"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:30
+msgid "Insurance Expired"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:28
+#: falcon_hr/falcon_hr/report/project_location_summary/project_location_summary.py:21
+msgid "Iqama Expired"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/project_assignment_register/project_assignment_register.py:33
+msgid "Iqama Expiry"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:26
+msgid "Iqama Valid"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:365
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:416
+msgid "Iqama expired"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:366
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:417
+#: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:27
+#: falcon_hr/falcon_hr/report/project_location_summary/project_location_summary.py:22
+msgid "Iqama ≤60d"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:342
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:347
+msgid "Joined"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:254
+msgid "Joiners and leavers"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:254
+msgid "Last 12 months"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Leaves"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:342
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:348
+msgid "Left"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:90
+msgid "Location"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/project_assignment_register/project_assignment_register.js:4
+msgid "Location contains"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/project_location_summary/project_location_summary.py:16
+msgid "Locations"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/branch_compliance_register/branch_compliance_register.py:28
+msgid "Manager"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/branch_compliance_register/branch_compliance_register.py:67
+msgid "Missing Documents"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Monthly Attendance Sheet"
+msgstr ""
+
+#. Label of the custom_muqeem_number (Data) field in DocType 'Branch'
+#: falcon_hr/fixtures/custom_field.json
+msgid "Muqeem Account Number"
+msgstr ""
+
+#. Label of the custom_muqeem_expiry_date (Date) field in DocType 'Branch'
+#: falcon_hr/fixtures/custom_field.json
+msgid "Muqeem Subscription Expiry Date"
+msgstr ""
+
+#. Label of the custom_muqeem_start_date (Date) field in DocType 'Branch'
+#: falcon_hr/fixtures/custom_field.json
+msgid "Muqeem Subscription Start Date"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.py:25
+#: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.py:25
+#: falcon_hr/falcon_hr/report/project_assignment_register/project_assignment_register.py:22
+msgid "Name"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:91
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:118
+#: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.py:27
+#: falcon_hr/falcon_hr/report/project_assignment_register/project_assignment_register.py:31
+msgid "Nationality"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:253
+msgid "Nationality mix"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:252
+msgid "Next 60 days, soonest first"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:29
+msgid "No Iqama Date"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:264
+msgid "No branch assignments yet"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:400
+msgid "No document dates recorded"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:144
+msgid "No matches for “{0}”"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:380
+msgid "No projects recorded yet"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:24
+msgid "Non-Saudi"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:329
+msgid "None"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:373
+msgid "Not assigned to a project"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:305
+msgid "Nothing expires in the next 60 days 🎉"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:275
+msgid "Nothing matches these filters"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Notification Log"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.py:26
+msgid "Number"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.js:2
+msgid "Only branches with staff"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:82
+msgid "Overview"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Payroll"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "People & Organization"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Performance"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:20
+#: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:121
+msgid "Planned"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:89
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:116
+#: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.py:29
+#: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.py:36
+#: falcon_hr/falcon_hr/report/project_assignment_register/project_assignment_register.py:13
+msgid "Project"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:311
+msgid "Project / Location"
+msgstr ""
+
+#. Name of a report
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/falcon_hr/report/project_assignment_register/project_assignment_register.json
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Project Assignment Register"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.py:37
+#: falcon_hr/falcon_hr/report/project_assignment_register/project_assignment_register.py:14
+msgid "Project Location"
+msgstr ""
+
+#. Name of a report
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/falcon_hr/report/project_location_summary/project_location_summary.json
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Project Location Summary"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/project_assignment_register/project_assignment_register.js:3
+msgid "Project contains"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:83
+#: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:31
+#: falcon_hr/falcon_hr/report/project_location_summary/project_location_summary.py:16
+msgid "Projects"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:378
+msgid "Projects assigned to"
+msgstr ""
+
+#. Label of the custom_qiwa_muqeem_section (Section Break) field in DocType
+#. 'Branch'
+#: falcon_hr/fixtures/custom_field.json
+msgid "Qiwa & Muqeem"
+msgstr ""
+
+#. Label of the custom_qiwa_number (Data) field in DocType 'Branch'
+#: falcon_hr/fixtures/custom_field.json
+msgid "Qiwa Establishment Number"
+msgstr ""
+
+#. Label of the custom_qiwa_expiry_date (Date) field in DocType 'Branch'
+#: falcon_hr/fixtures/custom_field.json
+msgid "Qiwa Expiry Date"
+msgstr ""
+
+#. Label of the custom_qiwa_issue_date (Date) field in DocType 'Branch'
+#: falcon_hr/fixtures/custom_field.json
+msgid "Qiwa Issue Date"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Recruitment"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:51
+msgid "Refresh"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:338
+msgid "Relieved on {0}"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/project_assignment_register/project_assignment_register.py:38
+msgid "Remarks"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:49
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:65
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Reports"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:23
+msgid "Saudi"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:25
+msgid "Saudization %"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:70
+msgid "Search employee, ID, Iqama no., passport, project or branch…"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:67
+msgid "Search name, ID, Iqama no., project, branch…"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Shift & Attendance"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Shift Assignment"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Shift Assignment Tool"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Shift Location"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Shift Request"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Shift Schedule"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Shift Schedule Assignment"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Shift Type"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Shifts & Roster"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.js:3
+#: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.js:6
+msgid "Show"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:313
+msgid "Show {0} more"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:99
+msgid "Sort"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:101
+msgid "Sort: branch"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:101
+msgid "Sort: document"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:100
+msgid "Sort: name"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:101
+msgid "Sort: project"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:100
+msgid "Sort: soonest expiry"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:311
+#: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.js:6
+#: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.py:32
+msgid "Status"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:399
+msgid "Status by document"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:63
+msgid "Table"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Tax & Benefits"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Tenure"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Tools & Settings"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/project_location_summary/project_location_summary.py:23
+msgid "Top Nationality"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:375
+msgid "Top locations"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:275
+msgid "Try clearing a filter or widening the date window."
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.py:16
+msgid "Type"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:252
+msgid "Upcoming expiries"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:195
+msgid "Updated · {0} documents"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Upload Attendance (bulk)"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.py:59
+msgid "Valid"
+msgstr ""
+
+#: falcon_hr/public/js/branch.js:24 falcon_hr/public/js/branch.js:25
+#: falcon_hr/public/js/employee.js:34
+msgid "View"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.py:49
+msgid "Within 30 days"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:268
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:288
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:294
+msgid "click to open"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:327
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:312
+msgid "days left"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:327
+msgid "days overdue"
+msgstr ""
+
+#: falcon_hr/api/alerts.py:44 falcon_hr/api/alerts.py:72
+msgid "document"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:260
+msgid "documents"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:361
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:414
+msgid "employees"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:408
+msgid "expired"
+msgstr ""
+
+#: falcon_hr/api/alerts.py:38
+msgid "expired {0} days ago"
+msgstr ""
+
+#: falcon_hr/api/alerts.py:40
+msgid "expires TODAY"
+msgstr ""
+
+#: falcon_hr/api/alerts.py:42
+msgid "expires in {0} days"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:17
+msgid "more than 60 days"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:395
+msgid "need action"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:406
+msgid "not set"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:14
+msgid "past expiry date"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:285
+msgid "today"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:299
+msgid "valid"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:15
+msgid "within 30 days"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/branch_compliance_register/branch_compliance_register.py:61
+#: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.py:72
+msgid "{0} Days Left"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/branch_compliance_register/branch_compliance_register.py:53
+#: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.py:64
+msgid "{0} Expiry"
+msgstr ""
+
+#: falcon_hr/falcon_hr/report/branch_compliance_register/branch_compliance_register.py:43
+#: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.py:55
+msgid "{0} No."
+msgstr ""
+
+#: falcon_hr/public/js/branch.js:14 falcon_hr/public/js/employee.js:15
+msgid "{0} days remaining"
+msgstr ""
+
+#: falcon_hr/public/js/employee.js:17
+msgid "{0} days remaining - renew now"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:75
+msgid "{0} employees"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:246
+msgid "{0} employees in this view have no Branch (sponsor) set, so branch figures below leave them out."
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:75
+msgid "{0} left the company"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:371
+msgid "{0} of {1} employees assigned"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:364
+msgid "{0} sponsors"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:76
+msgid "{0} with staff"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:77
+msgid "{0} within 30 days"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:78
+#, python-format
+msgid "{0}% of documents valid"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:408
+msgid "{0}d"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:285
+msgid "{0}d left"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:285
+msgid "{0}d overdue"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:258
+msgid "≤ {0} days"
+msgstr ""
+

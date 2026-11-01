@@ -9,8 +9,8 @@ frappe.pages["falcon-hr-dashboard"].on_page_show = function (wrapper) {
 
 const FHD_STATUS = [
 	{ key: "Expired", color: "#d03b3b" },
-	{ key: "Critical", color: "#ec835a", note: "≤ 30 days" },
-	{ key: "Expiring Soon", color: "#fab219", note: "31–60 days" },
+	{ key: "Critical", color: "#ec835a", note: __("≤ 30 days") },
+	{ key: "Expiring Soon", color: "#fab219", note: __("31–60 days") },
 	{ key: "Valid", color: "#0ca30c" },
 ];
 // Validated categorical order (dataviz reference palette, light mode), never cycled.
