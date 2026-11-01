@@ -17,6 +17,7 @@
  "field_order": [
   "employee",
   "employee_name",
+  "company",
   "column_break_emp",
   "status",
   "is_current",
@@ -53,6 +54,16 @@
    "fetch_from": "employee.employee_name",
    "read_only": 1,
    "in_list_view": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "fetch_from": "employee.company",
+   "read_only": 1,
+   "in_standard_filter": 1,
+   "search_index": 1
   },
   {
    "fieldname": "column_break_emp",

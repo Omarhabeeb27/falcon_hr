@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Falcon HR VERSION\n"
 "Report-Msgid-Bugs-To: omarhabeeb242@gmail.com\n"
-"POT-Creation-Date: 2026-11-01 19:34+0307\n"
-"PO-Revision-Date: 2026-11-01 19:34+0307\n"
+"POT-Creation-Date: 2026-11-01 19:42+0307\n"
+"PO-Revision-Date: 2026-11-01 19:42+0307\n"
 "Last-Translator: omarhabeeb242@gmail.com\n"
 "Language-Team: omarhabeeb242@gmail.com\n"
 "MIME-Version: 1.0\n"
@@ -298,7 +298,9 @@ msgstr ""
 msgid "Code"
 msgstr ""
 
+#. Label of the company (Link) field in DocType 'Employee Deployment'
 #. Label of a Workspace Sidebar Item
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:88
 #: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:116
 #: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:146
@@ -354,7 +356,7 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.py:50
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.py:61
 msgid "Dates overlap with deployment {0} of this employee."
 msgstr ""
 
@@ -501,7 +503,7 @@ msgstr ""
 msgid "Employee Status"
 msgstr ""
 
-#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.py:31
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.py:42
 msgid "Employee already has a current deployment {0} starting on or after {1}."
 msgstr ""
 
@@ -1493,6 +1495,10 @@ msgstr ""
 msgid "The black line on each bar is the target. Click any tile, bar, chart slice or chip to drill down."
 msgstr ""
 
+#: falcon_hr/api/leaver.py:69
+msgid "The leaver checklist can only be started for employees with status Left."
+msgstr ""
+
 #: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.js:9
 msgid "This is the employee's current sponsor and deployment. Saving it updates Branch and Project on the Employee."
 msgstr ""
@@ -1502,7 +1508,7 @@ msgstr ""
 msgid "To Date"
 msgstr ""
 
-#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.py:10
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.py:21
 msgid "To Date cannot be before From Date"
 msgstr ""
 
@@ -1529,6 +1535,10 @@ msgstr ""
 
 #: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:256
 msgid "Upcoming expiries"
+msgstr ""
+
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.py:84
+msgid "Updated from deployment {0}: {1}"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:195

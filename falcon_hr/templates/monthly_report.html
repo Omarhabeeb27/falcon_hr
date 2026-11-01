@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ frappe.local.lang }}" dir="{{ 'rtl' if rtl else 'ltr' }}">
+<html lang="{{ (frappe.local.lang) | e }}" dir="{{ ('rtl' if rtl else 'ltr') | e }}">
 <head><meta charset="utf-8">
 <style>
 	body { font-family: "Segoe UI", "Noto Sans Arabic", Arial, sans-serif; color: #0b0b0b; font-size: 10.5px; }
@@ -7,9 +7,9 @@
 	.muted { color: #6b6a66; } .sub { font-size: 11px; color: #52514e; margin-top: 3px; }
 	table { width: 100%; border-collapse: collapse; page-break-inside: auto; } tr { page-break-inside: avoid; }
 	.nw { white-space: nowrap; }
-	th { white-space: nowrap; background: #f2efe7; font-weight: 600; text-align: {{ 'right' if rtl else 'left' }}; }
+	th { white-space: nowrap; background: #f2efe7; font-weight: 600; text-align: {{ ('right' if rtl else 'left') | e }}; }
 	th, td { padding: 5px 6px; border-bottom: 1px solid #e6e3da; }
-	.num { text-align: {{ 'left' if rtl else 'right' }}; font-variant-numeric: tabular-nums; }
+	.num { text-align: {{ ('left' if rtl else 'right') | e }}; font-variant-numeric: tabular-nums; }
 	.kpi td { border: 0; padding: 0 4px; width: 20%; }
 	.box { border-radius: 8px; padding: 9px 11px; background: #f7f5ef; }
 	.box.dark { background: #0b0b0b; color: #fff; } .box.red { background: #f8dcd6; } .box.amber { background: #fbecc4; } .box.green { background: #dcefd7; }
@@ -20,87 +20,87 @@
 </style></head>
 <body>
 <table><tr>
-	<td style="border:0"><h1>{{ _("Monthly HR Report") }} — {{ month_label }}</h1>
-	<div class="sub">{{ company }} · {{ _("Generated") }} {{ generated }}</div></td>
+	<td style="border:0"><h1>{{ (_("Monthly HR Report")) | e }} — {{ (month_label) | e }}</h1>
+	<div class="sub">{{ (company) | e }} · {{ (_("Generated")) | e }} {{ (generated) | e }}</div></td>
 	<td style="border:0;width:60px" class="num"><div style="width:44px;height:44px;border-radius:11px;background:#0b0b0b;color:#f5c542;font-size:22px;text-align:center;line-height:44px;font-weight:700">F</div></td>
 </tr></table>
 
-<h2>{{ _("Headcount & movements") }}</h2>
+<h2>{{ (_("Headcount & movements")) | e }}</h2>
 <table class="kpi"><tr>
-	<td><div class="box dark"><div class="l">{{ _("Active employees") }}</div><div class="v">{{ kpi.active }}</div></div></td>
-	<td><div class="box green"><div class="l">{{ _("Joined this month") }}</div><div class="v">{{ kpi.joined }}</div></div></td>
-	<td><div class="box red"><div class="l">{{ _("Left this month") }}</div><div class="v">{{ kpi.left }}</div></div></td>
-	<td><div class="box"><div class="l">{{ _("Branches with staff") }}</div><div class="v">{{ kpi.branches }}</div></div></td>
-	<td><div class="box amber"><div class="l">{{ _("Without a branch") }}</div><div class="v">{{ kpi.no_branch }}</div></div></td>
+	<td><div class="box dark"><div class="l">{{ (_("Active employees")) | e }}</div><div class="v">{{ (kpi.active) | e }}</div></div></td>
+	<td><div class="box green"><div class="l">{{ (_("Joined this month")) | e }}</div><div class="v">{{ (kpi.joined) | e }}</div></div></td>
+	<td><div class="box red"><div class="l">{{ (_("Left this month")) | e }}</div><div class="v">{{ (kpi.left) | e }}</div></div></td>
+	<td><div class="box"><div class="l">{{ (_("Branches with staff")) | e }}</div><div class="v">{{ (kpi.branches) | e }}</div></div></td>
+	<td><div class="box amber"><div class="l">{{ (_("Without a branch")) | e }}</div><div class="v">{{ (kpi.no_branch) | e }}</div></div></td>
 </tr></table>
 
-<h2>{{ _("Document compliance") }}</h2>
+<h2>{{ (_("Document compliance")) | e }}</h2>
 <table class="kpi"><tr>
-	<td><div class="box red"><div class="l">{{ _("Expired") }}</div><div class="v">{{ expiry["Expired"] }}</div></div></td>
-	<td><div class="box amber"><div class="l">{{ _("Within 30 days") }}</div><div class="v">{{ expiry["Critical"] }}</div></div></td>
-	<td><div class="box"><div class="l">{{ _("31–60 days") }}</div><div class="v">{{ expiry["Expiring Soon"] }}</div></div></td>
-	<td><div class="box green"><div class="l">{{ _("Valid") }}</div><div class="v">{{ expiry["Valid"] }}</div></div></td>
+	<td><div class="box red"><div class="l">{{ (_("Expired")) | e }}</div><div class="v">{{ (expiry["Expired"]) | e }}</div></div></td>
+	<td><div class="box amber"><div class="l">{{ (_("Within 30 days")) | e }}</div><div class="v">{{ (expiry["Critical"]) | e }}</div></div></td>
+	<td><div class="box"><div class="l">{{ (_("31–60 days")) | e }}</div><div class="v">{{ (expiry["Expiring Soon"]) | e }}</div></div></td>
+	<td><div class="box green"><div class="l">{{ (_("Valid")) | e }}</div><div class="v">{{ (expiry["Valid"]) | e }}</div></div></td>
 	<td></td>
 </tr></table>
 {% if critical %}
-<p class="muted" style="margin:8px 0 4px">{{ _("Renew now — expiring within 30 days") }}</p>
-<table><tr><th>{{ _("Name") }}</th><th>{{ _("Document") }}</th><th>{{ _("Branch") }}</th><th>{{ _("Expiry Date") }}</th><th class="num">{{ _("Days Left") }}</th></tr>
-{% for r in critical %}<tr><td>{{ r.party }}</td><td>{{ _(r.document) }}</td><td>{{ r.branch or r.company }}</td><td class="nw">{{ frappe.format(r.expiry_date, "Date") }}</td><td class="num">{{ r.days_left }}</td></tr>{% endfor %}
+<p class="muted" style="margin:8px 0 4px">{{ (_("Renew now — expiring within 30 days")) | e }}</p>
+<table><tr><th>{{ (_("Name")) | e }}</th><th>{{ (_("Document")) | e }}</th><th>{{ (_("Branch")) | e }}</th><th>{{ (_("Expiry Date")) | e }}</th><th class="num">{{ (_("Days Left")) | e }}</th></tr>
+{% for r in critical %}<tr><td>{{ (r.party) | e }}</td><td>{{ (_(r.document)) | e }}</td><td>{{ (r.branch or r.company) | e }}</td><td class="nw">{{ (frappe.format(r.expiry_date, "Date")) | e }}</td><td class="num">{{ (r.days_left) | e }}</td></tr>{% endfor %}
 </table>{% endif %}
 
 {% if company_docs %}
-<h2>{{ _("Company documents (branches) needing attention") }}</h2>
-<table><tr><th>{{ _("Branch") }}</th><th>{{ _("Document") }}</th><th>{{ _("Number") }}</th><th>{{ _("Expiry Date") }}</th><th class="num">{{ _("Days Left") }}</th></tr>
-{% for r in company_docs %}<tr><td>{{ r.party }}</td><td>{{ _(r.document) }}</td><td>{{ r.number }}</td><td class="nw">{{ frappe.format(r.expiry_date, "Date") }}</td>
-<td class="num"><span class="pill {{ 'p-exp' if r.days_left < 0 else ('p-crit' if r.days_left <= 30 else 'p-soon') }}">{{ r.days_left }}</span></td></tr>{% endfor %}
+<h2>{{ (_("Company documents (branches) needing attention")) | e }}</h2>
+<table><tr><th>{{ (_("Branch")) | e }}</th><th>{{ (_("Document")) | e }}</th><th>{{ (_("Number")) | e }}</th><th>{{ (_("Expiry Date")) | e }}</th><th class="num">{{ (_("Days Left")) | e }}</th></tr>
+{% for r in company_docs %}<tr><td>{{ (r.party) | e }}</td><td>{{ (_(r.document)) | e }}</td><td>{{ (r.number) | e }}</td><td class="nw">{{ (frappe.format(r.expiry_date, "Date")) | e }}</td>
+<td class="num"><span class="pill {{ ('p-exp' if r.days_left < 0 else ('p-crit' if r.days_left <= 30 else 'p-soon')) | e }}">{{ (r.days_left) | e }}</span></td></tr>{% endfor %}
 </table>{% endif %}
 
-<h2>{{ _("Nitaqat (Saudization)") }}</h2>
+<h2>{{ (_("Nitaqat (Saudization)")) | e }}</h2>
 <table class="kpi"><tr>
-	<td><div class="box dark"><div class="l">{{ _("Overall Saudization") }}</div><div class="v">{{ nitaqat.pct }}%</div></div></td>
-	<td><div class="box green"><div class="l">{{ _("Saudi employees") }}</div><div class="v">{{ nitaqat.saudi }}</div></div></td>
-	<td><div class="box red"><div class="l">{{ _("Branches below target") }}</div><div class="v">{{ nitaqat.below }}</div></div></td>
-	<td><div class="box amber"><div class="l">{{ _("Saudis needed") }}</div><div class="v">{{ nitaqat.needed }}</div></div></td>
-	<td><div class="box"><div class="l">{{ _("Branches without a target") }}</div><div class="v">{{ nitaqat.no_target }}</div></div></td>
+	<td><div class="box dark"><div class="l">{{ (_("Overall Saudization")) | e }}</div><div class="v">{{ (nitaqat.pct) | e }}%</div></div></td>
+	<td><div class="box green"><div class="l">{{ (_("Saudi employees")) | e }}</div><div class="v">{{ (nitaqat.saudi) | e }}</div></div></td>
+	<td><div class="box red"><div class="l">{{ (_("Branches below target")) | e }}</div><div class="v">{{ (nitaqat.below) | e }}</div></div></td>
+	<td><div class="box amber"><div class="l">{{ (_("Saudis needed")) | e }}</div><div class="v">{{ (nitaqat.needed) | e }}</div></div></td>
+	<td><div class="box"><div class="l">{{ (_("Branches without a target")) | e }}</div><div class="v">{{ (nitaqat.no_target) | e }}</div></div></td>
 </tr></table>
 {% if nitaqat_below %}
-<table style="margin-top:6px"><tr><th>{{ _("Branch") }}</th><th class="num">{{ _("Employees") }}</th><th class="num">{{ _("Saudi") }}</th><th class="num">{{ _("Saudization %") }}</th><th class="num">{{ _("Target") }}</th><th class="num">{{ _("Saudis needed") }}</th></tr>
-{% for r in nitaqat_below %}<tr><td>{{ r.branch }}</td><td class="num">{{ r.total }}</td><td class="num">{{ r.saudi }}</td><td class="num">{{ r.pct }}%</td><td class="num">{{ r.target }}%</td><td class="num"><b>{{ r.needed }}</b></td></tr>{% endfor %}
+<table style="margin-top:6px"><tr><th>{{ (_("Branch")) | e }}</th><th class="num">{{ (_("Employees")) | e }}</th><th class="num">{{ (_("Saudi")) | e }}</th><th class="num">{{ (_("Saudization %")) | e }}</th><th class="num">{{ (_("Target")) | e }}</th><th class="num">{{ (_("Saudis needed")) | e }}</th></tr>
+{% for r in nitaqat_below %}<tr><td>{{ (r.branch) | e }}</td><td class="num">{{ (r.total) | e }}</td><td class="num">{{ (r.saudi) | e }}</td><td class="num">{{ (r.pct) | e }}%</td><td class="num">{{ (r.target) | e }}%</td><td class="num"><b>{{ (r.needed) | e }}</b></td></tr>{% endfor %}
 </table>{% endif %}
 
-<h2>{{ _("Attendance") }}</h2>
+<h2>{{ (_("Attendance")) | e }}</h2>
 {% if attendance %}
-<table><tr>{% for k, v in attendance.items() %}<th>{{ _(k) }}</th>{% endfor %}<th>{{ _("Employees with attendance") }}</th></tr>
-<tr>{% for k, v in attendance.items() %}<td>{{ v }}</td>{% endfor %}<td>{{ attendance_people }} / {{ kpi.active }}</td></tr></table>
-{% else %}<p class="muted">{{ _("No submitted attendance for this month yet.") }}</p>{% endif %}
+<table><tr>{% for k, v in attendance.items() %}<th>{{ (_(k)) | e }}</th>{% endfor %}<th>{{ (_("Employees with attendance")) | e }}</th></tr>
+<tr>{% for k, v in attendance.items() %}<td>{{ (v) | e }}</td>{% endfor %}<td>{{ (attendance_people) | e }} / {{ (kpi.active) | e }}</td></tr></table>
+{% else %}<p class="muted">{{ (_("No submitted attendance for this month yet.")) | e }}</p>{% endif %}
 
 <table class="two" style="margin-top:4px"><tr>
-<td class="col"><h2>{{ _("Headcount by branch") }}</h2>
-<table><tr><th>{{ _("Branch") }}</th><th class="num">{{ _("Employees") }}</th></tr>
-{% for b, n in branches %}<tr><td>{{ b }}</td><td class="num">{{ n }}</td></tr>{% endfor %}</table></td>
-<td class="col"><h2>{{ _("Headcount by project") }}</h2>
-<table><tr><th>{{ _("Project") }}</th><th class="num">{{ _("Employees") }}</th></tr>
-{% for p, n in projects %}<tr><td>{{ _(p) }}</td><td class="num">{{ n }}</td></tr>{% endfor %}</table></td>
+<td class="col"><h2>{{ (_("Headcount by branch")) | e }}</h2>
+<table><tr><th>{{ (_("Branch")) | e }}</th><th class="num">{{ (_("Employees")) | e }}</th></tr>
+{% for b, n in branches %}<tr><td>{{ (b) | e }}</td><td class="num">{{ (n) | e }}</td></tr>{% endfor %}</table></td>
+<td class="col"><h2>{{ (_("Headcount by project")) | e }}</h2>
+<table><tr><th>{{ (_("Project")) | e }}</th><th class="num">{{ (_("Employees")) | e }}</th></tr>
+{% for p, n in projects %}<tr><td>{{ (_(p)) | e }}</td><td class="num">{{ (n) | e }}</td></tr>{% endfor %}</table></td>
 </tr></table>
 
 {% if joined_list or left_list %}
 <table class="two"><tr>
-<td class="col"><h2>{{ _("Joiners") }}</h2>
-{% if joined_list %}<table><tr><th>{{ _("Name") }}</th><th>{{ _("Branch") }}</th><th>{{ _("Date") }}</th></tr>
-{% for e in joined_list %}<tr><td>{{ e.employee_name }}</td><td>{{ e.branch or "" }}</td><td class="nw">{{ frappe.format(e.date_of_joining, "Date") }}</td></tr>{% endfor %}</table>
+<td class="col"><h2>{{ (_("Joiners")) | e }}</h2>
+{% if joined_list %}<table><tr><th>{{ (_("Name")) | e }}</th><th>{{ (_("Branch")) | e }}</th><th>{{ (_("Date")) | e }}</th></tr>
+{% for e in joined_list %}<tr><td>{{ (e.employee_name) | e }}</td><td>{{ (e.branch or "") | e }}</td><td class="nw">{{ (frappe.format(e.date_of_joining, "Date")) | e }}</td></tr>{% endfor %}</table>
 {% else %}<p class="muted">—</p>{% endif %}</td>
-<td class="col"><h2>{{ _("Leavers") }}</h2>
-{% if left_list %}<table><tr><th>{{ _("Name") }}</th><th>{{ _("Date") }}</th><th>{{ _("Leaver checklist") }}</th></tr>
-{% for e in left_list %}{% set s = separations.get(e.name) %}<tr><td>{{ e.employee_name }}</td><td class="nw">{{ frappe.format(e.relieving_date, "Date") }}</td>
-<td>{{ (_(s.boarding_status) if s.docstatus == 1 else _("Draft")) if s else _("Not started") }}</td></tr>{% endfor %}</table>
+<td class="col"><h2>{{ (_("Leavers")) | e }}</h2>
+{% if left_list %}<table><tr><th>{{ (_("Name")) | e }}</th><th>{{ (_("Date")) | e }}</th><th>{{ (_("Leaver checklist")) | e }}</th></tr>
+{% for e in left_list %}{% set s = separations.get(e.name) %}<tr><td>{{ (e.employee_name) | e }}</td><td class="nw">{{ (frappe.format(e.relieving_date, "Date")) | e }}</td>
+<td>{{ ((_(s.boarding_status) if s.docstatus == 1 else _("Draft")) if s else _("Not started")) | e }}</td></tr>{% endfor %}</table>
 {% else %}<p class="muted">—</p>{% endif %}</td>
 </tr></table>{% endif %}
 
 {% if moves %}
-<h2>{{ _("Sponsor & deployment changes") }}</h2>
-<table><tr><th>{{ _("Name") }}</th><th>{{ _("Sponsor (Branch)") }}</th><th>{{ _("Project") }}</th><th>{{ _("From Date") }}</th><th>{{ _("Reason") }}</th></tr>
-{% for m in moves %}<tr><td>{{ m.employee_name }}</td><td>{{ m.sponsor_branch }}</td><td>{{ m.project or "" }}</td><td class="nw">{{ frappe.format(m.from_date, "Date") }}</td><td>{{ _(m.reason) if m.reason else "" }}</td></tr>{% endfor %}
+<h2>{{ (_("Sponsor & deployment changes")) | e }}</h2>
+<table><tr><th>{{ (_("Name")) | e }}</th><th>{{ (_("Sponsor (Branch)")) | e }}</th><th>{{ (_("Project")) | e }}</th><th>{{ (_("From Date")) | e }}</th><th>{{ (_("Reason")) | e }}</th></tr>
+{% for m in moves %}<tr><td>{{ (m.employee_name) | e }}</td><td>{{ (m.sponsor_branch) | e }}</td><td>{{ (m.project or "") | e }}</td><td class="nw">{{ (frappe.format(m.from_date, "Date")) | e }}</td><td>{{ (_(m.reason) if m.reason else "") | e }}</td></tr>{% endfor %}
 </table>{% endif %}
 
-<p class="muted" style="margin-top:14px">{{ _("Falcon HR · confidential — for management use only") }}</p>
+<p class="muted" style="margin-top:14px">{{ (_("Falcon HR · confidential — for management use only")) | e }}</p>
 </body></html>

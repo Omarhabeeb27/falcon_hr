@@ -6,6 +6,17 @@ from frappe.utils import add_days, date_diff, getdate, nowdate
 
 class EmployeeDeployment(Document):
 	def validate(self):
+		# Saving a deployment changes the Employee (branch/project), so the user must be allowed to edit them.
+		if not (
+			self.flags.ignore_permissions
+			or self.flags.ignore_close_previous
+			or frappe.flags.in_migrate
+			or frappe.flags.in_install
+			or frappe.session.user == "Administrator"
+		):
+			frappe.has_permission("Employee", "write", doc=self.employee, throw=True)
+		if self.employee and not self.company:
+			self.company = frappe.db.get_value("Employee", self.employee, "company")
 		if self.to_date and getdate(self.to_date) < getdate(self.from_date):
 			frappe.throw(_("To Date cannot be before From Date"))
 		if self.sponsor_branch and frappe.get_meta("Branch").has_field("custom_company"):
@@ -35,7 +46,7 @@ class EmployeeDeployment(Document):
 			prev = frappe.get_doc("Employee Deployment", name)
 			prev.to_date = add_days(self.from_date, -1)
 			prev.flags.ignore_close_previous = True
-			prev.save(ignore_permissions=True)
+			prev.save(ignore_permissions=True)  # same user already passed the Employee write check above
 
 	def check_overlap(self):
 		end = self.to_date or "9999-12-31"
@@ -63,7 +74,21 @@ class EmployeeDeployment(Document):
 			values["custom_project_assigned_to"] = self.project
 		if meta.has_field("custom_project_location"):
 			values["custom_project_location"] = self.project_location
-		frappe.db.set_value("Employee", self.employee, values, update_modified=False)
+		current = frappe.db.get_value("Employee", self.employee, list(values), as_dict=True) or {}
+		changed = {k: v for k, v in values.items() if (current.get(k) or "") != (v or "")}
+		if not changed:
+			return
+		frappe.db.set_value("Employee", self.employee, changed)
+		frappe.get_doc("Employee", self.employee).add_comment(
+			"Info",
+			_("Updated from deployment {0}: {1}").format(
+				frappe.utils.get_link_to_form("Employee Deployment", self.name),
+				", ".join(
+					f"{frappe.utils.escape_html(k)} → {frappe.utils.escape_html(v or '-')}"
+					for k, v in changed.items()
+				),
+			),
+		)
 
 
 @frappe.whitelist()
@@ -106,6 +131,11 @@ def seed_from_employees():
 	for f in ("custom_project_assigned_to", "custom_project_location"):
 		if meta.has_field(f):
 			fields.append(f)
+	# backfill company on older rows (field added later)
+	frappe.db.sql(
+		"""update `tabEmployee Deployment` d join `tabEmployee` e on d.employee = e.name
+		set d.company = e.company where ifnull(d.company, '') = ''"""
+	)
 	have = set(frappe.get_all("Employee Deployment", pluck="employee", distinct=True))
 	made = 0
 	for e in frappe.get_all("Employee", filters={"branch": ["is", "set"]}, fields=fields):

@@ -65,7 +65,7 @@ def build_context(month=None, company=None):
 	if frappe.db.table_exists("Employee Deployment"):
 		moves = frappe.get_list(
 			"Employee Deployment",
-			filters={"from_date": ["between", [start, end]]},
+			filters={"from_date": ["between", [start, end]], **({"company": company} if company else {})},
 			fields=["employee_name", "sponsor_branch", "project", "from_date", "reason"],
 			order_by="from_date asc",
 			limit_page_length=50,

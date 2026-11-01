@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: falcon_hr VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-11-01 19:34+0300\n"
+"POT-Creation-Date: 2026-11-01 19:42+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ar\n"
@@ -901,6 +901,9 @@ msgstr "نسبة السعودة التي يجب أن يحافظ عليها ال�
 msgid "The black line on each bar is the target. Click any tile, bar, chart slice or chip to drill down."
 msgstr "الخط الأسود على كل شريط هو المستهدف. اضغط على أي بطاقة أو شريط أو جزء من الرسم للتفاصيل."
 
+msgid "The leaver checklist can only be started for employees with status Left."
+msgstr "لا يمكن بدء قائمة إجراءات المغادرة إلا للموظفين بحالة «غادر»."
+
 msgid "This is the employee's current sponsor and deployment. Saving it updates Branch and Project on the Employee."
 msgstr "هذا هو الكفيل والإسناد الحالي للموظف. حفظه يحدّث الفرع والمشروع في ملف الموظف."
 
@@ -924,6 +927,9 @@ msgstr "النوع"
 
 msgid "Upcoming expiries"
 msgstr "الانتهاءات القادمة"
+
+msgid "Updated from deployment {0}: {1}"
+msgstr "تم التحديث من الإسناد {0}: {1}"
 
 msgid "Updated · {0} documents"
 msgstr "تم التحديث · {0} وثيقة"

@@ -11,7 +11,7 @@ def _open_separation(employee):
 	return frappe.db.get_value("Employee Separation", {"employee": employee, "docstatus": ["<", 2]}, "name")
 
 
-def create_separation(employee, notify=True):
+def create_separation(employee, notify=True, ignore_permissions=False):
 	existing = _open_separation(employee)
 	if existing:
 		return existing
@@ -43,7 +43,7 @@ def create_separation(employee, notify=True):
 					"duration": a.duration,
 				},
 			)
-	doc.insert(ignore_permissions=True)
+	doc.insert(ignore_permissions=ignore_permissions)
 	if notify:
 		frappe.msgprint(
 			_("Leaver checklist {0} created. Review it and click Submit to create the tasks.").format(
@@ -57,12 +57,19 @@ def create_separation(employee, notify=True):
 def on_employee_update(doc, method=None):
 	"""When an employee is set to Left, prepare a draft leaver checklist (once)."""
 	if doc.status == "Left" and doc.has_value_changed("status"):
-		create_separation(doc.name)
+		# The user just saved this employee as Left; preparing the checklist is part of that action.
+		create_separation(doc.name, ignore_permissions=True)
 
 
 @frappe.whitelist()
 def start_leaver_checklist(employee):
+	frappe.has_permission("Employee", "write", doc=employee, throw=True)
 	frappe.has_permission("Employee Separation", "create", throw=True)
+	if frappe.db.get_value("Employee", employee, "status") != "Left":
+		frappe.throw(_("The leaver checklist can only be started for employees with status Left."))
+	existing = _open_separation(employee)
+	if existing:
+		frappe.has_permission("Employee Separation", "read", doc=existing, throw=True)
 	return create_separation(employee, notify=False)
 
 
@@ -70,7 +77,7 @@ def start_leaver_checklist(employee):
 def get_leaver_status(employee):
 	frappe.has_permission("Employee", "read", doc=employee, throw=True)
 	name = _open_separation(employee)
-	if not name:
+	if not name or not frappe.has_permission("Employee Separation", "read", doc=name):
 		return None
 	d = frappe.db.get_value(
 		"Employee Separation", name, ["name", "docstatus", "boarding_status"], as_dict=True
