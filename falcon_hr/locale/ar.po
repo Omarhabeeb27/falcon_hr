@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: falcon_hr VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-11-01 19:42+0300\n"
+"POT-Creation-Date: 2026-11-01 20:24+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ar\n"
@@ -17,7 +17,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.16.0\n"
+"Generated-By: Babel 2.18.0\n"
 
 msgid "(No branch set)"
 msgstr "(لم يُحدَّد فرع)"
@@ -25,6 +25,7 @@ msgstr "(لم يُحدَّد فرع)"
 msgid "(default)"
 msgstr "(افتراضي)"
 
+#, python-brace-format
 msgid "+{0} more — use filters or the table view"
 msgstr "+{0} أخرى — استخدم الفلاتر أو عرض الجدول"
 
@@ -52,20 +53,17 @@ msgstr "90 يومًا"
 msgid "Accommodation"
 msgstr "السكن"
 
-msgid "Active"
-msgstr "نشط"
-
 msgid "Active employees"
 msgstr "الموظفون النشطون"
 
 msgid "Active projects"
 msgstr "المشاريع النشطة"
 
+msgid "After the employee's relieving date"
+msgstr "بعد تاريخ إخلاء طرف الموظف"
+
 msgid "Alert Rules"
 msgstr "قواعد التنبيهات"
-
-msgid "All"
-msgstr "الكل"
 
 msgid "All bands"
 msgstr "جميع النطاقات"
@@ -103,11 +101,21 @@ msgstr "أي وقت"
 msgid "As shown on Qiwa"
 msgstr "كما يظهر في قوى"
 
+msgid "Attendance already marked for this day — skipped"
+msgstr "الحضور مسجل مسبقًا لهذا اليوم — تم التخطي"
+
+#, python-brace-format
+msgid "Attendance import finished: {0} created"
+msgstr "اكتمل استيراد الحضور: تم إنشاء {0}"
+
 msgid "Band"
 msgstr "النطاق"
 
 msgid "Band not recorded"
 msgstr "النطاق غير مسجل"
+
+msgid "Before the employee's joining date"
+msgstr "قبل تاريخ انضمام الموظف"
 
 msgid "Below target"
 msgstr "أقل من المستهدف"
@@ -120,6 +128,9 @@ msgstr "الفرع (الكفيل)"
 
 msgid "Branch (Sponsor) / Company"
 msgstr "الفرع (الكفيل) / الشركة"
+
+msgid "Branch (optional)"
+msgstr "الفرع (اختياري)"
 
 msgid "Branch (sponsor)"
 msgstr "الفرع (الكفيل)"
@@ -136,6 +147,7 @@ msgstr "ملخص القوى العاملة للفروع"
 msgid "Branch status"
 msgstr "حالة الفروع"
 
+#, python-brace-format
 msgid "Branch {0}"
 msgstr "الفرع {0}"
 
@@ -160,8 +172,11 @@ msgstr "فروع بها موظفون"
 msgid "Branches without a target"
 msgstr "فروع بدون مستهدف"
 
-msgid "City"
-msgstr "المدينة"
+msgid "Bulk Attendance Upload"
+msgstr "رفع الحضور الجماعي"
+
+msgid "Checking rows…"
+msgstr "جارٍ فحص الصفوف…"
 
 msgid "Clear all filters"
 msgstr "مسح جميع الفلاتر"
@@ -193,14 +208,18 @@ msgstr "وثيقة الشركة"
 msgid "Company documents (branches) needing attention"
 msgstr "وثائق الشركة (الفروع) التي تحتاج متابعة"
 
-msgid "Completed"
-msgstr "مكتمل"
+msgid "Confirm and import"
+msgstr "التأكيد والاستيراد"
 
 msgid "Contract Renewal"
 msgstr "تجديد العقد"
 
-msgid "Create"
-msgstr "إنشاء"
+#, python-brace-format
+msgid "Create and submit attendance for {0} ready rows?"
+msgstr "إنشاء واعتماد الحضور لـ {0} صفًا جاهزًا؟"
+
+msgid "Create and submit the attendance for all ready rows?"
+msgstr "إنشاء واعتماد الحضور لجميع الصفوف الجاهزة؟"
 
 msgid "Critical"
 msgstr "حرجة"
@@ -211,26 +230,21 @@ msgstr "الإسناد الحالي"
 msgid "Current Nitaqat Band"
 msgstr "نطاق نطاقات الحالي"
 
-msgid "Date"
-msgstr "التاريخ"
-
+#, python-brace-format
 msgid "Dates overlap with deployment {0} of this employee."
 msgstr "تتداخل التواريخ مع الإسناد {0} لهذا الموظف."
 
 msgid "Days Left"
 msgstr "الأيام المتبقية"
 
+msgid "Days that already have attendance are skipped, never duplicated. Holidays come from the Holiday List Assignment (HR Setup). Large months run in the background; you can keep working and come back to this page."
+msgstr "الأيام التي لها حضور مسجل تُتخطى ولا تتكرر. العطلات مأخوذة من إسناد قائمة العطلات (إعداد الموارد البشرية). الأشهر الكبيرة تُعالج في الخلفية؛ يمكنك متابعة العمل والعودة لهذه الصفحة."
+
 msgid "Default target %"
 msgstr "المستهدف الافتراضي %"
 
-msgid "Department"
-msgstr "القسم"
-
 msgid "Deployment History"
 msgstr "سجل الإسناد"
-
-msgid "Designation"
-msgstr "المسمى الوظيفي"
 
 msgid "Document Expiry Register"
 msgstr "سجل انتهاء الوثائق"
@@ -241,30 +255,29 @@ msgstr "امتثال الوثائق"
 msgid "Document health"
 msgstr "حالة الوثائق"
 
-msgid "Documents"
-msgstr "الوثائق"
-
 msgid "Download CSV"
 msgstr "تنزيل CSV"
 
-msgid "Download PDF"
-msgstr "تنزيل PDF"
+msgid "Download Excel template"
+msgstr "تنزيل قالب Excel"
 
+msgid "Download checked file"
+msgstr "تنزيل الملف بعد الفحص"
+
+msgid "Download the template"
+msgstr "تنزيل القالب"
+
+#, python-brace-format
 msgid "Downloaded {0} rows"
 msgstr "تم تنزيل {0} صفًا"
-
-msgid "Draft"
-msgstr "مسودة"
 
 msgid "Driving License"
 msgstr "رخصة القيادة"
 
-msgid "Duration"
-msgstr "المدة"
+msgid "Duplicate row for this employee and date"
+msgstr "صف مكرر لهذا الموظف وهذا التاريخ"
 
-msgid "Duration (Days)"
-msgstr "المدة (بالأيام)"
-
+#, python-brace-format
 msgid "EXPIRED {0} days ago"
 msgstr "منتهية منذ {0} يومًا"
 
@@ -286,14 +299,12 @@ msgstr "وثيقة موظف"
 msgid "Employee Document Register"
 msgstr "سجل وثائق الموظفين"
 
-msgid "Employee Status"
-msgstr "حالة الموظف"
+msgid "Employee ID not found"
+msgstr "رقم الموظف غير موجود"
 
+#, python-brace-format
 msgid "Employee already has a current deployment {0} starting on or after {1}."
 msgstr "لدى الموظف إسناد حالي {0} يبدأ في {1} أو بعده."
-
-msgid "Employees"
-msgstr "الموظفون"
 
 msgid "Employees & Iqama status"
 msgstr "الموظفون وحالة الإقامة"
@@ -316,6 +327,7 @@ msgstr "الموظفون المغادرون"
 msgid "Employees with attendance"
 msgstr "موظفون لديهم حضور"
 
+#, python-brace-format
 msgid "Employees: {0}"
 msgstr "الموظفون: {0}"
 
@@ -325,14 +337,14 @@ msgstr "منتهٍ"
 msgid "Every employee and company document, sorted by what needs attention first"
 msgstr "جميع وثائق الموظفين والشركة، مرتبة حسب الأكثر حاجة للمتابعة"
 
-msgid "Expired"
-msgstr "منتهية"
+msgid "Every row is checked first — nothing is saved yet. Review the result below, fix any errors in Excel and upload again."
+msgstr "يُفحص كل صف أولًا — لم يُحفظ شيء بعد. راجع النتيجة أدناه، وصحّح أي أخطاء في Excel ثم ارفع الملف مرة أخرى."
+
+msgid "Every row is checked first. Rows with problems are listed and not imported; everything else is created and submitted."
+msgstr "يُفحص كل صف أولًا. الصفوف التي بها مشاكل تُعرض ولا تُستورد، وما عداها يُنشأ ويُعتمد."
 
 msgid "Expired documents"
 msgstr "الوثائق المنتهية"
-
-msgid "Expiring Soon"
-msgstr "تنتهي قريبًا"
 
 msgid "Expiring in 60 days"
 msgstr "تنتهي خلال 60 يومًا"
@@ -355,6 +367,9 @@ msgstr "فالكون للموارد البشرية · سري — للاستخد�
 msgid "Falcon Resource Management"
 msgstr "Falcon Resource Management"
 
+msgid "Fill in the Status column"
+msgstr "عبّئ عمود الحالة"
+
 msgid "Filled from the branch's Company"
 msgstr "يُعبّأ من شركة الفرع"
 
@@ -367,12 +382,6 @@ msgstr "تصفية المشاريع…"
 msgid "Fix now"
 msgstr "إصلاح الآن"
 
-msgid "Frappe HR"
-msgstr "Frappe HR"
-
-msgid "From Date"
-msgstr "من تاريخ"
-
 msgid "GOSI"
 msgstr "التأمينات الاجتماعية (GOSI)"
 
@@ -384,6 +393,9 @@ msgstr "الفرق عن المخطط"
 
 msgid "Giant"
 msgstr "عملاقة"
+
+msgid "Good to know"
+msgstr "معلومة مفيدة"
 
 msgid "HR Dashboard"
 msgstr "لوحة الموارد البشرية"
@@ -412,6 +424,7 @@ msgstr "إخفاء الدليل"
 msgid "High Green"
 msgstr "أخضر مرتفع"
 
+#, python-brace-format
 msgid "Hire {0} Saudi"
 msgstr "وظّف {0} سعودي"
 
@@ -421,14 +434,24 @@ msgstr "عدد السعوديين المطلوب توظيفهم للوصول إ�
 msgid "How to read this page"
 msgstr "كيف تقرأ هذه الصفحة"
 
-msgid "In Process"
-msgstr "قيد التنفيذ"
+msgid "I have reviewed the rows and want to import the Ready rows"
+msgstr "راجعت الصفوف وأرغب في استيراد الصفوف الجاهزة"
+
+msgid "Importing…"
+msgstr "جارٍ الاستيراد…"
+
+#, python-brace-format
+msgid "Importing… {0} of {1}"
+msgstr "جارٍ الاستيراد… {0} من {1}"
 
 msgid "Inactive employees"
 msgstr "الموظفون غير النشطين"
 
 msgid "Insurance Expired"
 msgstr "تأمين منتهٍ"
+
+msgid "Invalid date"
+msgstr "تاريخ غير صالح"
 
 msgid "Iqama"
 msgstr "الإقامة"
@@ -472,6 +495,9 @@ msgstr "آخر 12 شهرًا"
 msgid "Last Checked on Qiwa"
 msgstr "آخر تحقق في قوى"
 
+msgid "Leave Type is required for On Leave"
+msgstr "نوع الإجازة مطلوب لحالة «في إجازة»"
+
 msgid "Leave empty while this is the current sponsor/deployment"
 msgstr "اتركه فارغًا ما دام هذا هو الكفيل/الإسناد الحالي"
 
@@ -481,6 +507,7 @@ msgstr "قائمة إجراءات المغادرة"
 msgid "Leaver checklist"
 msgstr "قائمة إجراءات المغادرة"
 
+#, python-brace-format
 msgid "Leaver checklist {0} created. Review it and click Submit to create the tasks."
 msgstr "تم إنشاء قائمة إجراءات المغادرة {0}. راجعها ثم اضغط «اعتماد» لإنشاء المهام."
 
@@ -489,9 +516,6 @@ msgstr "المغادرون"
 
 msgid "Left this month"
 msgstr "غادروا هذا الشهر"
-
-msgid "Location"
-msgstr "الموقع"
 
 msgid "Location Change"
 msgstr "تغيير الموقع"
@@ -505,11 +529,11 @@ msgstr "المواقع"
 msgid "Low Green"
 msgstr "أخضر منخفض"
 
+msgid "Mark attendance for many employees and many days at once: download a sheet already filled with every employee and date, type the status, upload it back. Nothing is saved until you click Import."
+msgstr "سجّل الحضور لعدد كبير من الموظفين ولأيام متعددة دفعة واحدة: نزّل ملفًا معبّأً مسبقًا بكل موظف وتاريخ، اكتب الحالة، ثم ارفعه. لا يُحفظ شيء حتى تضغط «استيراد»."
+
 msgid "Medical Insurance"
 msgstr "التأمين الطبي"
-
-msgid "Medium"
-msgstr "متوسطة"
 
 msgid "Medium Green"
 msgstr "أخضر متوسط"
@@ -523,8 +547,9 @@ msgstr "متناهية الصغر 1–5 · صغيرة 6–49 · متوسطة 50�
 msgid "Missing Documents"
 msgstr "الوثائق الناقصة"
 
-msgid "Month"
-msgstr "الشهر"
+#, python-brace-format
+msgid "Missing columns: {0}. Please use the downloaded template."
+msgstr "أعمدة ناقصة: {0}. يرجى استخدام القالب المنزّل."
 
 msgid "Monthly HR Report"
 msgstr "التقرير الشهري للموارد البشرية"
@@ -547,14 +572,14 @@ msgstr "تاريخ انتهاء اشتراك مقيم"
 msgid "Muqeem Subscription Start Date"
 msgstr "تاريخ بدء اشتراك مقيم"
 
-msgid "Name"
-msgstr "الاسم"
-
 msgid "Nationality"
 msgstr "الجنسية"
 
 msgid "Nationality mix"
 msgstr "توزيع الجنسيات"
+
+msgid "Need fixing"
+msgstr "تحتاج تصحيح"
 
 msgid "New Deployment"
 msgstr "إسناد جديد"
@@ -589,6 +614,9 @@ msgstr "لا يوجد تاريخ إقامة"
 msgid "No Iqama date"
 msgstr "لا يوجد تاريخ إقامة"
 
+msgid "No active employees match these filters."
+msgstr "لا يوجد موظفون نشطون مطابقون لهذه الفلاتر."
+
 msgid "No branch assignments yet"
 msgstr "لا توجد فروع مُسندة بعد"
 
@@ -604,14 +632,21 @@ msgstr "لا يوجد سجل إسناد بعد. اضغط «إسناد جديد»
 msgid "No document dates recorded"
 msgstr "لا توجد تواريخ وثائق مسجلة"
 
+#, python-brace-format
 msgid "No matches for “{0}”"
 msgstr "لا توجد نتائج لـ «{0}»"
 
 msgid "No projects recorded yet"
 msgstr "لا توجد مشاريع مسجلة بعد"
 
+msgid "No rows are ready to import yet."
+msgstr "لا توجد صفوف جاهزة للاستيراد بعد."
+
 msgid "No staff"
 msgstr "لا يوجد موظفون"
+
+msgid "No status (or Holiday) — skipped"
+msgstr "بدون حالة (أو عطلة) — تم التخطي"
 
 msgid "No submitted attendance for this month yet."
 msgstr "لا يوجد حضور معتمد لهذا الشهر بعد."
@@ -631,9 +666,6 @@ msgstr "غير مُسند"
 msgid "Not assigned to a project"
 msgstr "غير مُسند إلى مشروع"
 
-msgid "Not permitted"
-msgstr "غير مسموح"
-
 msgid "Not recorded"
 msgstr "غير مسجل"
 
@@ -652,29 +684,26 @@ msgstr "لا توجد نتائج مطابقة لهذه الفلاتر"
 msgid "On target"
 msgstr "ضمن المستهدف"
 
+msgid "One row per active employee per day. Holidays and attendance already marked are filled in for you."
+msgstr "صف لكل موظف نشط لكل يوم. العطلات والحضور المسجل مسبقًا معبّأة لك."
+
 msgid "Only branches with staff"
 msgstr "الفروع التي بها موظفون فقط"
+
+msgid "Only the rows marked Ready are created and submitted. Rows that need fixing or are skipped are not touched."
+msgstr "تُنشأ وتُعتمد الصفوف المعلّمة «جاهز» فقط. الصفوف التي تحتاج تصحيحًا أو المتخطاة لا تُمس."
+
+msgid "Open Attendance list"
+msgstr "فتح قائمة الحضور"
 
 msgid "Overall Saudization"
 msgstr "نسبة السعودة الإجمالية"
 
-msgid "Overview"
-msgstr "نظرة عامة"
-
 msgid "Passport"
 msgstr "جواز السفر"
 
-msgid "Pending"
-msgstr "معلّق"
-
 msgid "People & Organization"
 msgstr "الموظفون والمنظمة"
-
-msgid "Performance"
-msgstr "الأداء"
-
-msgid "Period"
-msgstr "الفترة"
 
 msgid "Platinum"
 msgstr "بلاتيني"
@@ -682,8 +711,12 @@ msgstr "بلاتيني"
 msgid "Platinum, High / Medium / Low Green and Red are Qiwa's Nitaqat bands. Record the band shown on Qiwa on each branch so you can filter by it."
 msgstr "البلاتيني والأخضر المرتفع/المتوسط/المنخفض والأحمر هي نطاقات برنامج نطاقات في قوى. سجّل النطاق الظاهر في قوى لكل فرع لتتمكن من التصفية به."
 
-msgid "Project"
-msgstr "المشروع"
+msgid "Please choose From Date and To Date."
+msgstr "يرجى اختيار «من تاريخ» و«إلى تاريخ»."
+
+#, python-brace-format
+msgid "Please choose at most {0} days per template."
+msgstr "يرجى اختيار {0} يومًا كحد أقصى لكل قالب."
 
 msgid "Project / Location"
 msgstr "المشروع / الموقع"
@@ -724,26 +757,21 @@ msgstr "تاريخ انتهاء قوى"
 msgid "Qiwa Issue Date"
 msgstr "تاريخ إصدار قوى"
 
-msgid "Reason"
-msgstr "السبب"
+msgid "Ready"
+msgstr "جاهز"
 
-msgid "Recruitment"
-msgstr "التوظيف"
+msgid "Ready to import"
+msgstr "جاهزة للاستيراد"
 
-msgid "Red"
-msgstr "أحمر"
-
-msgid "Refresh"
-msgstr "تحديث"
-
+#, python-brace-format
 msgid "Relieved on {0}"
 msgstr "تاريخ إخلاء الطرف {0}"
 
 msgid "Renew now — expiring within 30 days"
 msgstr "جدّد الآن — تنتهي خلال 30 يومًا"
 
-msgid "Reports"
-msgstr "التقارير"
+msgid "Rows in file"
+msgstr "صفوف الملف"
 
 msgid "Saudi"
 msgstr "سعودي"
@@ -784,26 +812,12 @@ msgstr "ابحث عن موظف أو رقم وظيفي أو رقم إقامة أ�
 msgid "Search name, ID, Iqama no., project, branch…"
 msgstr "ابحث بالاسم أو الرقم الوظيفي أو رقم الإقامة أو المشروع أو الفرع…"
 
-msgid "Shift Assignment Tool"
-msgstr "أداة إسناد الورديات"
-
-msgid "Shift Location"
-msgstr "موقع الوردية"
-
-msgid "Shift Schedule"
-msgstr "جدول الورديات"
-
-msgid "Shift Schedule Assignment"
-msgstr "إسناد جدول الورديات"
-
 msgid "Shifts & Roster"
 msgstr "الورديات وجدول المناوبات"
 
+#, python-brace-format
 msgid "Show {0} more"
 msgstr "عرض {0} أخرى"
-
-msgid "Size"
-msgstr "الحجم"
 
 msgid "Size class"
 msgstr "فئة الحجم"
@@ -865,23 +879,15 @@ msgstr "نقل كفالة"
 msgid "Start Leaver Checklist"
 msgstr "بدء قائمة إجراءات المغادرة"
 
-msgid "Status"
-msgstr "الحالة"
-
 msgid "Status by document"
 msgstr "الحالة حسب الوثيقة"
 
-msgid "Suspended"
-msgstr "موقوف"
+#, python-brace-format
+msgid "Status must be one of: {0}"
+msgstr "يجب أن تكون الحالة إحدى القيم: {0}"
 
 msgid "Suspended employees"
 msgstr "الموظفون الموقوفون"
-
-msgid "System Manager"
-msgstr "مدير النظام"
-
-msgid "Target"
-msgstr "المستهدف"
 
 msgid "Target %"
 msgstr "المستهدف %"
@@ -889,17 +895,14 @@ msgstr "المستهدف %"
 msgid "Target Saudization %"
 msgstr "نسبة السعودة المستهدفة %"
 
-msgid "Tax & Benefits"
-msgstr "الضرائب والمزايا"
-
-msgid "Tenure"
-msgstr "مدة الخدمة"
-
 msgid "The Saudization % the branch must keep for the band you want (from Qiwa). Enter it on Branch → Nitaqat (Saudization). Branches without one use the Default target % above."
 msgstr "نسبة السعودة التي يجب أن يحافظ عليها الفرع للنطاق المطلوب (من قوى). أدخلها في الفرع ← نطاقات (السعودة). الفروع التي لا تحتوي عليها تستخدم المستهدف الافتراضي أعلاه."
 
 msgid "The black line on each bar is the target. Click any tile, bar, chart slice or chip to drill down."
 msgstr "الخط الأسود على كل شريط هو المستهدف. اضغط على أي بطاقة أو شريط أو جزء من الرسم للتفاصيل."
+
+msgid "The file is empty."
+msgstr "الملف فارغ."
 
 msgid "The leaver checklist can only be started for employees with status Left."
 msgstr "لا يمكن بدء قائمة إجراءات المغادرة إلا للموظفين بحالة «غادر»."
@@ -907,8 +910,8 @@ msgstr "لا يمكن بدء قائمة إجراءات المغادرة إلا �
 msgid "This is the employee's current sponsor and deployment. Saving it updates Branch and Project on the Employee."
 msgstr "هذا هو الكفيل والإسناد الحالي للموظف. حفظه يحدّث الفرع والمشروع في ملف الموظف."
 
-msgid "To Date"
-msgstr "إلى تاريخ"
+msgid "Tip: in Excel, type Present once and drag it down, then change the exceptions."
+msgstr "نصيحة: في Excel اكتب «Present» مرة واحدة واسحبها للأسفل، ثم غيّر الاستثناءات."
 
 msgid "Tools & Settings"
 msgstr "الأدوات والإعدادات"
@@ -922,26 +925,40 @@ msgstr "أبرز المواقع"
 msgid "Try clearing a filter or widening the date window."
 msgstr "جرّب إزالة أحد الفلاتر أو توسيع النطاق الزمني."
 
-msgid "Type"
-msgstr "النوع"
+msgid "Unknown Leave Type"
+msgstr "نوع إجازة غير معروف"
+
+msgid "Unknown Shift"
+msgstr "وردية غير معروفة"
 
 msgid "Upcoming expiries"
 msgstr "الانتهاءات القادمة"
 
+#, python-brace-format
 msgid "Updated from deployment {0}: {1}"
 msgstr "تم التحديث من الإسناد {0}: {1}"
 
+#, python-brace-format
 msgid "Updated · {0} documents"
 msgstr "تم التحديث · {0} وثيقة"
 
 msgid "Upload Attendance (bulk)"
 msgstr "رفع الحضور (جماعي)"
 
+msgid "Upload and review"
+msgstr "الرفع والمراجعة"
+
+msgid "Upload filled file"
+msgstr "رفع الملف المعبّأ"
+
+msgid "Upload, check and import"
+msgstr "رفع وفحص واستيراد"
+
+msgid "Use: Present, Absent, Half Day, On Leave (also fill Leave Type) or Work From Home. Leave a row empty to skip it. Optional: Shift, In Time and Out Time (e.g. 08:05)."
+msgstr "استخدم: حاضر، غائب، نصف يوم، في إجازة (مع تعبئة نوع الإجازة) أو العمل من المنزل. اترك الصف فارغًا لتخطيه. اختياري: الوردية ووقت الدخول ووقت الخروج (مثل 08:05)."
+
 msgid "VAT Certificate"
 msgstr "شهادة ضريبة القيمة المضافة"
-
-msgid "View"
-msgstr "عرض"
 
 msgid "Visa"
 msgstr "التأشيرة"
@@ -954,6 +971,9 @@ msgstr "بدون فرع"
 
 msgid "Work Location"
 msgstr "موقع العمل"
+
+msgid "You need permission to create and submit Attendance."
+msgstr "تحتاج صلاحية إنشاء واعتماد الحضور."
 
 msgid "branches"
 msgstr "فروع"
@@ -982,12 +1002,14 @@ msgstr "موظفين"
 msgid "expired"
 msgstr "منتهية"
 
+#, python-brace-format
 msgid "expired {0} days ago"
 msgstr "انتهت منذ {0} يومًا"
 
 msgid "expires TODAY"
 msgstr "تنتهي اليوم"
 
+#, python-brace-format
 msgid "expires in {0} days"
 msgstr "تنتهي خلال {0} يومًا"
 
@@ -1006,6 +1028,7 @@ msgstr "غير محدد"
 msgid "past expiry date"
 msgstr "تجاوزت تاريخ الانتهاء"
 
+#, python-brace-format
 msgid "target {0}%"
 msgstr "المستهدف {0}%"
 
@@ -1021,76 +1044,94 @@ msgstr "سارية"
 msgid "within 30 days"
 msgstr "خلال 30 يومًا"
 
+#, python-brace-format
 msgid "{0} Days Left"
 msgstr "{0} - الأيام المتبقية"
 
+#, python-brace-format
 msgid "{0} Expiry"
 msgstr "انتهاء {0}"
 
+#, python-brace-format
 msgid "{0} No."
 msgstr "رقم {0}"
 
+#, python-brace-format
 msgid "{0} Saudi"
 msgstr "{0} سعودي"
 
+#, python-brace-format
 msgid "{0} Saudi of {1} active"
 msgstr "{0} سعودي من {1} نشط"
 
+#, python-brace-format
 msgid "{0} branches"
 msgstr "{0} فرع"
 
+#, python-brace-format
 msgid "{0} days remaining"
 msgstr "متبقٍ {0} يومًا"
 
+#, python-brace-format
 msgid "{0} days remaining - renew now"
 msgstr "متبقٍ {0} يومًا - جدّد الآن"
 
+#, python-brace-format
 msgid "{0} employees"
 msgstr "{0} موظفين"
 
+#, python-brace-format
 msgid "{0} employees have no branch"
 msgstr "{0} موظفًا بدون فرع"
 
+#, python-brace-format
 msgid "{0} employees in this view have no Branch (sponsor) set, so branch figures below leave them out."
 msgstr "{0} موظفًا في هذا العرض بدون فرع (كفيل)، لذلك لا تشملهم أرقام الفروع أدناه."
 
+#, python-brace-format
 msgid "{0} left the company"
 msgstr "{0} غادروا الشركة"
 
+#, python-brace-format
 msgid "{0} non-Saudi"
 msgstr "{0} غير سعودي"
 
+#, python-brace-format
 msgid "{0} of {1} employees assigned"
 msgstr "{0} من {1} موظف مُسندون"
 
+#, python-brace-format
 msgid "{0} on target"
 msgstr "{0} ضمن المستهدف"
 
+#, python-brace-format
 msgid "{0} sponsors"
 msgstr "{0} كفلاء"
 
+#, python-brace-format
 msgid "{0} with staff"
 msgstr "{0} بها موظفون"
 
+#, python-brace-format
 msgid "{0} within 30 days"
 msgstr "{0} خلال 30 يومًا"
 
-#, python-format
+#, python-brace-format, python-format
 msgid "{0}% of documents valid"
 msgstr "{0}% من الوثائق سارية"
 
-msgid "{0}d"
-msgstr "{0} ي"
-
+#, python-brace-format
 msgid "{0}d left"
 msgstr "متبقٍ {0} ي"
 
+#, python-brace-format
 msgid "{0}d overdue"
 msgstr "متأخرة {0} ي"
 
 msgid "≤ 30 days"
 msgstr "≤ 30 يومًا"
 
+#, python-brace-format
 msgid "≤ {0} days"
 msgstr "≤ {0} يومًا"
 

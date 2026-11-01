@@ -1,0 +1,42 @@
+.fba { --ink:#0b0b0b; --ink2:#52514e; --muted:#898781; --line:#e9e7df; --card:#fcfcfb;
+	margin: -15px -15px 0; padding: 26px 28px 60px; min-height: calc(100vh - 60px); color: var(--ink);
+	background: radial-gradient(1100px 480px at 0% 0%, #e8eef9 0%, transparent 60%), radial-gradient(900px 480px at 100% 0%, #f6efe2 0%, transparent 55%), #f9f9f7; }
+.fba * { box-sizing: border-box; }
+.fba-title { font-size: 34px; font-weight: 600; letter-spacing: -0.02em; margin: 0; }
+.fba-sub { color: var(--ink2); font-size: 13px; margin: 6px 0 20px; max-width: 760px; }
+.fba-steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.fba-step { background: var(--card); border: 1px solid rgba(0,0,0,.05); border-radius: 22px; padding: 18px 20px; min-width: 0; }
+.fba-step.done { outline: 2px solid #0ca30c33; }
+.fba-n { width: 30px; height: 30px; border-radius: 50%; background: var(--ink); color: #fff; display: grid; place-items: center; font-weight: 600; font-size: 13px; margin-bottom: 10px; }
+.fba-step h4 { margin: 0 0 4px; font-size: 15px; } .fba-step p { margin: 0 0 12px; font-size: 12.5px; color: var(--ink2); line-height: 1.5; }
+.fba-step .frappe-control, .fba-step .form-group { margin-bottom: 8px !important; }
+.fba-step .control-label { font-size: 11.5px; color: var(--muted); }
+.fba-btn { border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 8px 16px; font-size: 13px; font-weight: 500; cursor: pointer; white-space: nowrap; }
+.fba-btn.dark { background: var(--ink); color: #fff; border-color: var(--ink); }
+.fba-btn[disabled] { opacity: .45; cursor: default; }
+.fba-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 6px; }
+.fba-file { font-size: 12.5px; color: var(--ink2); word-break: break-all; }
+.fba-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 10px 0; }
+.fba-stat { border-radius: 14px; padding: 10px 12px; background: #f4f2ec; }
+.fba-stat b { display: block; font-size: 22px; font-variant-numeric: tabular-nums; } .fba-stat span { font-size: 11.5px; color: var(--ink2); }
+.fba-stat.ok { background: #dcefd7; } .fba-stat.err { background: #f8dcd6; } .fba-stat.skip { background: #fbecc4; }
+.fba-bar { height: 8px; border-radius: 8px; background: #ecebe5; overflow: hidden; margin: 10px 0 6px; }
+.fba-bar span { display: block; height: 100%; background: #0ca30c; border-radius: 8px; transform-origin: left; transition: transform .4s; }
+.fba-table { margin-top: 16px; background: var(--card); border-radius: 20px; border: 1px solid rgba(0,0,0,.05); overflow: auto; max-height: 520px; }
+.fba-table table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+.fba-table th { position: sticky; top: 0; background: #f6f5f0; text-align: start; padding: 9px 12px; font-weight: 500; color: var(--ink2); }
+.fba-table td { padding: 8px 12px; border-top: 1px solid #f0efea; }
+.fba-pill { display: inline-block; padding: 2px 9px; border-radius: 999px; font-size: 11px; font-weight: 600; }
+.fba-pill.ok { background: #dff1dc; color: #1d6b1d; } .fba-pill.error { background: #fbe4e4; color: #9b2222; } .fba-pill.skip { background: #fdf1cf; color: #7a5600; }
+.fba-tip { margin-top: 16px; font-size: 12.5px; color: var(--ink2); background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 12px 14px; }
+.fba-tip b { color: var(--ink); }
+@media (max-width: 1100px) { .fba-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .fba-steps { grid-template-columns: 1fr; } }
+.fba-confirm { display: flex; gap: 8px; align-items: flex-start; font-size: 12.5px; color: var(--ink); margin: 4px 0 8px; cursor: pointer; }
+.fba-confirm input { margin-top: 2px; }
+.fba-review { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+.fba-tabs { display: inline-flex; gap: 4px; padding: 4px; border-radius: 999px; background: rgba(255,255,255,.8); border: 1px solid var(--line); flex-wrap: wrap; }
+.fba-tab { border: 0; background: none; padding: 6px 14px; border-radius: 999px; font-size: 12.5px; cursor: pointer; color: var(--ink2); white-space: nowrap; }
+.fba-tab b { font-variant-numeric: tabular-nums; margin-inline-start: 3px; }
+.fba-tab.on { background: var(--ink); color: #fff; }
+.fba-step.disabled { opacity: .55; }

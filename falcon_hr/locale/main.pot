@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Falcon HR VERSION\n"
 "Report-Msgid-Bugs-To: omarhabeeb242@gmail.com\n"
-"POT-Creation-Date: 2026-11-01 19:42+0307\n"
-"PO-Revision-Date: 2026-11-01 19:42+0307\n"
+"POT-Creation-Date: 2026-11-01 20:24+0307\n"
+"PO-Revision-Date: 2026-11-01 20:24+0307\n"
 "Last-Translator: omarhabeeb242@gmail.com\n"
 "Language-Team: omarhabeeb242@gmail.com\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.16.0\n"
+"Generated-By: Babel 2.18.0\n"
 
 #: falcon_hr/api/monthly_report.py:61
 #: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:115
@@ -26,6 +26,7 @@ msgid "(default)"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:328
+#, python-brace-format
 msgid "+{0} more — use filters or the table view"
 msgstr ""
 
@@ -59,13 +60,13 @@ msgstr ""
 msgid "90 days"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:189
 msgid "Accommodation"
 msgstr ""
 
 #. Option for the 'Status' (Select) field in DocType 'Employee Deployment'
-#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json:76
 #: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:21
 #: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:120
 msgid "Active"
@@ -80,8 +81,12 @@ msgstr ""
 msgid "Active projects"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#: falcon_hr/api/attendance_upload.py:251
+msgid "After the employee's relieving date"
+msgstr ""
+
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:760
 msgid "Alert Rules"
 msgstr ""
 
@@ -139,19 +144,28 @@ msgid "Any time"
 msgstr ""
 
 #. Description of the 'Current Nitaqat Band' (Select) field in DocType 'Branch'
-#: falcon_hr/fixtures/custom_field.json
+#: falcon_hr/fixtures/custom_field.json:113
 msgid "As shown on Qiwa"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:205
 #: falcon_hr/templates/monthly_report.html:71
-#: falcon_hr/workspace_sidebar/falcon_hr.json
 msgid "Attendance"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:284
 msgid "Attendance Request"
+msgstr ""
+
+#: falcon_hr/api/attendance_upload.py:261
+msgid "Attendance already marked for this day — skipped"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:125
+#, python-brace-format
+msgid "Attendance import finished: {0} created"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:179
@@ -164,6 +178,10 @@ msgstr ""
 msgid "Band not recorded"
 msgstr ""
 
+#: falcon_hr/api/attendance_upload.py:249
+msgid "Before the employee's joining date"
+msgstr ""
+
 #: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:178
 msgid "Below target"
 msgstr ""
@@ -172,7 +190,7 @@ msgstr ""
 msgid "Board"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
+#. Label of a Sidebar Item
 #: falcon_hr/api/alerts.py:74
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:87
 #: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:145
@@ -181,12 +199,12 @@ msgstr ""
 #: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.py:27
 #: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.js:3
 #: falcon_hr/falcon_hr/report/project_assignment_register/project_assignment_register.js:5
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:78
 #: falcon_hr/templates/monthly_report.html:47
 #: falcon_hr/templates/monthly_report.html:53
 #: falcon_hr/templates/monthly_report.html:67
 #: falcon_hr/templates/monthly_report.html:79
 #: falcon_hr/templates/monthly_report.html:89
-#: falcon_hr/workspace_sidebar/falcon_hr.json
 msgid "Branch"
 msgstr ""
 
@@ -200,15 +218,19 @@ msgstr ""
 msgid "Branch (Sponsor) / Company"
 msgstr ""
 
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:43
+msgid "Branch (optional)"
+msgstr ""
+
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:87
 #: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:117
 msgid "Branch (sponsor)"
 msgstr ""
 
 #. Name of a report
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/falcon_hr/report/branch_compliance_register/branch_compliance_register.json
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/report/branch_compliance_register/branch_compliance_register.json:4
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:490
 msgid "Branch Compliance Register"
 msgstr ""
 
@@ -217,10 +239,10 @@ msgid "Branch Overview"
 msgstr ""
 
 #. Name of a report
-#. Label of a Workspace Sidebar Item
+#. Label of a Sidebar Item
 #: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:84
-#: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.json
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.json:4
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:506
 msgid "Branch Workforce Summary"
 msgstr ""
 
@@ -229,6 +251,7 @@ msgid "Branch status"
 msgstr ""
 
 #: falcon_hr/api/alerts.py:43
+#, python-brace-format
 msgid "Branch {0}"
 msgstr ""
 
@@ -265,6 +288,17 @@ msgstr ""
 msgid "Branches without a target"
 msgstr ""
 
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:2
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:21
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:252
+msgid "Bulk Attendance Upload"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:71
+msgid "Checking rows…"
+msgstr ""
+
 #: falcon_hr/falcon_hr/report/branch_compliance_register/branch_compliance_register.py:27
 msgid "City"
 msgstr ""
@@ -299,8 +333,9 @@ msgid "Code"
 msgstr ""
 
 #. Label of the company (Link) field in DocType 'Employee Deployment'
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json:61
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:42
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:88
 #: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:116
 #: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:146
@@ -310,8 +345,8 @@ msgstr ""
 #: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.py:28
 #: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.js:3
 #: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.py:35
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:173
 #: falcon_hr/public/js/falcon_hr.bundle.js:14
-#: falcon_hr/workspace_sidebar/falcon_hr.json
 msgid "Company"
 msgstr ""
 
@@ -328,7 +363,7 @@ msgid "Company documents (branches) needing attention"
 msgstr ""
 
 #. Option for the 'Reason' (Select) field in DocType 'Employee Deployment'
-#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json:163
 msgid "Contract Renewal"
 msgstr ""
 
@@ -336,27 +371,37 @@ msgstr ""
 msgid "Create"
 msgstr ""
 
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:99
+msgid "Create and submit the attendance for all ready rows?"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:122
+msgid "Created"
+msgstr ""
+
 #. Label of the is_current (Check) field in DocType 'Employee Deployment'
-#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json:85
 msgid "Current Deployment"
 msgstr ""
 
 #. Label of the custom_nitaqat_band (Select) field in DocType 'Branch'
-#: falcon_hr/fixtures/custom_field.json
+#: falcon_hr/fixtures/custom_field.json:108
 msgid "Current Nitaqat Band"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:744
 msgid "Data Import"
 msgstr ""
 
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:92
 #: falcon_hr/templates/monthly_report.html:89
 #: falcon_hr/templates/monthly_report.html:93
 msgid "Date"
 msgstr ""
 
 #: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.py:61
+#, python-brace-format
 msgid "Dates overlap with deployment {0} of this employee."
 msgstr ""
 
@@ -366,12 +411,16 @@ msgstr ""
 msgid "Days Left"
 msgstr ""
 
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:38
+msgid "Days that already have attendance are skipped, never duplicated. Holidays come from the Holiday List Assignment (HR Setup). Large months run in the background; you can keep working and come back to this page."
+msgstr ""
+
 #: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:147
 msgid "Default target %"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:157
 msgid "Department"
 msgstr ""
 
@@ -379,12 +428,12 @@ msgstr ""
 msgid "Deployment History"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
+#. Label of a Sidebar Item
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:92
 #: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.js:4
 #: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.py:26
 #: falcon_hr/falcon_hr/report/project_assignment_register/project_assignment_register.py:23
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:141
 msgid "Designation"
 msgstr ""
 
@@ -397,9 +446,9 @@ msgid "Document"
 msgstr ""
 
 #. Name of a report
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.json
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.json:4
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:458
 msgid "Document Expiry Register"
 msgstr ""
 
@@ -420,11 +469,20 @@ msgstr ""
 msgid "Download CSV"
 msgstr ""
 
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:27
+msgid "Download Excel template"
+msgstr ""
+
 #: falcon_hr/public/js/falcon_hr.bundle.js:16
 msgid "Download PDF"
 msgstr ""
 
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:24
+msgid "Download the template"
+msgstr ""
+
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:358
+#, python-brace-format
 msgid "Downloaded {0} rows"
 msgstr ""
 
@@ -432,31 +490,37 @@ msgstr ""
 msgid "Draft"
 msgstr ""
 
+#: falcon_hr/api/attendance_upload.py:253
+msgid "Duplicate row for this employee and date"
+msgstr ""
+
 #: falcon_hr/public/js/employee.js:48
 msgid "Duration"
 msgstr ""
 
 #. Label of the duration_days (Int) field in DocType 'Employee Deployment'
-#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json:130
 msgid "Duration (Days)"
 msgstr ""
 
 #: falcon_hr/public/js/branch.js:14 falcon_hr/public/js/employee.js:16
+#, python-brace-format
 msgid "EXPIRED {0} days ago"
 msgstr ""
 
 #. Description of the 'Nitaqat Activity' (Data) field in DocType 'Branch'
-#: falcon_hr/fixtures/custom_field.json
+#: falcon_hr/fixtures/custom_field.json:101
 msgid "Economic activity as shown on Qiwa"
 msgstr ""
 
 #. Label of the employee (Link) field in DocType 'Employee Deployment'
-#. Label of a Workspace Sidebar Item
+#. Label of a Sidebar Item
 #: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.js:7
-#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json:43
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:92
 #: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.py:19
 #: falcon_hr/falcon_hr/report/project_assignment_register/project_assignment_register.py:16
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:62
 msgid "Employee"
 msgstr ""
 
@@ -468,18 +532,18 @@ msgstr ""
 msgid "Employee / Branch ID"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:236
 msgid "Employee Attendance Tool"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:268
 msgid "Employee Checkin"
 msgstr ""
 
 #. Name of a DocType
-#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json:3
 msgid "Employee Deployment"
 msgstr ""
 
@@ -488,14 +552,18 @@ msgid "Employee Document"
 msgstr ""
 
 #. Name of a report
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.json
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.json:4
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:474
 msgid "Employee Document Register"
 msgstr ""
 
+#: falcon_hr/api/attendance_upload.py:236
+msgid "Employee ID not found"
+msgstr ""
+
 #. Label of the employee_name (Data) field in DocType 'Employee Deployment'
-#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json:53
 msgid "Employee Name"
 msgstr ""
 
@@ -504,6 +572,7 @@ msgid "Employee Status"
 msgstr ""
 
 #: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.py:42
+#, python-brace-format
 msgid "Employee already has a current deployment {0} starting on or after {1}."
 msgstr ""
 
@@ -548,20 +617,29 @@ msgid "Employees with attendance"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:254
+#, python-brace-format
 msgid "Employees: {0}"
 msgstr ""
 
 #. Option for the 'Status' (Select) field in DocType 'Employee Deployment'
-#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json:76
 msgid "Ended"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:91
+msgid "Error"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:47
 msgid "Every employee and company document, sorted by what needs attention first"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:32
+msgid "Every row is checked first. Rows with problems are listed and not imported; everything else is created and submitted."
+msgstr ""
+
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:633
 msgid "Expenses"
 msgstr ""
 
@@ -586,12 +664,12 @@ msgstr ""
 msgid "Expiry / Time left"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
+#. Label of a Sidebar Item
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:2
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:46
 #: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:68
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:30
 #: falcon_hr/public/js/branch.js:25 falcon_hr/public/js/employee.js:98
-#: falcon_hr/workspace_sidebar/falcon_hr.json
 msgid "Expiry Center"
 msgstr ""
 
@@ -603,9 +681,9 @@ msgid "Expiry Date"
 msgstr ""
 
 #. Label of a Desktop Icon
-#. Title of a Workspace Sidebar
-#: falcon_hr/desktop_icon/falcon_hr.json
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#. Title of a Sidebar
+#: falcon_hr/desktop_icon/falcon_hr.json:8
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:804
 msgid "Falcon HR"
 msgstr ""
 
@@ -617,9 +695,13 @@ msgstr ""
 msgid "Falcon Resource Management"
 msgstr ""
 
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:28
+msgid "Fill in the Status column"
+msgstr ""
+
 #. Description of the 'Sponsor Company' (Data) field in DocType 'Employee
 #. Deployment'
-#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json:108
 msgid "Filled from the branch's Company"
 msgstr ""
 
@@ -635,13 +717,14 @@ msgstr ""
 msgid "Fix now"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:570
 msgid "Frappe HR"
 msgstr ""
 
 #. Label of the from_date (Date) field in DocType 'Employee Deployment'
-#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json:117
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:40
 #: falcon_hr/templates/monthly_report.html:101
 msgid "From Date"
 msgstr ""
@@ -658,18 +741,22 @@ msgstr ""
 msgid "Generated"
 msgstr ""
 
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:38
+msgid "Good to know"
+msgstr ""
+
 #: falcon_hr/falcon_hr/report/project_location_summary/project_location_summary.js:2
 msgid "Group by"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
+#. Label of a Sidebar Item
 #: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:2
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:14
 msgid "HR Dashboard"
 msgstr ""
 
 #. Name of a role
-#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json:185
 msgid "HR Manager"
 msgstr ""
 
@@ -677,18 +764,18 @@ msgstr ""
 msgid "HR Overview"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:792
 msgid "HR Settings"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:713
 msgid "HR Setup"
 msgstr ""
 
 #. Name of a role
-#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json:197
 msgid "HR User"
 msgstr ""
 
@@ -714,16 +801,17 @@ msgid "Hide guide"
 msgstr ""
 
 #. Option for the 'Current Nitaqat Band' (Select) field in DocType 'Branch'
-#: falcon_hr/fixtures/custom_field.json
+#: falcon_hr/fixtures/custom_field.json:112
 msgid "High Green"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:312
+#, python-brace-format
 msgid "Hire {0} Saudi"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:300
 msgid "Holiday List"
 msgstr ""
 
@@ -735,12 +823,34 @@ msgstr ""
 msgid "How to read this page"
 msgstr ""
 
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:34
+msgid "Import"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:103
+msgid "Importing…"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:130
+#, python-brace-format
+msgid "Importing… {0} of {1}"
+msgstr ""
+
 #: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:77
 msgid "Inactive employees"
 msgstr ""
 
 #: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:30
 msgid "Insurance Expired"
+msgstr ""
+
+#: falcon_hr/api/attendance_upload.py:238
+msgid "Invalid date"
+msgstr ""
+
+#: falcon_hr/api/attendance_upload.py:257
+#, python-brace-format
+msgid "Invalid {0}"
 msgstr ""
 
 #: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:28
@@ -794,18 +904,22 @@ msgid "Last 12 months"
 msgstr ""
 
 #. Label of the custom_nitaqat_last_checked (Date) field in DocType 'Branch'
-#: falcon_hr/fixtures/custom_field.json
+#: falcon_hr/fixtures/custom_field.json:141
 msgid "Last Checked on Qiwa"
 msgstr ""
 
+#: falcon_hr/api/attendance_upload.py:242
+msgid "Leave Type is required for On Leave"
+msgstr ""
+
 #. Description of the 'To Date' (Date) field in DocType 'Employee Deployment'
-#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json:125
 msgid "Leave empty while this is the current sponsor/deployment"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:125
 #: falcon_hr/public/js/employee.js:80
-#: falcon_hr/workspace_sidebar/falcon_hr.json
 msgid "Leaver Checklist"
 msgstr ""
 
@@ -815,6 +929,7 @@ msgid "Leaver checklist"
 msgstr ""
 
 #: falcon_hr/api/leaver.py:49
+#, python-brace-format
 msgid "Leaver checklist {0} created. Review it and click Submit to create the tasks."
 msgstr ""
 
@@ -822,8 +937,8 @@ msgstr ""
 msgid "Leavers"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:585
 msgid "Leaves"
 msgstr ""
 
@@ -841,7 +956,7 @@ msgid "Location"
 msgstr ""
 
 #. Option for the 'Reason' (Select) field in DocType 'Employee Deployment'
-#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json:163
 msgid "Location Change"
 msgstr ""
 
@@ -854,7 +969,7 @@ msgid "Locations"
 msgstr ""
 
 #. Option for the 'Current Nitaqat Band' (Select) field in DocType 'Branch'
-#: falcon_hr/fixtures/custom_field.json
+#: falcon_hr/fixtures/custom_field.json:112
 msgid "Low Green"
 msgstr ""
 
@@ -862,9 +977,17 @@ msgstr ""
 msgid "Manager"
 msgstr ""
 
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:22
+msgid "Mark attendance for many employees and many days at once: download a sheet already filled with every employee and date, type the status, upload it back. Nothing is saved until you click Import."
+msgstr ""
+
 #. Option for the 'Current Nitaqat Band' (Select) field in DocType 'Branch'
-#: falcon_hr/fixtures/custom_field.json
+#: falcon_hr/fixtures/custom_field.json:112
 msgid "Medium Green"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:92
+msgid "Message"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:180
@@ -875,12 +998,17 @@ msgstr ""
 msgid "Missing Documents"
 msgstr ""
 
+#: falcon_hr/api/attendance_upload.py:156
+#, python-brace-format
+msgid "Missing columns: {0}. Please use the downloaded template."
+msgstr ""
+
 #: falcon_hr/public/js/falcon_hr.bundle.js:13
 msgid "Month"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:554
 msgid "Monthly Attendance Sheet"
 msgstr ""
 
@@ -898,17 +1026,17 @@ msgid "Monthly PDF"
 msgstr ""
 
 #. Label of the custom_muqeem_number (Data) field in DocType 'Branch'
-#: falcon_hr/fixtures/custom_field.json
+#: falcon_hr/fixtures/custom_field.json:57
 msgid "Muqeem Account Number"
 msgstr ""
 
 #. Label of the custom_muqeem_expiry_date (Date) field in DocType 'Branch'
-#: falcon_hr/fixtures/custom_field.json
+#: falcon_hr/fixtures/custom_field.json:77
 msgid "Muqeem Subscription Expiry Date"
 msgstr ""
 
 #. Label of the custom_muqeem_start_date (Date) field in DocType 'Branch'
-#: falcon_hr/fixtures/custom_field.json
+#: falcon_hr/fixtures/custom_field.json:67
 msgid "Muqeem Subscription Start Date"
 msgstr ""
 
@@ -933,12 +1061,16 @@ msgstr ""
 msgid "Nationality mix"
 msgstr ""
 
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:84
+msgid "Need fixing"
+msgstr ""
+
 #: falcon_hr/public/js/employee.js:56 falcon_hr/public/js/employee.js:100
 msgid "New Deployment"
 msgstr ""
 
 #. Option for the 'Reason' (Select) field in DocType 'Employee Deployment'
-#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json:163
 msgid "New Joiner"
 msgstr ""
 
@@ -956,20 +1088,20 @@ msgstr ""
 
 #. Label of the custom_nitaqat_section (Section Break) field in DocType
 #. 'Branch'
-#: falcon_hr/fixtures/custom_field.json
+#: falcon_hr/fixtures/custom_field.json:87
 #: falcon_hr/templates/monthly_report.html:58
 msgid "Nitaqat (Saudization)"
 msgstr ""
 
 #. Label of the custom_nitaqat_activity (Data) field in DocType 'Branch'
-#: falcon_hr/fixtures/custom_field.json
+#: falcon_hr/fixtures/custom_field.json:97
 msgid "Nitaqat Activity"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
+#. Label of a Sidebar Item
 #: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:2
 #: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:79
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:46
 msgid "Nitaqat Dashboard"
 msgstr ""
 
@@ -979,6 +1111,10 @@ msgstr ""
 
 #: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:29
 msgid "No Iqama Date"
+msgstr ""
+
+#: falcon_hr/api/attendance_upload.py:89
+msgid "No active employees match these filters."
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:268
@@ -1002,11 +1138,16 @@ msgid "No document dates recorded"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:146
+#, python-brace-format
 msgid "No matches for “{0}”"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:384
 msgid "No projects recorded yet"
+msgstr ""
+
+#: falcon_hr/api/attendance_upload.py:229
+msgid "No status (or Holiday) — skipped"
 msgstr ""
 
 #: falcon_hr/templates/monthly_report.html:75
@@ -1043,7 +1184,7 @@ msgstr ""
 
 #. Label of the notes_section (Section Break) field in DocType 'Employee
 #. Deployment'
-#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json:157
 msgid "Notes"
 msgstr ""
 
@@ -1055,8 +1196,8 @@ msgstr ""
 msgid "Nothing matches these filters"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:776
 msgid "Notification Log"
 msgstr ""
 
@@ -1069,13 +1210,21 @@ msgstr ""
 msgid "On target"
 msgstr ""
 
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:25
+msgid "One row per active employee per day. Holidays and attendance already marked are filled in for you."
+msgstr ""
+
 #: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:118
 #: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.js:2
 msgid "Only branches with staff"
 msgstr ""
 
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:123
+msgid "Open Attendance list"
+msgstr ""
+
 #. Option for the 'Reason' (Select) field in DocType 'Employee Deployment'
-#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json:163
 #: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:275
 msgid "Other"
 msgstr ""
@@ -1089,18 +1238,18 @@ msgstr ""
 msgid "Overview"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:601
 msgid "Payroll"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:94
 msgid "People & Organization"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:665
 msgid "Performance"
 msgstr ""
 
@@ -1114,7 +1263,7 @@ msgid "Planned"
 msgstr ""
 
 #. Option for the 'Current Nitaqat Band' (Select) field in DocType 'Branch'
-#: falcon_hr/fixtures/custom_field.json
+#: falcon_hr/fixtures/custom_field.json:112
 msgid "Platinum"
 msgstr ""
 
@@ -1122,8 +1271,17 @@ msgstr ""
 msgid "Platinum, High / Medium / Low Green and Red are Qiwa's Nitaqat bands. Record the band shown on Qiwa on each branch so you can filter by it."
 msgstr ""
 
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:52
+msgid "Please choose From Date and To Date."
+msgstr ""
+
+#: falcon_hr/api/attendance_upload.py:64
+#, python-brace-format
+msgid "Please choose at most {0} days per template."
+msgstr ""
+
 #. Label of the project (Data) field in DocType 'Employee Deployment'
-#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json:142
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:89
 #: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:118
 #: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.py:29
@@ -1140,28 +1298,28 @@ msgid "Project / Location"
 msgstr ""
 
 #. Name of a report
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/falcon_hr/report/project_assignment_register/project_assignment_register.json
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/report/project_assignment_register/project_assignment_register.json:4
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:522
 msgid "Project Assignment Register"
 msgstr ""
 
 #. Option for the 'Reason' (Select) field in DocType 'Employee Deployment'
-#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json:163
 msgid "Project Change"
 msgstr ""
 
 #. Label of the project_location (Data) field in DocType 'Employee Deployment'
-#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json:152
 #: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.py:37
 #: falcon_hr/falcon_hr/report/project_assignment_register/project_assignment_register.py:14
 msgid "Project Location"
 msgstr ""
 
 #. Name of a report
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/falcon_hr/report/project_location_summary/project_location_summary.json
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/report/project_location_summary/project_location_summary.json:4
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:538
 msgid "Project Location Summary"
 msgstr ""
 
@@ -1181,38 +1339,46 @@ msgstr ""
 
 #. Label of the custom_qiwa_muqeem_section (Section Break) field in DocType
 #. 'Branch'
-#: falcon_hr/fixtures/custom_field.json
+#: falcon_hr/fixtures/custom_field.json:7
 msgid "Qiwa & Muqeem"
 msgstr ""
 
 #. Label of the custom_qiwa_number (Data) field in DocType 'Branch'
-#: falcon_hr/fixtures/custom_field.json
+#: falcon_hr/fixtures/custom_field.json:17
 msgid "Qiwa Establishment Number"
 msgstr ""
 
 #. Label of the custom_qiwa_expiry_date (Date) field in DocType 'Branch'
-#: falcon_hr/fixtures/custom_field.json
+#: falcon_hr/fixtures/custom_field.json:37
 msgid "Qiwa Expiry Date"
 msgstr ""
 
 #. Label of the custom_qiwa_issue_date (Date) field in DocType 'Branch'
-#: falcon_hr/fixtures/custom_field.json
+#: falcon_hr/fixtures/custom_field.json:27
 msgid "Qiwa Issue Date"
 msgstr ""
 
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:91
+msgid "Ready"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:75
+msgid "Ready to import"
+msgstr ""
+
 #. Label of the reason (Select) field in DocType 'Employee Deployment'
-#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json:162
 #: falcon_hr/templates/monthly_report.html:101
 msgid "Reason"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:649
 msgid "Recruitment"
 msgstr ""
 
 #. Option for the 'Current Nitaqat Band' (Select) field in DocType 'Branch'
-#: falcon_hr/fixtures/custom_field.json
+#: falcon_hr/fixtures/custom_field.json:112
 msgid "Red"
 msgstr ""
 
@@ -1221,11 +1387,12 @@ msgid "Refresh"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:338
+#, python-brace-format
 msgid "Relieved on {0}"
 msgstr ""
 
 #. Label of the remarks (Small Text) field in DocType 'Employee Deployment'
-#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json:168
 #: falcon_hr/falcon_hr/report/project_assignment_register/project_assignment_register.py:38
 msgid "Remarks"
 msgstr ""
@@ -1234,11 +1401,23 @@ msgstr ""
 msgid "Renew now — expiring within 30 days"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
+#. Label of a Sidebar Item
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:49
 #: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:65
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:443
 msgid "Reports"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:92
+msgid "Result"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:92
+msgid "Row"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:85
+msgid "Rows in file"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:267
@@ -1280,7 +1459,7 @@ msgstr ""
 
 #. Description of the 'Target Saudization %' (Percent) field in DocType
 #. 'Branch'
-#: falcon_hr/fixtures/custom_field.json
+#: falcon_hr/fixtures/custom_field.json:134
 msgid "Saudization % this branch must keep for its target band"
 msgstr ""
 
@@ -1304,48 +1483,48 @@ msgstr ""
 msgid "Search name, ID, Iqama no., project, branch…"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:617
 msgid "Shift & Attendance"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:347
 msgid "Shift Assignment"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:363
 msgid "Shift Assignment Tool"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:427
 msgid "Shift Location"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:411
 msgid "Shift Request"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:379
 msgid "Shift Schedule"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:395
 msgid "Shift Schedule Assignment"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:331
 msgid "Shift Type"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:316
 msgid "Shifts & Roster"
 msgstr ""
 
@@ -1355,6 +1534,7 @@ msgid "Show"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:313
+#, python-brace-format
 msgid "Show {0} more"
 msgstr ""
 
@@ -1368,6 +1548,11 @@ msgstr ""
 
 #: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:124
 msgid "Size classes and Saudis needed are calculated from active employees and the target you set; Qiwa remains the official source for your band."
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:83
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:91
+msgid "Skipped"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:99
@@ -1396,13 +1581,13 @@ msgstr ""
 
 #. Label of the sponsor_section (Section Break) field in DocType 'Employee
 #. Deployment'
-#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json:91
 msgid "Sponsor"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:109
 #: falcon_hr/public/js/employee.js:55
-#: falcon_hr/workspace_sidebar/falcon_hr.json
 msgid "Sponsor & Deployment History"
 msgstr ""
 
@@ -1411,24 +1596,24 @@ msgid "Sponsor & deployment changes"
 msgstr ""
 
 #. Label of the sponsor_branch (Link) field in DocType 'Employee Deployment'
-#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json:96
 #: falcon_hr/public/js/employee.js:48
 #: falcon_hr/templates/monthly_report.html:101
 msgid "Sponsor (Branch)"
 msgstr ""
 
 #. Description of a DocType
-#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json:209
 msgid "Sponsor (branch) and project deployment history of an employee. One active deployment per employee."
 msgstr ""
 
 #. Label of the sponsor_company (Data) field in DocType 'Employee Deployment'
-#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json:106
 msgid "Sponsor Company"
 msgstr ""
 
 #. Option for the 'Reason' (Select) field in DocType 'Employee Deployment'
-#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json:163
 msgid "Sponsorship Transfer"
 msgstr ""
 
@@ -1437,7 +1622,8 @@ msgid "Start Leaver Checklist"
 msgstr ""
 
 #. Label of the status (Select) field in DocType 'Employee Deployment'
-#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json:75
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:92
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:311
 #: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:178
 #: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.js:6
@@ -1450,12 +1636,17 @@ msgstr ""
 msgid "Status by document"
 msgstr ""
 
+#: falcon_hr/api/attendance_upload.py:240
+#, python-brace-format
+msgid "Status must be one of: {0}"
+msgstr ""
+
 #: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:77
 msgid "Suspended employees"
 msgstr ""
 
 #. Name of a role
-#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json:173
 msgid "System Manager"
 msgstr ""
 
@@ -1473,17 +1664,17 @@ msgid "Target %"
 msgstr ""
 
 #. Label of the custom_nitaqat_target_pct (Percent) field in DocType 'Branch'
-#: falcon_hr/fixtures/custom_field.json
+#: falcon_hr/fixtures/custom_field.json:130
 msgid "Target Saudization %"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:697
 msgid "Tax & Benefits"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:681
 msgid "Tenure"
 msgstr ""
 
@@ -1495,6 +1686,10 @@ msgstr ""
 msgid "The black line on each bar is the target. Click any tile, bar, chart slice or chip to drill down."
 msgstr ""
 
+#: falcon_hr/api/attendance_upload.py:151
+msgid "The file is empty."
+msgstr ""
+
 #: falcon_hr/api/leaver.py:69
 msgid "The leaver checklist can only be started for employees with status Left."
 msgstr ""
@@ -1503,17 +1698,23 @@ msgstr ""
 msgid "This is the employee's current sponsor and deployment. Saving it updates Branch and Project on the Employee."
 msgstr ""
 
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:30
+msgid "Tip: in Excel, type Present once and drag it down, then change the exceptions."
+msgstr ""
+
 #. Label of the to_date (Date) field in DocType 'Employee Deployment'
-#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json:124
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:41
 msgid "To Date"
 msgstr ""
 
+#: falcon_hr/api/attendance_upload.py:62
 #: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.py:21
 msgid "To Date cannot be before From Date"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/workspace_sidebar/falcon_hr.json
+#. Label of a Sidebar Item
+#: falcon_hr/falcon_hr/sidebar/falcon_hr/falcon_hr.json:729
 msgid "Tools & Settings"
 msgstr ""
 
@@ -1533,21 +1734,38 @@ msgstr ""
 msgid "Type"
 msgstr ""
 
+#: falcon_hr/api/attendance_upload.py:244
+msgid "Unknown Leave Type"
+msgstr ""
+
+#: falcon_hr/api/attendance_upload.py:246
+msgid "Unknown Shift"
+msgstr ""
+
 #: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:256
 msgid "Upcoming expiries"
 msgstr ""
 
 #: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.py:84
+#, python-brace-format
 msgid "Updated from deployment {0}: {1}"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:195
+#, python-brace-format
 msgid "Updated · {0} documents"
 msgstr ""
 
-#. Label of a Workspace Sidebar Item
-#: falcon_hr/workspace_sidebar/falcon_hr.json
-msgid "Upload Attendance (bulk)"
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:33
+msgid "Upload filled file"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:31
+msgid "Upload, check and import"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/bulk_attendance_upload/bulk_attendance_upload.js:29
+msgid "Use: Present, Absent, Half Day, On Leave (also fill Leave Type) or Work From Home. Leave a row empty to skip it. Optional: Shift, In Time and Out Time (e.g. 08:05)."
 msgstr ""
 
 #: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.py:59
@@ -1572,8 +1790,12 @@ msgstr ""
 
 #. Label of the work_section (Section Break) field in DocType 'Employee
 #. Deployment'
-#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json:137
 msgid "Work Location"
+msgstr ""
+
+#: falcon_hr/api/attendance_upload.py:37
+msgid "You need permission to create and submit Attendance."
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:267
@@ -1617,6 +1839,7 @@ msgid "expired"
 msgstr ""
 
 #: falcon_hr/api/alerts.py:38
+#, python-brace-format
 msgid "expired {0} days ago"
 msgstr ""
 
@@ -1625,6 +1848,7 @@ msgid "expires TODAY"
 msgstr ""
 
 #: falcon_hr/api/alerts.py:42
+#, python-brace-format
 msgid "expires in {0} days"
 msgstr ""
 
@@ -1653,6 +1877,7 @@ msgid "past expiry date"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:305
+#, python-brace-format
 msgid "target {0}%"
 msgstr ""
 
@@ -1674,93 +1899,114 @@ msgstr ""
 
 #: falcon_hr/falcon_hr/report/branch_compliance_register/branch_compliance_register.py:61
 #: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.py:72
+#, python-brace-format
 msgid "{0} Days Left"
 msgstr ""
 
 #: falcon_hr/falcon_hr/report/branch_compliance_register/branch_compliance_register.py:53
 #: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.py:64
+#, python-brace-format
 msgid "{0} Expiry"
 msgstr ""
 
 #: falcon_hr/falcon_hr/report/branch_compliance_register/branch_compliance_register.py:43
 #: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.py:55
+#, python-brace-format
 msgid "{0} No."
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:309
+#, python-brace-format
 msgid "{0} Saudi"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:90
+#, python-brace-format
 msgid "{0} Saudi of {1} active"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:213
+#, python-brace-format
 msgid "{0} branches"
 msgstr ""
 
 #: falcon_hr/public/js/branch.js:14 falcon_hr/public/js/employee.js:15
+#, python-brace-format
 msgid "{0} days remaining"
 msgstr ""
 
 #: falcon_hr/public/js/employee.js:17
+#, python-brace-format
 msgid "{0} days remaining - renew now"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:308
+#, python-brace-format
 msgid "{0} employees"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:95
+#, python-brace-format
 msgid "{0} employees have no branch"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:250
+#, python-brace-format
 msgid "{0} employees in this view have no Branch (sponsor) set, so branch figures below leave them out."
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:77
+#, python-brace-format
 msgid "{0} left the company"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:91
+#, python-brace-format
 msgid "{0} non-Saudi"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:375
+#, python-brace-format
 msgid "{0} of {1} employees assigned"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:92
+#, python-brace-format
 msgid "{0} on target"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:368
+#, python-brace-format
 msgid "{0} sponsors"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:78
+#, python-brace-format
 msgid "{0} with staff"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:79
+#, python-brace-format
 msgid "{0} within 30 days"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:80
-#, python-format
+#, python-brace-format, python-format
 msgid "{0}% of documents valid"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:412
+#, python-brace-format
 msgid "{0}d"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:285
+#, python-brace-format
 msgid "{0}d left"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:285
+#, python-brace-format
 msgid "{0}d overdue"
 msgstr ""
 
@@ -1769,6 +2015,7 @@ msgid "≤ 30 days"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:258
+#, python-brace-format
 msgid "≤ {0} days"
 msgstr ""
 

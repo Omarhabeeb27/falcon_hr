@@ -1,0 +1,14 @@
+{
+ "doctype": "Page",
+ "name": "bulk-attendance-upload",
+ "page_name": "bulk-attendance-upload",
+ "title": "Bulk Attendance Upload",
+ "module": "Falcon HR",
+ "standard": "Yes",
+ "icon": "upload",
+ "roles": [
+  {"role": "HR Manager"},
+  {"role": "HR User"},
+  {"role": "System Manager"}
+ ]
+}
