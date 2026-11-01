@@ -18,6 +18,10 @@ def after_migrate():
 	from falcon_hr.patches.v1_0.fix_duration_client_script import execute as fix_duration_script
 
 	fix_duration_script()
+	ensure_leaver_template()
+	from falcon_hr.falcon_hr.doctype.employee_deployment.employee_deployment import seed_from_employees
+
+	seed_from_employees()
 
 
 def fix_branch_field_order():
@@ -43,3 +47,40 @@ def set_employee_search_fields():
 		"Data",
 		for_doctype=True,
 	)
+
+
+LEAVER_TEMPLATE = "Falcon Leaver Checklist"
+LEAVER_ACTIVITIES = [
+	# (activity, begin_on day, duration days)
+	("Confirm last working day and relieving date", 0, 1),
+	("Exit interview", 0, 2),
+	("Collect company assets (ID card, tools, laptop, phone, SIM)", 0, 3),
+	("Hand over accommodation and keys", 0, 3),
+	("Clear advances, loans and pending expenses", 0, 5),
+	("Calculate final settlement and end-of-service benefits", 1, 5),
+	("Terminate Qiwa contract", 1, 3),
+	("Issue final exit visa / transfer sponsorship (Muqeem)", 1, 5),
+	("Cancel medical insurance", 2, 3),
+	("Deregister from GOSI", 2, 3),
+	("Return passport and documents to the employee", 3, 2),
+	("Remove system and building access", 3, 1),
+	("Pay final settlement and get signed clearance", 5, 5),
+]
+
+
+def ensure_leaver_template():
+	"""Create the HRMS Employee Separation Template used for the leaver checklist (once)."""
+	if not frappe.db.exists("DocType", "Employee Separation Template"):
+		return
+	if frappe.db.exists("Employee Separation Template", {"title": LEAVER_TEMPLATE}):
+		return
+	frappe.get_doc(
+		{
+			"doctype": "Employee Separation Template",
+			"title": LEAVER_TEMPLATE,
+			"activities": [
+				{"activity_name": a, "role": "HR User", "begin_on": b, "duration": d}
+				for a, b, d in LEAVER_ACTIVITIES
+			],
+		}
+	).insert(ignore_permissions=True)

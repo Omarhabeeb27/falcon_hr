@@ -36,6 +36,18 @@
   {
    "child": 0,
    "collapsible": 1,
+   "icon": "flag",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Nitaqat Dashboard",
+   "link_to": "nitaqat-dashboard",
+   "link_type": "Page",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
    "icon": "users",
    "indent": 0,
    "keep_closed": 0,
@@ -67,6 +79,30 @@
    "link_type": "DocType",
    "show_arrow": 0,
    "type": "Section Break"
+  },
+  {
+   "child": 1,
+   "collapsible": 1,
+   "icon": "",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Sponsor & Deployment History",
+   "link_to": "Employee Deployment",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 1,
+   "collapsible": 1,
+   "icon": "",
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Leaver Checklist",
+   "link_to": "Employee Separation",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Link"
   },
   {
    "child": 1,

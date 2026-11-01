@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Falcon HR VERSION\n"
 "Report-Msgid-Bugs-To: omarhabeeb242@gmail.com\n"
-"POT-Creation-Date: 2026-11-01 19:17+0307\n"
-"PO-Revision-Date: 2026-11-01 19:17+0307\n"
+"POT-Creation-Date: 2026-11-01 19:34+0307\n"
+"PO-Revision-Date: 2026-11-01 19:34+0307\n"
 "Last-Translator: omarhabeeb242@gmail.com\n"
 "Language-Team: omarhabeeb242@gmail.com\n"
 "MIME-Version: 1.0\n"
@@ -16,8 +16,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.16.0\n"
 
+#: falcon_hr/api/monthly_report.py:61
 #: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:115
 msgid "(No branch set)"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:305
+msgid "(default)"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:328
@@ -37,6 +42,8 @@ msgid "31-60 days"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:16
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:13
+#: falcon_hr/templates/monthly_report.html:41
 msgid "31–60 days"
 msgstr ""
 
@@ -57,16 +64,19 @@ msgstr ""
 msgid "Accommodation"
 msgstr ""
 
+#. Option for the 'Status' (Select) field in DocType 'Employee Deployment'
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
 #: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:21
 #: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:120
 msgid "Active"
 msgstr ""
 
-#: falcon_hr/public/js/branch.js:36
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:77
+#: falcon_hr/public/js/branch.js:36 falcon_hr/templates/monthly_report.html:30
 msgid "Active employees"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:370
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:374
 msgid "Active projects"
 msgstr ""
 
@@ -79,16 +89,24 @@ msgstr ""
 msgid "All"
 msgstr ""
 
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:106
+msgid "All bands"
+msgstr ""
+
+#: falcon_hr/api/monthly_report.py:77
+msgid "All companies"
+msgstr ""
+
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:239
 msgid "All documents"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:251
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:255
 msgid "All employee + branch documents"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:57
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:75
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:77
 msgid "All employees"
 msgstr ""
 
@@ -99,8 +117,16 @@ msgstr ""
 
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:89
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:203
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:117
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:119
 msgid "All projects"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:111
+msgid "All sizes"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:102
+msgid "All statuses"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:95
@@ -112,7 +138,13 @@ msgstr ""
 msgid "Any time"
 msgstr ""
 
+#. Description of the 'Current Nitaqat Band' (Select) field in DocType 'Branch'
+#: falcon_hr/fixtures/custom_field.json
+msgid "As shown on Qiwa"
+msgstr ""
+
 #. Label of a Workspace Sidebar Item
+#: falcon_hr/templates/monthly_report.html:71
 #: falcon_hr/workspace_sidebar/falcon_hr.json
 msgid "Attendance"
 msgstr ""
@@ -122,6 +154,20 @@ msgstr ""
 msgid "Attendance Request"
 msgstr ""
 
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:179
+msgid "Band"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:108
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:255
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:311
+msgid "Band not recorded"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:178
+msgid "Below target"
+msgstr ""
+
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:63
 msgid "Board"
 msgstr ""
@@ -129,12 +175,17 @@ msgstr ""
 #. Label of a Workspace Sidebar Item
 #: falcon_hr/api/alerts.py:74
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:87
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:143
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:145
 #: falcon_hr/falcon_hr/report/branch_compliance_register/branch_compliance_register.py:24
 #: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.js:5
 #: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.py:27
 #: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.js:3
 #: falcon_hr/falcon_hr/report/project_assignment_register/project_assignment_register.js:5
+#: falcon_hr/templates/monthly_report.html:47
+#: falcon_hr/templates/monthly_report.html:53
+#: falcon_hr/templates/monthly_report.html:67
+#: falcon_hr/templates/monthly_report.html:79
+#: falcon_hr/templates/monthly_report.html:89
 #: falcon_hr/workspace_sidebar/falcon_hr.json
 msgid "Branch"
 msgstr ""
@@ -150,7 +201,7 @@ msgid "Branch (Sponsor) / Company"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:87
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:115
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:117
 msgid "Branch (sponsor)"
 msgstr ""
 
@@ -167,9 +218,14 @@ msgstr ""
 
 #. Name of a report
 #. Label of a Workspace Sidebar Item
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:84
 #: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.json
 #: falcon_hr/workspace_sidebar/falcon_hr.json
 msgid "Branch Workforce Summary"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:276
+msgid "Branch status"
 msgstr ""
 
 #: falcon_hr/api/alerts.py:43
@@ -178,8 +234,8 @@ msgstr ""
 
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:61
 #: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:64
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:76
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:85
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:78
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:87
 msgid "Branches"
 msgstr ""
 
@@ -187,31 +243,54 @@ msgstr ""
 msgid "Branches (Sponsors)"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:423
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:427
 msgid "Branches (sponsors)"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:92
+#: falcon_hr/templates/monthly_report.html:62
+msgid "Branches below target"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:279
+msgid "Branches per band · click to filter"
+msgstr ""
+
+#: falcon_hr/templates/monthly_report.html:33
+msgid "Branches with staff"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:95
+#: falcon_hr/templates/monthly_report.html:64
+msgid "Branches without a target"
 msgstr ""
 
 #: falcon_hr/falcon_hr/report/branch_compliance_register/branch_compliance_register.py:27
 msgid "City"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:72
-msgid "Clear"
-msgstr ""
-
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:72
 msgid "Clear all filters"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:378
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:74
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:119
+msgid "Clear filters"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:276
+msgid "Click a colour to filter"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:382
 msgid "Click a project for its full employee list (downloadable)"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:399
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:403
 msgid "Click a row to open it in the Expiry Center"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:374
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:378
 msgid "Click to review these employees"
 msgstr ""
 
@@ -221,13 +300,15 @@ msgstr ""
 
 #. Label of a Workspace Sidebar Item
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:88
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:114
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:116
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:146
 #: falcon_hr/falcon_hr/report/branch_compliance_register/branch_compliance_register.js:2
 #: falcon_hr/falcon_hr/report/branch_compliance_register/branch_compliance_register.py:26
 #: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:19
 #: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.py:28
 #: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.js:3
 #: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.py:35
+#: falcon_hr/public/js/falcon_hr.bundle.js:14
 #: falcon_hr/workspace_sidebar/falcon_hr.json
 msgid "Company"
 msgstr ""
@@ -240,18 +321,60 @@ msgstr ""
 msgid "Company document"
 msgstr ""
 
+#: falcon_hr/templates/monthly_report.html:52
+msgid "Company documents (branches) needing attention"
+msgstr ""
+
+#. Option for the 'Reason' (Select) field in DocType 'Employee Deployment'
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+msgid "Contract Renewal"
+msgstr ""
+
+#: falcon_hr/public/js/employee.js:100
+msgid "Create"
+msgstr ""
+
+#. Label of the is_current (Check) field in DocType 'Employee Deployment'
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+msgid "Current Deployment"
+msgstr ""
+
+#. Label of the custom_nitaqat_band (Select) field in DocType 'Branch'
+#: falcon_hr/fixtures/custom_field.json
+msgid "Current Nitaqat Band"
+msgstr ""
+
 #. Label of a Workspace Sidebar Item
 #: falcon_hr/workspace_sidebar/falcon_hr.json
 msgid "Data Import"
 msgstr ""
 
+#: falcon_hr/templates/monthly_report.html:89
+#: falcon_hr/templates/monthly_report.html:93
+msgid "Date"
+msgstr ""
+
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.py:50
+msgid "Dates overlap with deployment {0} of this employee."
+msgstr ""
+
 #: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.py:31
+#: falcon_hr/templates/monthly_report.html:47
+#: falcon_hr/templates/monthly_report.html:53
 msgid "Days Left"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:147
+msgid "Default target %"
 msgstr ""
 
 #. Label of a Workspace Sidebar Item
 #: falcon_hr/workspace_sidebar/falcon_hr.json
 msgid "Department"
+msgstr ""
+
+#: falcon_hr/public/js/employee.js:99
+msgid "Deployment History"
 msgstr ""
 
 #. Label of a Workspace Sidebar Item
@@ -266,6 +389,8 @@ msgstr ""
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:310
 #: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.js:4
 #: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.py:17
+#: falcon_hr/templates/monthly_report.html:47
+#: falcon_hr/templates/monthly_report.html:53
 msgid "Document"
 msgstr ""
 
@@ -276,27 +401,57 @@ msgstr ""
 msgid "Document Expiry Register"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:251
+#: falcon_hr/templates/monthly_report.html:37
+msgid "Document compliance"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:255
 msgid "Document health"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:84
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:86
 msgid "Documents"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:50
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:83
 msgid "Download CSV"
+msgstr ""
+
+#: falcon_hr/public/js/falcon_hr.bundle.js:16
+msgid "Download PDF"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:358
 msgid "Downloaded {0} rows"
 msgstr ""
 
+#: falcon_hr/templates/monthly_report.html:95
+msgid "Draft"
+msgstr ""
+
+#: falcon_hr/public/js/employee.js:48
+msgid "Duration"
+msgstr ""
+
+#. Label of the duration_days (Int) field in DocType 'Employee Deployment'
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+msgid "Duration (Days)"
+msgstr ""
+
 #: falcon_hr/public/js/branch.js:14 falcon_hr/public/js/employee.js:16
 msgid "EXPIRED {0} days ago"
 msgstr ""
 
+#. Description of the 'Nitaqat Activity' (Data) field in DocType 'Branch'
+#: falcon_hr/fixtures/custom_field.json
+msgid "Economic activity as shown on Qiwa"
+msgstr ""
+
+#. Label of the employee (Link) field in DocType 'Employee Deployment'
 #. Label of a Workspace Sidebar Item
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.js:7
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
 #: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.py:19
 #: falcon_hr/falcon_hr/report/project_assignment_register/project_assignment_register.py:16
 #: falcon_hr/workspace_sidebar/falcon_hr.json
@@ -321,6 +476,11 @@ msgstr ""
 msgid "Employee Checkin"
 msgstr ""
 
+#. Name of a DocType
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+msgid "Employee Deployment"
+msgstr ""
+
 #: falcon_hr/api/alerts.py:36
 msgid "Employee Document"
 msgstr ""
@@ -332,17 +492,28 @@ msgstr ""
 msgid "Employee Document Register"
 msgstr ""
 
+#. Label of the employee_name (Data) field in DocType 'Employee Deployment'
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+msgid "Employee Name"
+msgstr ""
+
 #: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.js:5
 msgid "Employee Status"
 msgstr ""
 
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.py:31
+msgid "Employee already has a current deployment {0} starting on or after {1}."
+msgstr ""
+
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:61
 #: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:63
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:87
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:89
 #: falcon_hr/falcon_hr/report/project_assignment_register/project_assignment_register.py:82
 #: falcon_hr/falcon_hr/report/project_location_summary/project_location_summary.py:13
 #: falcon_hr/falcon_hr/report/project_location_summary/project_location_summary.py:80
-#: falcon_hr/public/js/branch.js:24
+#: falcon_hr/public/js/branch.js:24 falcon_hr/templates/monthly_report.html:67
+#: falcon_hr/templates/monthly_report.html:79
+#: falcon_hr/templates/monthly_report.html:82
 msgid "Employees"
 msgstr ""
 
@@ -350,20 +521,37 @@ msgstr ""
 msgid "Employees & Iqama status"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:253
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:257
 msgid "Employees in this view"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:375
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:379
 msgid "Employees per project location"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:250
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:280
+msgid "Employees per size · green = Saudi"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:254
 msgid "Employees per sponsoring branch"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:77
+msgid "Employees who left"
+msgstr ""
+
+#: falcon_hr/templates/monthly_report.html:73
+msgid "Employees with attendance"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:254
 msgid "Employees: {0}"
+msgstr ""
+
+#. Option for the 'Status' (Select) field in DocType 'Employee Deployment'
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+msgid "Ended"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:47
@@ -376,14 +564,15 @@ msgid "Expenses"
 msgstr ""
 
 #: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.py:43
+#: falcon_hr/templates/monthly_report.html:39
 msgid "Expired"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:78
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:80
 msgid "Expired documents"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:77
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:79
 msgid "Expiring in 60 days"
 msgstr ""
 
@@ -398,14 +587,16 @@ msgstr ""
 #. Label of a Workspace Sidebar Item
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:2
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:46
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:66
-#: falcon_hr/public/js/branch.js:25 falcon_hr/public/js/employee.js:34
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:68
+#: falcon_hr/public/js/branch.js:25 falcon_hr/public/js/employee.js:98
 #: falcon_hr/workspace_sidebar/falcon_hr.json
 msgid "Expiry Center"
 msgstr ""
 
 #: falcon_hr/api/alerts.py:73
 #: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.py:30
+#: falcon_hr/templates/monthly_report.html:47
+#: falcon_hr/templates/monthly_report.html:53
 msgid "Expiry Date"
 msgstr ""
 
@@ -416,25 +607,41 @@ msgstr ""
 msgid "Falcon HR"
 msgstr ""
 
+#: falcon_hr/templates/monthly_report.html:105
+msgid "Falcon HR · confidential — for management use only"
+msgstr ""
+
 #: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:60
 msgid "Falcon Resource Management"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:424
+#. Description of the 'Sponsor Company' (Data) field in DocType 'Employee
+#. Deployment'
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+msgid "Filled from the branch's Company"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:428
 msgid "Filter branches…"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:379
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:383
 msgid "Filter projects…"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:247
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:251
 msgid "Fix now"
 msgstr ""
 
 #. Label of a Workspace Sidebar Item
 #: falcon_hr/workspace_sidebar/falcon_hr.json
 msgid "Frappe HR"
+msgstr ""
+
+#. Label of the from_date (Date) field in DocType 'Employee Deployment'
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#: falcon_hr/templates/monthly_report.html:101
+msgid "From Date"
 msgstr ""
 
 #: falcon_hr/falcon_hr/report/branch_compliance_register/branch_compliance_register.py:30
@@ -445,6 +652,10 @@ msgstr ""
 msgid "Gap vs Plan"
 msgstr ""
 
+#: falcon_hr/templates/monthly_report.html:24
+msgid "Generated"
+msgstr ""
+
 #: falcon_hr/falcon_hr/report/project_location_summary/project_location_summary.js:2
 msgid "Group by"
 msgstr ""
@@ -453,6 +664,11 @@ msgstr ""
 #: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:2
 #: falcon_hr/workspace_sidebar/falcon_hr.json
 msgid "HR Dashboard"
+msgstr ""
+
+#. Name of a role
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+msgid "HR Manager"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:59
@@ -469,17 +685,56 @@ msgstr ""
 msgid "HR Setup"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:250
+#. Name of a role
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+msgid "HR User"
+msgstr ""
+
+#: falcon_hr/templates/monthly_report.html:28
+msgid "Headcount & movements"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:254
+#: falcon_hr/templates/monthly_report.html:78
 msgid "Headcount by branch"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:423
+#: falcon_hr/templates/monthly_report.html:81
+msgid "Headcount by project"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:427
 msgid "Headcount, Iqama status and company document validity per branch"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:82
+msgid "Hide guide"
+msgstr ""
+
+#. Option for the 'Current Nitaqat Band' (Select) field in DocType 'Branch'
+#: falcon_hr/fixtures/custom_field.json
+msgid "High Green"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:312
+msgid "Hire {0} Saudi"
 msgstr ""
 
 #. Label of a Workspace Sidebar Item
 #: falcon_hr/workspace_sidebar/falcon_hr.json
 msgid "Holiday List"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:177
+msgid "How many Saudis to hire to reach the target. Each hire also adds to the headcount, so it is slightly more than “target × headcount − Saudis”."
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:82
+msgid "How to read this page"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:77
+msgid "Inactive employees"
 msgstr ""
 
 #: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:30
@@ -499,29 +754,70 @@ msgstr ""
 msgid "Iqama Valid"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:365
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:416
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:369
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:420
 msgid "Iqama expired"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:366
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:417
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:370
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:421
 #: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:27
 #: falcon_hr/falcon_hr/report/project_location_summary/project_location_summary.py:22
 msgid "Iqama ≤60d"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:342
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:347
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:346
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:351
 msgid "Joined"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:254
+#: falcon_hr/templates/monthly_report.html:31
+msgid "Joined this month"
+msgstr ""
+
+#: falcon_hr/templates/monthly_report.html:88
+msgid "Joiners"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:258
 msgid "Joiners and leavers"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:254
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:274
+msgid "Largest branches in the current filter · black line = target"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:258
 msgid "Last 12 months"
+msgstr ""
+
+#. Label of the custom_nitaqat_last_checked (Date) field in DocType 'Branch'
+#: falcon_hr/fixtures/custom_field.json
+msgid "Last Checked on Qiwa"
+msgstr ""
+
+#. Description of the 'To Date' (Date) field in DocType 'Employee Deployment'
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+msgid "Leave empty while this is the current sponsor/deployment"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/public/js/employee.js:80
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Leaver Checklist"
+msgstr ""
+
+#: falcon_hr/public/js/employee.js:82
+#: falcon_hr/templates/monthly_report.html:93
+msgid "Leaver checklist"
+msgstr ""
+
+#: falcon_hr/api/leaver.py:49
+msgid "Leaver checklist {0} created. Review it and click Submit to create the tasks."
+msgstr ""
+
+#: falcon_hr/templates/monthly_report.html:92
+msgid "Leavers"
 msgstr ""
 
 #. Label of a Workspace Sidebar Item
@@ -529,13 +825,22 @@ msgstr ""
 msgid "Leaves"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:342
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:348
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:346
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:352
 msgid "Left"
+msgstr ""
+
+#: falcon_hr/templates/monthly_report.html:32
+msgid "Left this month"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:90
 msgid "Location"
+msgstr ""
+
+#. Option for the 'Reason' (Select) field in DocType 'Employee Deployment'
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+msgid "Location Change"
 msgstr ""
 
 #: falcon_hr/falcon_hr/report/project_assignment_register/project_assignment_register.js:4
@@ -546,17 +851,48 @@ msgstr ""
 msgid "Locations"
 msgstr ""
 
+#. Option for the 'Current Nitaqat Band' (Select) field in DocType 'Branch'
+#: falcon_hr/fixtures/custom_field.json
+msgid "Low Green"
+msgstr ""
+
 #: falcon_hr/falcon_hr/report/branch_compliance_register/branch_compliance_register.py:28
 msgid "Manager"
+msgstr ""
+
+#. Option for the 'Current Nitaqat Band' (Select) field in DocType 'Branch'
+#: falcon_hr/fixtures/custom_field.json
+msgid "Medium Green"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:180
+msgid "Micro 1–5 · Small 6–49 · Medium 50–499 · Large 500–2,999 · Giant 3,000+ employees (approximate Nitaqat size classes)."
 msgstr ""
 
 #: falcon_hr/falcon_hr/report/branch_compliance_register/branch_compliance_register.py:67
 msgid "Missing Documents"
 msgstr ""
 
+#: falcon_hr/public/js/falcon_hr.bundle.js:13
+msgid "Month"
+msgstr ""
+
 #. Label of a Workspace Sidebar Item
 #: falcon_hr/workspace_sidebar/falcon_hr.json
 msgid "Monthly Attendance Sheet"
+msgstr ""
+
+#: falcon_hr/templates/monthly_report.html:23
+msgid "Monthly HR Report"
+msgstr ""
+
+#: falcon_hr/public/js/falcon_hr.bundle.js:11
+msgid "Monthly Management PDF"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:67
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:85
+msgid "Monthly PDF"
 msgstr ""
 
 #. Label of the custom_muqeem_number (Data) field in DocType 'Branch'
@@ -577,42 +913,106 @@ msgstr ""
 #: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.py:25
 #: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.py:25
 #: falcon_hr/falcon_hr/report/project_assignment_register/project_assignment_register.py:22
+#: falcon_hr/templates/monthly_report.html:47
+#: falcon_hr/templates/monthly_report.html:89
+#: falcon_hr/templates/monthly_report.html:93
+#: falcon_hr/templates/monthly_report.html:101
 msgid "Name"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:91
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:118
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:120
 #: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.py:27
 #: falcon_hr/falcon_hr/report/project_assignment_register/project_assignment_register.py:31
 msgid "Nationality"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:253
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:257
 msgid "Nationality mix"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:252
+#: falcon_hr/public/js/employee.js:56 falcon_hr/public/js/employee.js:100
+msgid "New Deployment"
+msgstr ""
+
+#. Option for the 'Reason' (Select) field in DocType 'Employee Deployment'
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+msgid "New Joiner"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:93
+msgid "New Saudi hires needed so that every branch reaches its target"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:256
 msgid "Next 60 days, soonest first"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:66
+msgid "Nitaqat"
+msgstr ""
+
+#. Label of the custom_nitaqat_section (Section Break) field in DocType
+#. 'Branch'
+#: falcon_hr/fixtures/custom_field.json
+#: falcon_hr/templates/monthly_report.html:58
+msgid "Nitaqat (Saudization)"
+msgstr ""
+
+#. Label of the custom_nitaqat_activity (Data) field in DocType 'Branch'
+#: falcon_hr/fixtures/custom_field.json
+msgid "Nitaqat Activity"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:2
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:79
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Nitaqat Dashboard"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:279
+msgid "Nitaqat band (from Qiwa)"
 msgstr ""
 
 #: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:29
 msgid "No Iqama Date"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:264
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:268
 msgid "No branch assignments yet"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:400
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:275
+msgid "No branches match"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:292
+msgid "No branches match these filters."
+msgstr ""
+
+#: falcon_hr/public/js/employee.js:45
+msgid "No deployment history yet. Click New Deployment to record the current sponsor."
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:404
 msgid "No document dates recorded"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:144
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:146
 msgid "No matches for “{0}”"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:380
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:384
 msgid "No projects recorded yet"
+msgstr ""
+
+#: falcon_hr/templates/monthly_report.html:75
+msgid "No submitted attendance for this month yet."
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:178
+msgid "No target (enter one on the branch or set a default)"
 msgstr ""
 
 #: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:24
@@ -623,11 +1023,29 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:373
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:377
 msgid "Not assigned to a project"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:305
+#: falcon_hr/api/monthly_report.py:107
+msgid "Not permitted"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:256
+msgid "Not recorded"
+msgstr ""
+
+#: falcon_hr/templates/monthly_report.html:95
+msgid "Not started"
+msgstr ""
+
+#. Label of the notes_section (Section Break) field in DocType 'Employee
+#. Deployment'
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+msgid "Notes"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:309
 msgid "Nothing expires in the next 60 days 🎉"
 msgstr ""
 
@@ -641,14 +1059,31 @@ msgid "Notification Log"
 msgstr ""
 
 #: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.py:26
+#: falcon_hr/templates/monthly_report.html:53
 msgid "Number"
 msgstr ""
 
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:178
+msgid "On target"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:118
 #: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.js:2
 msgid "Only branches with staff"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:82
+#. Option for the 'Reason' (Select) field in DocType 'Employee Deployment'
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:275
+msgid "Other"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:90
+#: falcon_hr/templates/monthly_report.html:60
+msgid "Overall Saudization"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:84
 msgid "Overview"
 msgstr ""
 
@@ -667,20 +1102,38 @@ msgstr ""
 msgid "Performance"
 msgstr ""
 
+#: falcon_hr/public/js/employee.js:48
+msgid "Period"
+msgstr ""
+
 #: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:20
 #: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:121
 msgid "Planned"
 msgstr ""
 
+#. Option for the 'Current Nitaqat Band' (Select) field in DocType 'Branch'
+#: falcon_hr/fixtures/custom_field.json
+msgid "Platinum"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:179
+msgid "Platinum, High / Medium / Low Green and Red are Qiwa's Nitaqat bands. Record the band shown on Qiwa on each branch so you can filter by it."
+msgstr ""
+
+#. Label of the project (Data) field in DocType 'Employee Deployment'
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:89
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:116
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:118
 #: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.py:29
 #: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.py:36
 #: falcon_hr/falcon_hr/report/project_assignment_register/project_assignment_register.py:13
+#: falcon_hr/templates/monthly_report.html:82
+#: falcon_hr/templates/monthly_report.html:101
 msgid "Project"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:311
+#: falcon_hr/public/js/employee.js:48
 msgid "Project / Location"
 msgstr ""
 
@@ -691,6 +1144,13 @@ msgstr ""
 msgid "Project Assignment Register"
 msgstr ""
 
+#. Option for the 'Reason' (Select) field in DocType 'Employee Deployment'
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+msgid "Project Change"
+msgstr ""
+
+#. Label of the project_location (Data) field in DocType 'Employee Deployment'
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
 #: falcon_hr/falcon_hr/report/employee_document_register/employee_document_register.py:37
 #: falcon_hr/falcon_hr/report/project_assignment_register/project_assignment_register.py:14
 msgid "Project Location"
@@ -707,13 +1167,13 @@ msgstr ""
 msgid "Project contains"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:83
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:85
 #: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:31
 #: falcon_hr/falcon_hr/report/project_location_summary/project_location_summary.py:16
 msgid "Projects"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:378
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:382
 msgid "Projects assigned to"
 msgstr ""
 
@@ -738,9 +1198,20 @@ msgstr ""
 msgid "Qiwa Issue Date"
 msgstr ""
 
+#. Label of the reason (Select) field in DocType 'Employee Deployment'
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#: falcon_hr/templates/monthly_report.html:101
+msgid "Reason"
+msgstr ""
+
 #. Label of a Workspace Sidebar Item
 #: falcon_hr/workspace_sidebar/falcon_hr.json
 msgid "Recruitment"
+msgstr ""
+
+#. Option for the 'Current Nitaqat Band' (Select) field in DocType 'Branch'
+#: falcon_hr/fixtures/custom_field.json
+msgid "Red"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:51
@@ -751,8 +1222,14 @@ msgstr ""
 msgid "Relieved on {0}"
 msgstr ""
 
+#. Label of the remarks (Small Text) field in DocType 'Employee Deployment'
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
 #: falcon_hr/falcon_hr/report/project_assignment_register/project_assignment_register.py:38
 msgid "Remarks"
+msgstr ""
+
+#: falcon_hr/templates/monthly_report.html:46
+msgid "Renew now — expiring within 30 days"
 msgstr ""
 
 #. Label of a Workspace Sidebar Item
@@ -762,15 +1239,62 @@ msgstr ""
 msgid "Reports"
 msgstr ""
 
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:267
 #: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:23
+#: falcon_hr/templates/monthly_report.html:67
 msgid "Saudi"
 msgstr ""
 
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:91
+#: falcon_hr/templates/monthly_report.html:61
+msgid "Saudi employees"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:175
+msgid "Saudi employees ÷ all active employees of the branch. Saudi = Employee Category “Saudi” or nationality Saudi Arabia."
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:89
+msgid "Saudi employees ÷ all active employees, company-wide"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:94
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:177
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:226
+#: falcon_hr/templates/monthly_report.html:63
+#: falcon_hr/templates/monthly_report.html:67
+msgid "Saudis needed"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:226
+msgid "Saudization"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:175
 #: falcon_hr/falcon_hr/report/branch_workforce_summary/branch_workforce_summary.py:25
+#: falcon_hr/templates/monthly_report.html:67
 msgid "Saudization %"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:70
+#. Description of the 'Target Saudization %' (Percent) field in DocType
+#. 'Branch'
+#: falcon_hr/fixtures/custom_field.json
+msgid "Saudization % this branch must keep for its target band"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:80
+msgid "Saudization of every sponsoring branch compared with its target band."
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:274
+msgid "Saudization vs target"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:98
+msgid "Search branch, company or activity…"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:72
 msgid "Search employee, ID, Iqama no., passport, project or branch…"
 msgstr ""
 
@@ -832,6 +1356,18 @@ msgstr ""
 msgid "Show {0} more"
 msgstr ""
 
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:180
+msgid "Size"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:280
+msgid "Size class"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:124
+msgid "Size classes and Saudis needed are calculated from active employees and the target you set; Qiwa remains the official source for your band."
+msgstr ""
+
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:99
 msgid "Sort"
 msgstr ""
@@ -856,18 +1392,87 @@ msgstr ""
 msgid "Sort: soonest expiry"
 msgstr ""
 
+#. Label of the sponsor_section (Section Break) field in DocType 'Employee
+#. Deployment'
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+msgid "Sponsor"
+msgstr ""
+
+#. Label of a Workspace Sidebar Item
+#: falcon_hr/public/js/employee.js:55
+#: falcon_hr/workspace_sidebar/falcon_hr.json
+msgid "Sponsor & Deployment History"
+msgstr ""
+
+#: falcon_hr/templates/monthly_report.html:100
+msgid "Sponsor & deployment changes"
+msgstr ""
+
+#. Label of the sponsor_branch (Link) field in DocType 'Employee Deployment'
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+#: falcon_hr/public/js/employee.js:48
+#: falcon_hr/templates/monthly_report.html:101
+msgid "Sponsor (Branch)"
+msgstr ""
+
+#. Description of a DocType
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+msgid "Sponsor (branch) and project deployment history of an employee. One active deployment per employee."
+msgstr ""
+
+#. Label of the sponsor_company (Data) field in DocType 'Employee Deployment'
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+msgid "Sponsor Company"
+msgstr ""
+
+#. Option for the 'Reason' (Select) field in DocType 'Employee Deployment'
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+msgid "Sponsorship Transfer"
+msgstr ""
+
+#: falcon_hr/public/js/employee.js:86
+msgid "Start Leaver Checklist"
+msgstr ""
+
+#. Label of the status (Select) field in DocType 'Employee Deployment'
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:311
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:178
 #: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.js:6
 #: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.py:32
+#: falcon_hr/public/js/employee.js:48
 msgid "Status"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:399
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:403
 msgid "Status by document"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:77
+msgid "Suspended employees"
+msgstr ""
+
+#. Name of a role
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+msgid "System Manager"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:63
 msgid "Table"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:226
+#: falcon_hr/templates/monthly_report.html:67
+msgid "Target"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:176
+msgid "Target %"
+msgstr ""
+
+#. Label of the custom_nitaqat_target_pct (Percent) field in DocType 'Branch'
+#: falcon_hr/fixtures/custom_field.json
+msgid "Target Saudization %"
 msgstr ""
 
 #. Label of a Workspace Sidebar Item
@@ -880,6 +1485,27 @@ msgstr ""
 msgid "Tenure"
 msgstr ""
 
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:176
+msgid "The Saudization % the branch must keep for the band you want (from Qiwa). Enter it on Branch → Nitaqat (Saudization). Branches without one use the Default target % above."
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:182
+msgid "The black line on each bar is the target. Click any tile, bar, chart slice or chip to drill down."
+msgstr ""
+
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.js:9
+msgid "This is the employee's current sponsor and deployment. Saving it updates Branch and Project on the Employee."
+msgstr ""
+
+#. Label of the to_date (Date) field in DocType 'Employee Deployment'
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+msgid "To Date"
+msgstr ""
+
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.py:10
+msgid "To Date cannot be before From Date"
+msgstr ""
+
 #. Label of a Workspace Sidebar Item
 #: falcon_hr/workspace_sidebar/falcon_hr.json
 msgid "Tools & Settings"
@@ -889,7 +1515,7 @@ msgstr ""
 msgid "Top Nationality"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:375
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:379
 msgid "Top locations"
 msgstr ""
 
@@ -901,7 +1527,7 @@ msgstr ""
 msgid "Type"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:252
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:256
 msgid "Upcoming expiries"
 msgstr ""
 
@@ -915,26 +1541,47 @@ msgid "Upload Attendance (bulk)"
 msgstr ""
 
 #: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.py:59
+#: falcon_hr/templates/monthly_report.html:42
 msgid "Valid"
 msgstr ""
 
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.js:7
 #: falcon_hr/public/js/branch.js:24 falcon_hr/public/js/branch.js:25
-#: falcon_hr/public/js/employee.js:34
+#: falcon_hr/public/js/employee.js:98 falcon_hr/public/js/employee.js:99
 msgid "View"
 msgstr ""
 
 #: falcon_hr/falcon_hr/report/document_expiry_register/document_expiry_register.py:49
+#: falcon_hr/templates/monthly_report.html:40
 msgid "Within 30 days"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:268
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:288
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:294
+#: falcon_hr/templates/monthly_report.html:34
+msgid "Without a branch"
+msgstr ""
+
+#. Label of the work_section (Section Break) field in DocType 'Employee
+#. Deployment'
+#: falcon_hr/falcon_hr/doctype/employee_deployment/employee_deployment.json
+msgid "Work Location"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:267
+msgid "branches"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:272
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:292
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:298
 msgid "click to open"
 msgstr ""
 
+#: falcon_hr/public/js/employee.js:44
+msgid "days"
+msgstr ""
+
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:327
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:312
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:316
 msgid "days left"
 msgstr ""
 
@@ -950,12 +1597,12 @@ msgstr ""
 msgid "documents"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:361
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:414
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:365
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:418
 msgid "employees"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:408
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:412
 msgid "expired"
 msgstr ""
 
@@ -975,23 +1622,39 @@ msgstr ""
 msgid "more than 60 days"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:395
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:399
 msgid "need action"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:406
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:305
+msgid "no target set"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:410
 msgid "not set"
+msgstr ""
+
+#: falcon_hr/public/js/employee.js:43
+msgid "now"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:14
 msgid "past expiry date"
 msgstr ""
 
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:305
+msgid "target {0}%"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:94
+msgid "to bring every branch to target"
+msgstr ""
+
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:285
 msgid "today"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:299
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:303
 msgid "valid"
 msgstr ""
 
@@ -1014,6 +1677,18 @@ msgstr ""
 msgid "{0} No."
 msgstr ""
 
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:309
+msgid "{0} Saudi"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:90
+msgid "{0} Saudi of {1} active"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:213
+msgid "{0} branches"
+msgstr ""
+
 #: falcon_hr/public/js/branch.js:14 falcon_hr/public/js/employee.js:15
 msgid "{0} days remaining"
 msgstr ""
@@ -1022,40 +1697,52 @@ msgstr ""
 msgid "{0} days remaining - renew now"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:75
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:308
 msgid "{0} employees"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:246
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:95
+msgid "{0} employees have no branch"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:250
 msgid "{0} employees in this view have no Branch (sponsor) set, so branch figures below leave them out."
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:75
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:77
 msgid "{0} left the company"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:371
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:91
+msgid "{0} non-Saudi"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:375
 msgid "{0} of {1} employees assigned"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:364
+#: falcon_hr/falcon_hr/page/nitaqat_dashboard/nitaqat_dashboard.js:92
+msgid "{0} on target"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:368
 msgid "{0} sponsors"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:76
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:78
 msgid "{0} with staff"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:77
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:79
 msgid "{0} within 30 days"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:78
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:80
 #, python-format
 msgid "{0}% of documents valid"
 msgstr ""
 
-#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:408
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:412
 msgid "{0}d"
 msgstr ""
 
@@ -1065,6 +1752,10 @@ msgstr ""
 
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:285
 msgid "{0}d overdue"
+msgstr ""
+
+#: falcon_hr/falcon_hr/page/falcon_hr_dashboard/falcon_hr_dashboard.js:12
+msgid "≤ 30 days"
 msgstr ""
 
 #: falcon_hr/falcon_hr/page/expiry_center/expiry_center.js:258

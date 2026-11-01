@@ -1,0 +1,14 @@
+{
+ "doctype": "Page",
+ "name": "nitaqat-dashboard",
+ "page_name": "nitaqat-dashboard",
+ "title": "Nitaqat Dashboard",
+ "module": "Falcon HR",
+ "standard": "Yes",
+ "icon": "flag",
+ "roles": [
+  {"role": "HR Manager"},
+  {"role": "HR User"},
+  {"role": "System Manager"}
+ ]
+}

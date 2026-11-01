@@ -28,7 +28,7 @@ required_apps = ["frappe/erpnext", "frappe/hrms"]
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/falcon_hr/css/falcon_hr.css"
-# app_include_js = "/assets/falcon_hr/js/falcon_hr.js"
+app_include_js = "falcon_hr.bundle.js"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/falcon_hr/css/falcon_hr.css"
@@ -51,7 +51,14 @@ doctype_js = {
 }
 
 scheduler_events = {
-	"daily": ["falcon_hr.api.alerts.send_daily_alerts"],
+	"daily": [
+		"falcon_hr.api.alerts.send_daily_alerts",
+		"falcon_hr.falcon_hr.doctype.employee_deployment.employee_deployment.refresh_durations",
+	],
+}
+
+doc_events = {
+	"Employee": {"on_update": "falcon_hr.api.leaver.on_employee_update"},
 }
 
 after_migrate = ["falcon_hr.setup.install.after_migrate"]
@@ -60,6 +67,7 @@ after_install = ["falcon_hr.setup.install.after_install"]
 fixtures = [
 	{"dt": "Custom Field", "filters": [["name", "like", "Branch-custom_qiwa%"]]},
 	{"dt": "Custom Field", "filters": [["name", "like", "Branch-custom_muqeem%"]]},
+	{"dt": "Custom Field", "filters": [["name", "like", "Branch-custom_nitaqat%"]]},
 	{"dt": "Notification", "filters": [["name", "like", "Company Doc%"]]},
 ]
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}

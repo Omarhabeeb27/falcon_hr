@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: falcon_hr VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-11-01 19:18+0300\n"
+"POT-Creation-Date: 2026-11-01 19:34+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ar\n"
@@ -21,6 +21,9 @@ msgstr ""
 
 msgid "(No branch set)"
 msgstr "(لم يُحدَّد فرع)"
+
+msgid "(default)"
+msgstr "(افتراضي)"
 
 msgid "+{0} more — use filters or the table view"
 msgstr "+{0} أخرى — استخدم الفلاتر أو عرض الجدول"
@@ -64,6 +67,12 @@ msgstr "قواعد التنبيهات"
 msgid "All"
 msgstr "الكل"
 
+msgid "All bands"
+msgstr "جميع النطاقات"
+
+msgid "All companies"
+msgstr "جميع الشركات"
+
 msgid "All documents"
 msgstr "جميع الوثائق"
 
@@ -79,11 +88,29 @@ msgstr "جميع المواقع"
 msgid "All projects"
 msgstr "جميع المشاريع"
 
+msgid "All sizes"
+msgstr "جميع الأحجام"
+
+msgid "All statuses"
+msgstr "جميع الحالات"
+
 msgid "Already expired"
 msgstr "منتهية بالفعل"
 
 msgid "Any time"
 msgstr "أي وقت"
+
+msgid "As shown on Qiwa"
+msgstr "كما يظهر في قوى"
+
+msgid "Band"
+msgstr "النطاق"
+
+msgid "Band not recorded"
+msgstr "النطاق غير مسجل"
+
+msgid "Below target"
+msgstr "أقل من المستهدف"
 
 msgid "Board"
 msgstr "لوحة"
@@ -106,6 +133,9 @@ msgstr "نظرة عامة على الفرع"
 msgid "Branch Workforce Summary"
 msgstr "ملخص القوى العاملة للفروع"
 
+msgid "Branch status"
+msgstr "حالة الفروع"
+
 msgid "Branch {0}"
 msgstr "الفرع {0}"
 
@@ -118,11 +148,29 @@ msgstr "الفروع (الكفلاء)"
 msgid "Branches (sponsors)"
 msgstr "الفروع (الكفلاء)"
 
+msgid "Branches below target"
+msgstr "فروع أقل من المستهدف"
+
+msgid "Branches per band · click to filter"
+msgstr "عدد الفروع لكل نطاق · اضغط للتصفية"
+
+msgid "Branches with staff"
+msgstr "فروع بها موظفون"
+
+msgid "Branches without a target"
+msgstr "فروع بدون مستهدف"
+
 msgid "City"
 msgstr "المدينة"
 
 msgid "Clear all filters"
 msgstr "مسح جميع الفلاتر"
+
+msgid "Clear filters"
+msgstr "مسح الفلاتر"
+
+msgid "Click a colour to filter"
+msgstr "اضغط على لون للتصفية"
 
 msgid "Click a project for its full employee list (downloadable)"
 msgstr "اضغط على مشروع لعرض قائمة موظفيه كاملة (قابلة للتنزيل)"
@@ -142,20 +190,53 @@ msgstr "وثيقة الشركة"
 msgid "Company document"
 msgstr "وثيقة الشركة"
 
+msgid "Company documents (branches) needing attention"
+msgstr "وثائق الشركة (الفروع) التي تحتاج متابعة"
+
+msgid "Completed"
+msgstr "مكتمل"
+
+msgid "Contract Renewal"
+msgstr "تجديد العقد"
+
+msgid "Create"
+msgstr "إنشاء"
+
 msgid "Critical"
 msgstr "حرجة"
+
+msgid "Current Deployment"
+msgstr "الإسناد الحالي"
+
+msgid "Current Nitaqat Band"
+msgstr "نطاق نطاقات الحالي"
+
+msgid "Date"
+msgstr "التاريخ"
+
+msgid "Dates overlap with deployment {0} of this employee."
+msgstr "تتداخل التواريخ مع الإسناد {0} لهذا الموظف."
 
 msgid "Days Left"
 msgstr "الأيام المتبقية"
 
+msgid "Default target %"
+msgstr "المستهدف الافتراضي %"
+
 msgid "Department"
 msgstr "القسم"
+
+msgid "Deployment History"
+msgstr "سجل الإسناد"
 
 msgid "Designation"
 msgstr "المسمى الوظيفي"
 
 msgid "Document Expiry Register"
 msgstr "سجل انتهاء الوثائق"
+
+msgid "Document compliance"
+msgstr "امتثال الوثائق"
 
 msgid "Document health"
 msgstr "حالة الوثائق"
@@ -166,20 +247,38 @@ msgstr "الوثائق"
 msgid "Download CSV"
 msgstr "تنزيل CSV"
 
+msgid "Download PDF"
+msgstr "تنزيل PDF"
+
 msgid "Downloaded {0} rows"
 msgstr "تم تنزيل {0} صفًا"
+
+msgid "Draft"
+msgstr "مسودة"
 
 msgid "Driving License"
 msgstr "رخصة القيادة"
 
+msgid "Duration"
+msgstr "المدة"
+
+msgid "Duration (Days)"
+msgstr "المدة (بالأيام)"
+
 msgid "EXPIRED {0} days ago"
 msgstr "منتهية منذ {0} يومًا"
+
+msgid "Economic activity as shown on Qiwa"
+msgstr "النشاط الاقتصادي كما يظهر في قوى"
 
 msgid "Employee / Branch"
 msgstr "الموظف / الفرع"
 
 msgid "Employee / Branch ID"
 msgstr "رقم الموظف / الفرع"
+
+msgid "Employee Deployment"
+msgstr "إسناد الموظف"
 
 msgid "Employee Document"
 msgstr "وثيقة موظف"
@@ -189,6 +288,9 @@ msgstr "سجل وثائق الموظفين"
 
 msgid "Employee Status"
 msgstr "حالة الموظف"
+
+msgid "Employee already has a current deployment {0} starting on or after {1}."
+msgstr "لدى الموظف إسناد حالي {0} يبدأ في {1} أو بعده."
 
 msgid "Employees"
 msgstr "الموظفون"
@@ -202,11 +304,23 @@ msgstr "الموظفون في هذا العرض"
 msgid "Employees per project location"
 msgstr "الموظفون حسب موقع المشروع"
 
+msgid "Employees per size · green = Saudi"
+msgstr "الموظفون حسب الحجم · الأخضر = سعودي"
+
 msgid "Employees per sponsoring branch"
 msgstr "الموظفون حسب الفرع الكفيل"
 
+msgid "Employees who left"
+msgstr "الموظفون المغادرون"
+
+msgid "Employees with attendance"
+msgstr "موظفون لديهم حضور"
+
 msgid "Employees: {0}"
 msgstr "الموظفون: {0}"
+
+msgid "Ended"
+msgstr "منتهٍ"
 
 msgid "Every employee and company document, sorted by what needs attention first"
 msgstr "جميع وثائق الموظفين والشركة، مرتبة حسب الأكثر حاجة للمتابعة"
@@ -235,8 +349,14 @@ msgstr "مركز انتهاء الصلاحية"
 msgid "Falcon HR"
 msgstr "فالكون للموارد البشرية"
 
+msgid "Falcon HR · confidential — for management use only"
+msgstr "فالكون للموارد البشرية · سري — للاستخدام الإداري فقط"
+
 msgid "Falcon Resource Management"
 msgstr "Falcon Resource Management"
+
+msgid "Filled from the branch's Company"
+msgstr "يُعبّأ من شركة الفرع"
 
 msgid "Filter branches…"
 msgstr "تصفية الفروع…"
@@ -250,6 +370,9 @@ msgstr "إصلاح الآن"
 msgid "Frappe HR"
 msgstr "Frappe HR"
 
+msgid "From Date"
+msgstr "من تاريخ"
+
 msgid "GOSI"
 msgstr "التأمينات الاجتماعية (GOSI)"
 
@@ -258,6 +381,9 @@ msgstr "رقم المنشأة الفرعية في التأمينات"
 
 msgid "Gap vs Plan"
 msgstr "الفرق عن المخطط"
+
+msgid "Giant"
+msgstr "عملاقة"
 
 msgid "HR Dashboard"
 msgstr "لوحة الموارد البشرية"
@@ -268,11 +394,38 @@ msgstr "نظرة عامة على الموارد البشرية"
 msgid "HR Setup"
 msgstr "إعداد الموارد البشرية"
 
+msgid "Headcount & movements"
+msgstr "عدد الموظفين والحركات"
+
 msgid "Headcount by branch"
 msgstr "عدد الموظفين حسب الفرع"
 
+msgid "Headcount by project"
+msgstr "عدد الموظفين حسب المشروع"
+
 msgid "Headcount, Iqama status and company document validity per branch"
 msgstr "عدد الموظفين وحالة الإقامة وصلاحية وثائق الشركة لكل فرع"
+
+msgid "Hide guide"
+msgstr "إخفاء الدليل"
+
+msgid "High Green"
+msgstr "أخضر مرتفع"
+
+msgid "Hire {0} Saudi"
+msgstr "وظّف {0} سعودي"
+
+msgid "How many Saudis to hire to reach the target. Each hire also adds to the headcount, so it is slightly more than “target × headcount − Saudis”."
+msgstr "عدد السعوديين المطلوب توظيفهم للوصول إلى المستهدف. كل توظيف يزيد العدد الإجمالي أيضًا، لذلك يكون أكثر قليلًا من «المستهدف × عدد الموظفين − السعوديين»."
+
+msgid "How to read this page"
+msgstr "كيف تقرأ هذه الصفحة"
+
+msgid "In Process"
+msgstr "قيد التنفيذ"
+
+msgid "Inactive employees"
+msgstr "الموظفون غير النشطين"
 
 msgid "Insurance Expired"
 msgstr "تأمين منتهٍ"
@@ -301,14 +454,47 @@ msgstr "إقامة ≤ 60 يومًا"
 msgid "Joined"
 msgstr "انضموا"
 
+msgid "Joined this month"
+msgstr "انضموا هذا الشهر"
+
+msgid "Joiners"
+msgstr "المنضمون"
+
 msgid "Joiners and leavers"
 msgstr "المنضمون والمغادرون"
+
+msgid "Largest branches in the current filter · black line = target"
+msgstr "أكبر الفروع في التصفية الحالية · الخط الأسود = المستهدف"
 
 msgid "Last 12 months"
 msgstr "آخر 12 شهرًا"
 
+msgid "Last Checked on Qiwa"
+msgstr "آخر تحقق في قوى"
+
+msgid "Leave empty while this is the current sponsor/deployment"
+msgstr "اتركه فارغًا ما دام هذا هو الكفيل/الإسناد الحالي"
+
+msgid "Leaver Checklist"
+msgstr "قائمة إجراءات المغادرة"
+
+msgid "Leaver checklist"
+msgstr "قائمة إجراءات المغادرة"
+
+msgid "Leaver checklist {0} created. Review it and click Submit to create the tasks."
+msgstr "تم إنشاء قائمة إجراءات المغادرة {0}. راجعها ثم اضغط «اعتماد» لإنشاء المهام."
+
+msgid "Leavers"
+msgstr "المغادرون"
+
+msgid "Left this month"
+msgstr "غادروا هذا الشهر"
+
 msgid "Location"
 msgstr "الموقع"
+
+msgid "Location Change"
+msgstr "تغيير الموقع"
 
 msgid "Location contains"
 msgstr "الموقع يحتوي على"
@@ -316,11 +502,38 @@ msgstr "الموقع يحتوي على"
 msgid "Locations"
 msgstr "المواقع"
 
+msgid "Low Green"
+msgstr "أخضر منخفض"
+
 msgid "Medical Insurance"
 msgstr "التأمين الطبي"
 
+msgid "Medium"
+msgstr "متوسطة"
+
+msgid "Medium Green"
+msgstr "أخضر متوسط"
+
+msgid "Micro"
+msgstr "متناهية الصغر"
+
+msgid "Micro 1–5 · Small 6–49 · Medium 50–499 · Large 500–2,999 · Giant 3,000+ employees (approximate Nitaqat size classes)."
+msgstr "متناهية الصغر 1–5 · صغيرة 6–49 · متوسطة 50–499 · كبيرة 500–2,999 · عملاقة 3,000+ موظف (فئات حجم تقريبية في نطاقات)."
+
 msgid "Missing Documents"
 msgstr "الوثائق الناقصة"
+
+msgid "Month"
+msgstr "الشهر"
+
+msgid "Monthly HR Report"
+msgstr "التقرير الشهري للموارد البشرية"
+
+msgid "Monthly Management PDF"
+msgstr "التقرير الإداري الشهري PDF"
+
+msgid "Monthly PDF"
+msgstr "التقرير الشهري PDF"
 
 msgid "Muqeem Account Number"
 msgstr "رقم حساب مقيم"
@@ -343,8 +556,32 @@ msgstr "الجنسية"
 msgid "Nationality mix"
 msgstr "توزيع الجنسيات"
 
+msgid "New Deployment"
+msgstr "إسناد جديد"
+
+msgid "New Joiner"
+msgstr "موظف جديد"
+
+msgid "New Saudi hires needed so that every branch reaches its target"
+msgstr "عدد السعوديين الجدد المطلوب توظيفهم ليصل كل فرع إلى مستهدفه"
+
 msgid "Next 60 days, soonest first"
 msgstr "الـ 60 يومًا القادمة، الأقرب أولًا"
+
+msgid "Nitaqat"
+msgstr "نطاقات"
+
+msgid "Nitaqat (Saudization)"
+msgstr "نطاقات (السعودة)"
+
+msgid "Nitaqat Activity"
+msgstr "نشاط نطاقات"
+
+msgid "Nitaqat Dashboard"
+msgstr "لوحة نطاقات"
+
+msgid "Nitaqat band (from Qiwa)"
+msgstr "نطاق نطاقات (من قوى)"
 
 msgid "No Iqama Date"
 msgstr "لا يوجد تاريخ إقامة"
@@ -355,6 +592,15 @@ msgstr "لا يوجد تاريخ إقامة"
 msgid "No branch assignments yet"
 msgstr "لا توجد فروع مُسندة بعد"
 
+msgid "No branches match"
+msgstr "لا توجد فروع مطابقة"
+
+msgid "No branches match these filters."
+msgstr "لا توجد فروع مطابقة لهذه الفلاتر."
+
+msgid "No deployment history yet. Click New Deployment to record the current sponsor."
+msgstr "لا يوجد سجل إسناد بعد. اضغط «إسناد جديد» لتسجيل الكفيل الحالي."
+
 msgid "No document dates recorded"
 msgstr "لا توجد تواريخ وثائق مسجلة"
 
@@ -363,6 +609,18 @@ msgstr "لا توجد نتائج لـ «{0}»"
 
 msgid "No projects recorded yet"
 msgstr "لا توجد مشاريع مسجلة بعد"
+
+msgid "No staff"
+msgstr "لا يوجد موظفون"
+
+msgid "No submitted attendance for this month yet."
+msgstr "لا يوجد حضور معتمد لهذا الشهر بعد."
+
+msgid "No target"
+msgstr "بدون مستهدف"
+
+msgid "No target (enter one on the branch or set a default)"
+msgstr "بدون مستهدف (أدخله في الفرع أو حدّد قيمة افتراضية)"
 
 msgid "Non-Saudi"
 msgstr "غير سعودي"
@@ -373,8 +631,17 @@ msgstr "غير مُسند"
 msgid "Not assigned to a project"
 msgstr "غير مُسند إلى مشروع"
 
+msgid "Not permitted"
+msgstr "غير مسموح"
+
+msgid "Not recorded"
+msgstr "غير مسجل"
+
 msgid "Not set"
 msgstr "غير محدد"
+
+msgid "Not started"
+msgstr "لم تبدأ"
 
 msgid "Nothing expires in the next 60 days 🎉"
 msgstr "لا شيء ينتهي خلال الـ 60 يومًا القادمة 🎉"
@@ -382,8 +649,14 @@ msgstr "لا شيء ينتهي خلال الـ 60 يومًا القادمة 🎉
 msgid "Nothing matches these filters"
 msgstr "لا توجد نتائج مطابقة لهذه الفلاتر"
 
+msgid "On target"
+msgstr "ضمن المستهدف"
+
 msgid "Only branches with staff"
 msgstr "الفروع التي بها موظفون فقط"
+
+msgid "Overall Saudization"
+msgstr "نسبة السعودة الإجمالية"
 
 msgid "Overview"
 msgstr "نظرة عامة"
@@ -391,11 +664,23 @@ msgstr "نظرة عامة"
 msgid "Passport"
 msgstr "جواز السفر"
 
+msgid "Pending"
+msgstr "معلّق"
+
 msgid "People & Organization"
 msgstr "الموظفون والمنظمة"
 
 msgid "Performance"
 msgstr "الأداء"
+
+msgid "Period"
+msgstr "الفترة"
+
+msgid "Platinum"
+msgstr "بلاتيني"
+
+msgid "Platinum, High / Medium / Low Green and Red are Qiwa's Nitaqat bands. Record the band shown on Qiwa on each branch so you can filter by it."
+msgstr "البلاتيني والأخضر المرتفع/المتوسط/المنخفض والأحمر هي نطاقات برنامج نطاقات في قوى. سجّل النطاق الظاهر في قوى لكل فرع لتتمكن من التصفية به."
 
 msgid "Project"
 msgstr "المشروع"
@@ -405,6 +690,9 @@ msgstr "المشروع / الموقع"
 
 msgid "Project Assignment Register"
 msgstr "سجل إسناد المشاريع"
+
+msgid "Project Change"
+msgstr "تغيير المشروع"
 
 msgid "Project Location"
 msgstr "موقع المشروع"
@@ -436,8 +724,14 @@ msgstr "تاريخ انتهاء قوى"
 msgid "Qiwa Issue Date"
 msgstr "تاريخ إصدار قوى"
 
+msgid "Reason"
+msgstr "السبب"
+
 msgid "Recruitment"
 msgstr "التوظيف"
+
+msgid "Red"
+msgstr "أحمر"
 
 msgid "Refresh"
 msgstr "تحديث"
@@ -445,14 +739,44 @@ msgstr "تحديث"
 msgid "Relieved on {0}"
 msgstr "تاريخ إخلاء الطرف {0}"
 
+msgid "Renew now — expiring within 30 days"
+msgstr "جدّد الآن — تنتهي خلال 30 يومًا"
+
 msgid "Reports"
 msgstr "التقارير"
 
 msgid "Saudi"
 msgstr "سعودي"
 
+msgid "Saudi employees"
+msgstr "الموظفون السعوديون"
+
+msgid "Saudi employees ÷ all active employees of the branch. Saudi = Employee Category “Saudi” or nationality Saudi Arabia."
+msgstr "الموظفون السعوديون ÷ جميع الموظفين النشطين في الفرع. السعودي = فئة الموظف «سعودي» أو الجنسية السعودية."
+
+msgid "Saudi employees ÷ all active employees, company-wide"
+msgstr "الموظفون السعوديون ÷ جميع الموظفين النشطين على مستوى الشركة"
+
+msgid "Saudis needed"
+msgstr "السعوديون المطلوبون"
+
+msgid "Saudization"
+msgstr "السعودة"
+
 msgid "Saudization %"
 msgstr "نسبة السعودة %"
+
+msgid "Saudization % this branch must keep for its target band"
+msgstr "نسبة السعودة التي يجب أن يحافظ عليها الفرع لنطاقه المستهدف"
+
+msgid "Saudization of every sponsoring branch compared with its target band."
+msgstr "نسبة السعودة لكل فرع كفيل مقارنة بنطاقه المستهدف."
+
+msgid "Saudization vs target"
+msgstr "السعودة مقابل المستهدف"
+
+msgid "Search branch, company or activity…"
+msgstr "ابحث عن فرع أو شركة أو نشاط…"
 
 msgid "Search employee, ID, Iqama no., passport, project or branch…"
 msgstr "ابحث عن موظف أو رقم وظيفي أو رقم إقامة أو جواز أو مشروع أو فرع…"
@@ -478,14 +802,35 @@ msgstr "الورديات وجدول المناوبات"
 msgid "Show {0} more"
 msgstr "عرض {0} أخرى"
 
+msgid "Size"
+msgstr "الحجم"
+
+msgid "Size class"
+msgstr "فئة الحجم"
+
+msgid "Size classes and Saudis needed are calculated from active employees and the target you set; Qiwa remains the official source for your band."
+msgstr "تُحسب فئات الحجم والسعوديون المطلوبون من الموظفين النشطين والمستهدف الذي تحدده؛ وتبقى قوى المصدر الرسمي لنطاقك."
+
 msgid "Sort"
 msgstr "الترتيب"
+
+msgid "Sort: Saudis needed"
+msgstr "الترتيب: السعوديون المطلوبون"
 
 msgid "Sort: branch"
 msgstr "الترتيب: الفرع"
 
 msgid "Sort: document"
 msgstr "الترتيب: الوثيقة"
+
+msgid "Sort: highest Saudization"
+msgstr "الترتيب: الأعلى سعودة"
+
+msgid "Sort: lowest Saudization"
+msgstr "الترتيب: الأقل سعودة"
+
+msgid "Sort: most employees"
+msgstr "الترتيب: الأكثر موظفين"
 
 msgid "Sort: name"
 msgstr "الترتيب: الاسم"
@@ -496,6 +841,30 @@ msgstr "الترتيب: المشروع"
 msgid "Sort: soonest expiry"
 msgstr "الترتيب: الأقرب انتهاءً"
 
+msgid "Sponsor"
+msgstr "الكفيل"
+
+msgid "Sponsor & Deployment History"
+msgstr "سجل الكفالة والإسناد"
+
+msgid "Sponsor & deployment changes"
+msgstr "تغييرات الكفالة والإسناد"
+
+msgid "Sponsor (Branch)"
+msgstr "الكفيل (الفرع)"
+
+msgid "Sponsor (branch) and project deployment history of an employee. One active deployment per employee."
+msgstr "سجل كفالة الموظف (الفرع) وإسناده للمشاريع. إسناد نشط واحد لكل موظف."
+
+msgid "Sponsor Company"
+msgstr "شركة الكفيل"
+
+msgid "Sponsorship Transfer"
+msgstr "نقل كفالة"
+
+msgid "Start Leaver Checklist"
+msgstr "بدء قائمة إجراءات المغادرة"
+
 msgid "Status"
 msgstr "الحالة"
 
@@ -505,11 +874,38 @@ msgstr "الحالة حسب الوثيقة"
 msgid "Suspended"
 msgstr "موقوف"
 
+msgid "Suspended employees"
+msgstr "الموظفون الموقوفون"
+
+msgid "System Manager"
+msgstr "مدير النظام"
+
+msgid "Target"
+msgstr "المستهدف"
+
+msgid "Target %"
+msgstr "المستهدف %"
+
+msgid "Target Saudization %"
+msgstr "نسبة السعودة المستهدفة %"
+
 msgid "Tax & Benefits"
 msgstr "الضرائب والمزايا"
 
 msgid "Tenure"
 msgstr "مدة الخدمة"
+
+msgid "The Saudization % the branch must keep for the band you want (from Qiwa). Enter it on Branch → Nitaqat (Saudization). Branches without one use the Default target % above."
+msgstr "نسبة السعودة التي يجب أن يحافظ عليها الفرع للنطاق المطلوب (من قوى). أدخلها في الفرع ← نطاقات (السعودة). الفروع التي لا تحتوي عليها تستخدم المستهدف الافتراضي أعلاه."
+
+msgid "The black line on each bar is the target. Click any tile, bar, chart slice or chip to drill down."
+msgstr "الخط الأسود على كل شريط هو المستهدف. اضغط على أي بطاقة أو شريط أو جزء من الرسم للتفاصيل."
+
+msgid "This is the employee's current sponsor and deployment. Saving it updates Branch and Project on the Employee."
+msgstr "هذا هو الكفيل والإسناد الحالي للموظف. حفظه يحدّث الفرع والمشروع في ملف الموظف."
+
+msgid "To Date"
+msgstr "إلى تاريخ"
 
 msgid "Tools & Settings"
 msgstr "الأدوات والإعدادات"
@@ -547,8 +943,20 @@ msgstr "التأشيرة"
 msgid "Within 30 days"
 msgstr "خلال 30 يومًا"
 
+msgid "Without a branch"
+msgstr "بدون فرع"
+
+msgid "Work Location"
+msgstr "موقع العمل"
+
+msgid "branches"
+msgstr "فروع"
+
 msgid "click to open"
 msgstr "اضغط للفتح"
+
+msgid "days"
+msgstr "أيام"
 
 msgid "days left"
 msgstr "يومًا متبقية"
@@ -583,11 +991,20 @@ msgstr "أكثر من 60 يومًا"
 msgid "need action"
 msgstr "تحتاج إجراء"
 
+msgid "no target set"
+msgstr "لم يُحدَّد مستهدف"
+
 msgid "not set"
 msgstr "غير محدد"
 
 msgid "past expiry date"
 msgstr "تجاوزت تاريخ الانتهاء"
+
+msgid "target {0}%"
+msgstr "المستهدف {0}%"
+
+msgid "to bring every branch to target"
+msgstr "لإيصال كل فرع إلى مستهدفه"
 
 msgid "today"
 msgstr "اليوم"
@@ -607,6 +1024,15 @@ msgstr "انتهاء {0}"
 msgid "{0} No."
 msgstr "رقم {0}"
 
+msgid "{0} Saudi"
+msgstr "{0} سعودي"
+
+msgid "{0} Saudi of {1} active"
+msgstr "{0} سعودي من {1} نشط"
+
+msgid "{0} branches"
+msgstr "{0} فرع"
+
 msgid "{0} days remaining"
 msgstr "متبقٍ {0} يومًا"
 
@@ -616,14 +1042,23 @@ msgstr "متبقٍ {0} يومًا - جدّد الآن"
 msgid "{0} employees"
 msgstr "{0} موظفين"
 
+msgid "{0} employees have no branch"
+msgstr "{0} موظفًا بدون فرع"
+
 msgid "{0} employees in this view have no Branch (sponsor) set, so branch figures below leave them out."
 msgstr "{0} موظفًا في هذا العرض بدون فرع (كفيل)، لذلك لا تشملهم أرقام الفروع أدناه."
 
 msgid "{0} left the company"
 msgstr "{0} غادروا الشركة"
 
+msgid "{0} non-Saudi"
+msgstr "{0} غير سعودي"
+
 msgid "{0} of {1} employees assigned"
 msgstr "{0} من {1} موظف مُسندون"
+
+msgid "{0} on target"
+msgstr "{0} ضمن المستهدف"
 
 msgid "{0} sponsors"
 msgstr "{0} كفلاء"

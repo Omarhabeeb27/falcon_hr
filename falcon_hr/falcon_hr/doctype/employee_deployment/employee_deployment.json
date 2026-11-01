@@ -1,0 +1,199 @@
+{
+ "doctype": "DocType",
+ "name": "Employee Deployment",
+ "module": "Falcon HR",
+ "custom": 0,
+ "istable": 0,
+ "issingle": 0,
+ "autoname": "format:DEP-{YYYY}-{#####}",
+ "naming_rule": "Expression",
+ "title_field": "employee_name",
+ "show_title_field_in_link": 1,
+ "search_fields": "employee_name,sponsor_branch,project",
+ "sort_field": "from_date",
+ "sort_order": "DESC",
+ "track_changes": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "employee_name",
+  "column_break_emp",
+  "status",
+  "is_current",
+  "sponsor_section",
+  "sponsor_branch",
+  "sponsor_company",
+  "column_break_sp",
+  "from_date",
+  "to_date",
+  "duration_days",
+  "work_section",
+  "project",
+  "column_break_wk",
+  "project_location",
+  "notes_section",
+  "reason",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name",
+   "fetch_from": "employee.employee_name",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "column_break_emp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nEnded",
+   "default": "Active",
+   "read_only": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "is_current",
+   "fieldtype": "Check",
+   "label": "Current Deployment",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sponsor_section",
+   "fieldtype": "Section Break",
+   "label": "Sponsor"
+  },
+  {
+   "fieldname": "sponsor_branch",
+   "fieldtype": "Link",
+   "label": "Sponsor (Branch)",
+   "options": "Branch",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "sponsor_company",
+   "fieldtype": "Data",
+   "label": "Sponsor Company",
+   "read_only": 1,
+   "description": "Filled from the branch's Company"
+  },
+  {
+   "fieldname": "column_break_sp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date",
+   "description": "Leave empty while this is the current sponsor/deployment"
+  },
+  {
+   "fieldname": "duration_days",
+   "fieldtype": "Int",
+   "label": "Duration (Days)",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "work_section",
+   "fieldtype": "Section Break",
+   "label": "Work Location"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Data",
+   "label": "Project",
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "column_break_wk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "project_location",
+   "fieldtype": "Data",
+   "label": "Project Location"
+  },
+  {
+   "fieldname": "notes_section",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "reason",
+   "fieldtype": "Select",
+   "label": "Reason",
+   "options": "\nNew Joiner\nSponsorship Transfer\nProject Change\nLocation Change\nContract Renewal\nOther"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  }
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "HR Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  },
+  {
+   "role": "HR User",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 1
+  }
+ ],
+ "description": "Sponsor (branch) and project deployment history of an employee. One active deployment per employee."
+}

@@ -78,5 +78,69 @@
   "fieldtype": "Date",
   "insert_after": "custom_muqeem_start_date",
   "name": "Branch-custom_muqeem_expiry_date"
+ },
+ {
+  "doctype": "Custom Field",
+  "dt": "Branch",
+  "module": "Falcon HR",
+  "fieldname": "custom_nitaqat_section",
+  "label": "Nitaqat (Saudization)",
+  "fieldtype": "Section Break",
+  "insert_after": "custom_document_storage_location__notes",
+  "name": "Branch-custom_nitaqat_section"
+ },
+ {
+  "doctype": "Custom Field",
+  "dt": "Branch",
+  "module": "Falcon HR",
+  "fieldname": "custom_nitaqat_activity",
+  "label": "Nitaqat Activity",
+  "fieldtype": "Data",
+  "insert_after": "custom_nitaqat_section",
+  "name": "Branch-custom_nitaqat_activity",
+  "description": "Economic activity as shown on Qiwa"
+ },
+ {
+  "doctype": "Custom Field",
+  "dt": "Branch",
+  "module": "Falcon HR",
+  "fieldname": "custom_nitaqat_band",
+  "label": "Current Nitaqat Band",
+  "fieldtype": "Select",
+  "insert_after": "custom_nitaqat_activity",
+  "name": "Branch-custom_nitaqat_band",
+  "options": "\nPlatinum\nHigh Green\nMedium Green\nLow Green\nRed",
+  "description": "As shown on Qiwa"
+ },
+ {
+  "doctype": "Custom Field",
+  "dt": "Branch",
+  "module": "Falcon HR",
+  "fieldname": "custom_nitaqat_col",
+  "label": "",
+  "fieldtype": "Column Break",
+  "insert_after": "custom_nitaqat_band",
+  "name": "Branch-custom_nitaqat_col"
+ },
+ {
+  "doctype": "Custom Field",
+  "dt": "Branch",
+  "module": "Falcon HR",
+  "fieldname": "custom_nitaqat_target_pct",
+  "label": "Target Saudization %",
+  "fieldtype": "Percent",
+  "insert_after": "custom_nitaqat_col",
+  "name": "Branch-custom_nitaqat_target_pct",
+  "description": "Saudization % this branch must keep for its target band"
+ },
+ {
+  "doctype": "Custom Field",
+  "dt": "Branch",
+  "module": "Falcon HR",
+  "fieldname": "custom_nitaqat_last_checked",
+  "label": "Last Checked on Qiwa",
+  "fieldtype": "Date",
+  "insert_after": "custom_nitaqat_target_pct",
+  "name": "Branch-custom_nitaqat_last_checked"
  }
 ]

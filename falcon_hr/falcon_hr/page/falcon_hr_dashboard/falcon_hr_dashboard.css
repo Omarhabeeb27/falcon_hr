@@ -25,7 +25,7 @@
 .fhd-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 .fhd-title { font-size: 34px; line-height: 1.05; font-weight: 600; letter-spacing: -0.02em; margin: 0; }
 .fhd-sub { color: var(--fhd-ink-2); margin-top: 6px; font-size: 13px; }
-.fhd-actions { display: flex; gap: 8px; }
+.fhd-actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; max-width: 100%; }
 .fhd-btn {
 	border: 1px solid var(--fhd-grid); background: var(--fhd-card); border-radius: 999px;
 	padding: 8px 16px; font-size: 13px; font-weight: 500; cursor: pointer; color: var(--fhd-ink);

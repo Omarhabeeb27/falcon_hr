@@ -63,16 +63,18 @@ class FalconHRDashboard {
 					<button class="fhd-btn" data-go="employee">${__("Employees")}</button>
 					<button class="fhd-btn" data-go="branch">${__("Branches")}</button>
 					<button class="fhd-btn" data-go="reports">${__("Reports")}</button>
+					<button class="fhd-btn" data-go="nitaqat">${__("Nitaqat")}</button>
+					<button class="fhd-btn" data-go="pdf">${__("Monthly PDF")}</button>
 					<button class="fhd-btn dark" data-go="expiry">${__("Expiry Center")}</button>
 				</div>
 			</div>
 			<div class="fhd-filterbar">
 				<div class="fhd-gsearch">${ICON.search}<input type="search" placeholder="${__("Search employee, ID, Iqama no., passport, project or branch…")}" autocomplete="off"><div class="fhd-results"></div></div>
 				<div data-fc="company"></div><div data-fc="branch"></div><div data-fc="project"></div><div data-fc="nationality"></div>
-				<button class="fhd-btn" data-act="clear" ${Object.values(this.f).some(Boolean) ? "" : "disabled"}>${__("Clear")}</button>
+				<button class="fhd-btn" data-act="clear" ${Object.values(this.f).some(Boolean) ? "" : "disabled"}>${__("Clear filters")}</button>
 			</div>
 			<div class="fhd-kpis">
-				${this.kpi("hero", ICON.users, this.emp_status === "All" ? __("All employees") : __("{0} employees", [__(this.emp_status)]), fmt(k.active), __("{0} left the company", [fmt(k.left)]), "employee")}
+				${this.kpi("hero", ICON.users, { Active: __("Active employees"), Inactive: __("Inactive employees"), Suspended: __("Suspended employees"), Left: __("Employees who left"), All: __("All employees") }[this.emp_status], fmt(k.active), __("{0} left the company", [fmt(k.left)]), "employee")}
 				${this.kpi("blue", ICON.building, __("Branches"), fmt(k.branches), __("{0} with staff", [fmt(k.branches_staffed)]), "branch")}
 				${this.kpi("sand", ICON.clock, __("Expiring in 60 days"), fmt(soon), __("{0} within 30 days", [fmt(k.Critical)]), "soon")}
 				${this.kpi("rose", ICON.alert, __("Expired documents"), fmt(k.Expired), __("{0}% of documents valid", [k.valid_pct]), "expired")}
@@ -206,6 +208,8 @@ class FalconHRDashboard {
 			expired: () => { frappe.route_options = { status: "Expired", employee_status: this.emp_status, ...this.expiry_filters() }; frappe.set_route("expiry-center"); },
 			nobranch: () => frappe.set_route("List", "Employee", { status: "Active", branch: ["is", "not set"] }),
 			reports: () => frappe.set_route("query-report", "Branch Workforce Summary"),
+			nitaqat: () => frappe.set_route("nitaqat-dashboard"),
+			pdf: () => falcon_monthly_pdf_dialog(),
 			project: () => frappe.set_route("query-report", "Project Assignment Register", { project: extra }),
 			unassigned: () => frappe.set_route("List", "Employee", { status: "Active", custom_project_assigned_to: ["in", ["", "-", "na", "NA"]] }),
 			doc: () => { frappe.route_options = { document: extra, employee_status: this.emp_status, ...this.expiry_filters() }; frappe.set_route("expiry-center"); },
@@ -268,7 +272,7 @@ class FalconHRDashboard {
 				(r, i) => `<div class="fhd-hbar" ${tip(`${esc(r.label)}: <b>${fmt(r.value)}</b> · ${__("click to open")}`)}
 					${r.label === "Other" ? "" : kind === "branch" ? nav({ list: "Employee", filters: this.emp_filters({ branch: r.label }) })
 						: nav({ report: "Project Assignment Register", filters: { location: r.label } })}>
-				<div class="fhd-hbar-label" dir="auto">${esc(r.label)}</div>
+				<div class="fhd-hbar-label" dir="auto">${esc(r.label === "Other" ? __("Other") : r.label)}</div>
 				<div class="fhd-hbar-track"><div class="fhd-hbar-fill" style="width:${(100 * r.value) / max}%;animation-delay:${i * 0.04}s;${r.label === "Other" ? `background:${FHD_OTHER}` : ""}"></div></div>
 				<div class="fhd-hbar-val">${fmt(r.value)}</div></div>`
 			)
@@ -322,7 +326,7 @@ class FalconHRDashboard {
 			.map((r) => `<div style="flex:${r.value};background:${r.color};cursor:pointer" ${tip(`${esc(r.label)}: <b>${fmt(r.value)}</b> (${Math.round((100 * r.value) / total)}%)`)} ${this.nat_nav(r.label)}></div>`)
 			.join("");
 		const legend = colored
-			.map((r) => `<div class="fhd-legend-row fhd-click" ${this.nat_nav(r.label)}><span class="fhd-dot" style="background:${r.color}"></span>${esc(r.label)}
+			.map((r) => `<div class="fhd-legend-row fhd-click" ${this.nat_nav(r.label)}><span class="fhd-dot" style="background:${r.color}"></span>${esc(["Other", "Not set"].includes(r.label) ? __(r.label) : r.label)}
 				<b>${fmt(r.value)} <small class="text-muted">${Math.round((100 * r.value) / total)}%</small></b></div>`)
 			.join("");
 		return `<div class="fhd-seg">${seg}</div><div class="fhd-legend">${legend}</div>`;
