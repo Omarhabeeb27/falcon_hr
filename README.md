@@ -7,7 +7,7 @@ alerts; it does not modify any HRMS/ERPNext doctype or code.
 
 ### Screenshots
 
-> Employee names and document numbers are masked in these images.
+> Employee names and document numbers are masked in these images. Screenshots: Frappe 16.54 / HRMS 16.53.
 
 **HR Dashboard — overview** (search, filters, headline tiles, employee-status switch, headcount by branch, document health)
 
@@ -37,6 +37,10 @@ alerts; it does not modify any HRMS/ERPNext doctype or code.
 
 ![Nitaqat charts](docs/screenshots/12-nitaqat-charts.png)
 
+**Bulk Attendance Upload** — download a pre-filled template, fill Status, upload, review, then confirm the import
+
+![Bulk Attendance Upload](docs/screenshots/13-bulk-attendance-upload.png)
+
 **Desktop icon**
 
 ![Desktop](docs/screenshots/01-desktop-icon.png)
@@ -57,6 +61,7 @@ alerts; it does not modify any HRMS/ERPNext doctype or code.
 | Sponsor & deployment history (one current sponsor per employee, durations, syncs Employee branch/project) | Employee form; `Employee Deployment` |
 | Leaver checklist (13 Saudi-specific steps on HRMS Employee Separation, auto-drafted when an employee is set to Left) | Employee (Left) → Leaver Checklist |
 | Monthly management PDF | HR / Nitaqat dashboard → Monthly PDF |
+| Bulk Attendance Upload (template → review → confirm import; replaces HRMS Upload Attendance) | `/desk/falcon-hr/bulk-attendance-upload` |
 | Arabic translations (358 strings; never overrides other apps' Arabic) | `falcon_hr/locale/ar.po` |
 | Desktop icon + grouped sidebar | "Falcon HR" |
 
