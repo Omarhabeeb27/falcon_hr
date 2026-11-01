@@ -188,9 +188,10 @@ def _time(date, value):
 
 def _validate(rows):
 	emp_ids = {r["Employee"] for r in rows if r["Employee"]}
+	# get_list (not get_all): employees the user may not see are treated as "not found".
 	emps = {
 		e.name: e
-		for e in frappe.get_all(
+		for e in frappe.get_list(
 			"Employee",
 			filters={"name": ["in", list(emp_ids) or [""]]},
 			fields=["name", "employee_name", "company", "status", "date_of_joining", "relieving_date"],
@@ -207,10 +208,10 @@ def _validate(rows):
 		else set()
 	)
 	existing = set()
-	if emp_ids:
+	if emps:
 		for a in frappe.get_all(
 			"Attendance",
-			filters={"employee": ["in", list(emp_ids)], "docstatus": 1},
+			filters={"employee": ["in", list(emps)], "docstatus": 1},
 			fields=["employee", "attendance_date"],
 		):
 			existing.add((a.employee, getdate(a.attendance_date)))
@@ -270,6 +271,8 @@ def preview(file_url):
 	_check_permission()
 	checked = _validate(_read_rows(file_url))
 	summary = {k: sum(1 for c in checked if c["result"] == k) for k in ("ok", "skip", "error")}
+	for c in checked:
+		c.pop("company", None)  # internal, used only by the import job
 	summary["total"] = len(checked)
 	order = {"error": 0, "ok": 1, "skip": 2}
 	return {"summary": summary, "rows": sorted(checked, key=lambda c: (order[c["result"]], c["row"]))[:3000]}

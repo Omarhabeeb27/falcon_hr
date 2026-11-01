@@ -19,6 +19,7 @@ def after_migrate():
 
 	fix_duration_script()
 	ensure_leaver_template()
+	rename_accommodation_module()
 	from falcon_hr.falcon_hr.doctype.employee_deployment.employee_deployment import seed_from_employees
 
 	seed_from_employees()
@@ -84,3 +85,29 @@ def ensure_leaver_template():
 			],
 		}
 	).insert(ignore_permissions=True)
+
+
+ACCOMMODATION_MODULE = "Falcons Accommodation"
+
+
+def rename_accommodation_module():
+	"""The site's custom "Accommodation" doctype lived in a custom module called "build", which
+	clashes with Frappe 16.54's own "Build" module (Frappe renames it to "build (Custom)").
+	Give it a proper home: rename that custom module to "Falcons Accommodation".
+	Idempotent; only ever touches a *custom* module, never Frappe's own."""
+	if frappe.db.exists("Module Def", ACCOMMODATION_MODULE):
+		return
+	from frappe.model.rename_doc import rename_doc
+
+	for old in ("build (Custom)", "build"):
+		row = frappe.db.get_value("Module Def", old, ["name", "custom"], as_dict=True)
+		if row and row.custom:
+			rename_doc(
+				doctype="Module Def",
+				old=row.name,
+				new=ACCOMMODATION_MODULE,
+				force=True,
+				ignore_permissions=True,
+				show_alert=False,
+			)
+			return
