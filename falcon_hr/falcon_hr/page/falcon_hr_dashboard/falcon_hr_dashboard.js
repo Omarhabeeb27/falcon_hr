@@ -219,7 +219,12 @@ class FalconHRDashboard {
 		const $t = $tabs.filter(`[data-tab="${tab}"]`).addClass("active");
 		const $pill = this.$root.find(".fhd-pill");
 		if (instant) $pill.css("transition", "none");
-		$pill.css({ transform: `translateX(${$t.position().left}px)`, width: $t.outerWidth() });
+		// Measure from the pill's real resting edge: in RTL Frappe mirrors CSS (left:0 -> right:0).
+		// Resize first (in RTL the pill is right-anchored, so width moves its left edge), then measure.
+		$pill.css({ width: $t.outerWidth() });
+		const shift = new DOMMatrix(getComputedStyle($pill[0]).transform).m41;
+		const rest = $pill[0].getBoundingClientRect().left - shift;
+		$pill.css({ transform: `translateX(${$t[0].getBoundingClientRect().left - rest}px)` });
 		if (instant) setTimeout(() => $pill.css("transition", ""), 30);
 		const $body = this.$root.find(".fhd-body");
 		$body.html(this[`render_${tab}`]());

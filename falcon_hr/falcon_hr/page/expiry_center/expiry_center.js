@@ -61,7 +61,7 @@ class ExpiryCenter {
 					<button data-v="All">${__("All")}</button><button data-v="Employee">${__("Employees")}</button><button data-v="Branch">${__("Branches")}</button></div>
 				<div class="fec-seg" data-seg="view"><span class="pill"></span>
 					<button data-v="table">${__("Table")}</button><button data-v="board">${__("Board")}</button></div>
-				<div class="fec-chips" style="flex:1;min-width:0"></div>
+				<div class="fec-chips"></div>
 			</div>
 			<div class="fec-filters">
 				<div class="fec-search">${EC_ICON.search}<input type="search" placeholder="${__("Search name, ID, Iqama no., project, branch…")}"></div>
@@ -130,7 +130,12 @@ class ExpiryCenter {
 		const $b = $s.find("button").removeClass("active").filter(`[data-v="${this.state[seg]}"]`).addClass("active");
 		const $p = $s.find(".pill");
 		if (instant) $p.css("transition", "none");
-		$p.css({ transform: `translateX(${$b.position().left}px)`, width: $b.outerWidth() });
+		// Measure from the pill's real resting edge: in RTL Frappe mirrors CSS (left:0 -> right:0).
+		// Resize first (in RTL the pill is right-anchored, so width moves its left edge), then measure.
+		$p.css({ width: $b.outerWidth() });
+		const shift = new DOMMatrix(getComputedStyle($p[0]).transform).m41;
+		const rest = $p[0].getBoundingClientRect().left - shift;
+		$p.css({ transform: `translateX(${$b[0].getBoundingClientRect().left - rest}px)` });
 		if (instant) setTimeout(() => $p.css("transition", ""), 30);
 	}
 
@@ -215,7 +220,7 @@ class ExpiryCenter {
 				<div class="lbl"><i style="background:${x.color}"></i>${__(x.key)}</div>
 				<div class="val">${(s[x.key] || 0).toLocaleString()}</div>
 				<div class="hint">${x.hint} · ${Math.round((100 * (s[x.key] || 0)) / total)}%</div>
-				<div class="bar"><span style="transform:scaleX(${(s[x.key] || 0) / total});background:${x.color}"></span></div></div>`).join("")
+				<div class="bar"><span style="transform:scaleX(${(s[x.key] || 0) / total});transform-origin:${frappe.utils.is_rtl() ? "right" : "left"};background:${x.color}"></span></div></div>`).join("")
 		);
 		this.$root.find(".fec-stat").on("click", (e) => {
 			const k = $(e.currentTarget).data("status");
