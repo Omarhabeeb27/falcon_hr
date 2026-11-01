@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Falcon HR — User Guide</title>
+<style>
+	@page { size: A4; margin: 16mm 14mm 18mm; }
+	:root { --ink:#0b0b0b; --ink2:#52514e; --muted:#898781; --line:#e6e3da; --cream:#f7f3ea; --blue:#2a78d6; --red:#d03b3b; --orange:#ec835a; --amber:#fab219; --green:#0ca30c; }
+	* { box-sizing: border-box; }
+	body { font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif; color: var(--ink); line-height: 1.55; font-size: 10.5pt; margin: 0; background: #fff; }
+	.wrap { max-width: 900px; margin: 0 auto; padding: 0 8px; }
+	h1, h2, h3 { letter-spacing: -0.015em; line-height: 1.2; }
+	h2 { font-size: 20pt; margin: 0 0 6px; padding-top: 4px; }
+	h3 { font-size: 13pt; margin: 22px 0 6px; }
+	p { margin: 6px 0 10px; }
+	a { color: var(--blue); }
+	code, .k { font-family: "Cascadia Code", Consolas, monospace; font-size: 9pt; background: #f2efe7; padding: 1px 5px; border-radius: 5px; }
+	.chapter { page-break-before: always; padding-top: 6px; }
+	.kicker { text-transform: uppercase; font-size: 8.5pt; letter-spacing: .12em; color: var(--muted); font-weight: 600; }
+	.lead { font-size: 11.5pt; color: var(--ink2); }
+	figure { margin: 12px 0 18px; page-break-inside: avoid; }
+	figure img { width: 100%; border-radius: 12px; border: 1px solid var(--line); box-shadow: 0 6px 20px rgba(0,0,0,.06); display: block; }
+	figcaption { font-size: 9pt; color: var(--muted); margin-top: 6px; }
+	figcaption b { color: var(--ink2); }
+	table { width: 100%; border-collapse: collapse; margin: 8px 0 14px; font-size: 9.5pt; page-break-inside: avoid; }
+	th { text-align: left; background: #f4f1e9; font-weight: 600; color: var(--ink2); }
+	th, td { padding: 7px 9px; border-bottom: 1px solid var(--line); vertical-align: top; }
+	.steps { counter-reset: s; list-style: none; padding: 0; margin: 8px 0 14px; }
+	.steps li { counter-increment: s; position: relative; padding: 6px 0 6px 38px; }
+	.steps li::before { content: counter(s); position: absolute; left: 0; top: 5px; width: 26px; height: 26px; border-radius: 50%; background: var(--ink); color: #fff; font-weight: 600; font-size: 9.5pt; display: grid; place-items: center; }
+	.tip, .warn, .note { border-radius: 12px; padding: 10px 14px; margin: 10px 0 14px; font-size: 10pt; page-break-inside: avoid; }
+	.tip { background: #e9f3e6; border: 1px solid #c9e3c2; }
+	.warn { background: #fdf1cf; border: 1px solid #f1dc9a; }
+	.note { background: #e8f0fb; border: 1px solid #c9dbf5; }
+	.tip b:first-child, .warn b:first-child, .note b:first-child { margin-right: 4px; }
+	.pill { display: inline-block; padding: 1px 9px; border-radius: 999px; font-size: 8.5pt; font-weight: 600; }
+	.p-exp { background: #fbe4e4; color: #9b2222; } .p-crit { background: #fde8dd; color: #9a3d16; } .p-soon { background: #fdf1cf; color: #7a5600; } .p-ok { background: #dff1dc; color: #1d6b1d; }
+	.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+	.card { border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; background: #fcfbf8; page-break-inside: avoid; }
+	.card h4 { margin: 0 0 4px; font-size: 11pt; }
+	.card p { margin: 0; font-size: 9.5pt; color: var(--ink2); }
+
+	/* cover */
+	.cover { height: 260mm; display: flex; flex-direction: column; justify-content: space-between; padding: 22mm 14mm 14mm; border-radius: 18px;
+		background: radial-gradient(900px 500px at 0% 0%, #f6efe2 0%, transparent 60%), radial-gradient(700px 500px at 100% 0%, #eef3e8 0%, transparent 55%), #f9f9f7; }
+	.cover .logo { width: 64px; height: 64px; border-radius: 16px; background: #0b0b0b; display: grid; place-items: center; }
+	.cover h1 { font-size: 44pt; margin: 18px 0 6px; line-height: 1; }
+	.cover .sub { font-size: 14pt; color: var(--ink2); max-width: 520px; }
+	.cover .meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+	.cover .meta div { background: #fff; border-radius: 14px; padding: 12px 14px; border: 1px solid var(--line); }
+	.cover .meta small { display: block; color: var(--muted); font-size: 8.5pt; text-transform: uppercase; letter-spacing: .08em; }
+	.cover .hero { background: #0b0b0b; color: #fff; border-radius: 18px; padding: 18px 20px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+	.cover .hero b { display: block; font-size: 20pt; }
+	.cover .hero span { font-size: 9pt; opacity: .7; }
+
+	.toc { columns: 2; column-gap: 26px; padding: 0; list-style: none; }
+	.toc li { break-inside: avoid; padding: 7px 0; border-bottom: 1px dashed var(--line); }
+	.toc b { display: inline-block; width: 26px; color: var(--muted); }
+	@media screen { body { background: #efede6; } .wrap { background: #fff; padding: 24px 40px 60px; margin: 24px auto; border-radius: 18px; } .chapter { margin-top: 46px; border-top: 1px solid var(--line); padding-top: 30px; } }
+</style>
+</head>
+<body><div class="wrap">
+
+<!-- COVER -->
+<section class="cover">
+	<div>
+		<div class="logo"><svg width="38" height="38" viewBox="0 0 64 64"><path d="M14 40c8-2 14-8 18-17 2 6 6 10 12 12-5 1-9 4-11 9-3-3-10-5-19-4z" fill="#f5c542"/><circle cx="41" cy="22" r="3" fill="#f5c542"/></svg></div>
+		<div class="kicker" style="margin-top:22px">Falcon Resource Management · Frappe HR</div>
+		<h1>Falcon HR<br>User Guide</h1>
+		<p class="sub">Everything your HR team needs: the HR dashboard, the Expiry Center, Nitaqat, sponsor history, leaver checklists, documents, alerts, reports, the monthly PDF, attendance, shifts and the roster, plus importing and exporting your data.</p>
+	</div>
+	<div class="hero">
+		<div><b>3</b><span>dashboards: HR, Expiry Center &amp; Nitaqat</span></div>
+		<div><b>11</b><span>documents tracked (7 employee, 4 company)</span></div>
+		<div><b>6</b><span>downloadable reports</span></div>
+		<div><b>2</b><span>languages: English &amp; Arabic</span></div>
+	</div>
+	<div class="meta">
+		<div><small>Version</small>1.3 — 1 November 2026</div>
+		<div><small>App</small>falcon_hr on Frappe 16.54 / HRMS 16.53</div>
+		<div><small>Audience</small>HR Managers &amp; HR Users</div>
+	</div>
+</section>
+
+<!-- TOC -->
+<section class="chapter">
+	<div class="kicker">Contents</div>
+	<h2>What's in this guide</h2>
+	<ol class="toc">
+		<li><b>1</b>What we built for you</li>
+		<li><b>2</b>Finding your way around</li>
+		<li><b>3</b>The HR Dashboard</li>
+		<li><b>4</b>The Expiry Center</li>
+		<li><b>5</b>Employee documents</li>
+		<li><b>6</b>Branches (sponsors / companies)</li>
+		<li><b>7</b>The Nitaqat Dashboard (Saudization)</li>
+		<li><b>8</b>Sponsor &amp; deployment history</li>
+		<li><b>9</b>Leaver checklist</li>
+		<li><b>10</b>Monthly management PDF</li>
+		<li><b>11</b>Notifications &amp; alerts — who gets what</li>
+		<li><b>12</b>Reports &amp; downloading to Excel</li>
+		<li><b>13</b>Attendance — daily, bulk and Excel upload</li>
+		<li><b>14</b>Shifts &amp; the Roster</li>
+		<li><b>15</b>Importing, exporting &amp; mapping all your data</li>
+		<li><b>16</b>Your daily &amp; monthly routine</li>
+		<li><b>17</b>Questions &amp; troubleshooting</li>
+		<li><b>18</b>Words we use</li>
+	</ol>
+	<div class="note"><b>About the screenshots:</b> employee names and identity / phone numbers are masked in this public copy of the guide (e.g. "Employee 165", "24•••56"). Branch, company and project names and all figures are real.</div>
+</section>
+
+<!-- 1 -->
+<section class="chapter">
+	<div class="kicker">Chapter 1</div>
+	<h2>What we built for you</h2>
+	<p class="lead">Falcon HR is an add-on that sits on top of Frappe HR. It <b>adds</b> screens, fields, alerts and reports. It does not change anything inside Frappe HR, so Leaves, Payroll, Shifts and every other HR screen work exactly as before.</p>
+	<table>
+		<tr><th style="width:30%">Feature</th><th>What it does for you</th><th style="width:24%">Where to find it</th></tr>
+		<tr><td><b>HR Dashboard</b></td><td>One page with your whole workforce: headcount, branches, projects, document health, upcoming expiries, nationality mix, joiners and leavers. Every number and chart is clickable.</td><td>Desktop → <b>Falcon HR</b></td></tr>
+		<tr><td><b>Expiry Center</b></td><td>Every employee and company document in one list, sorted by what expires first. Search, 9 filters, table or board view, CSV download.</td><td>Sidebar → <b>Expiry Center</b></td></tr>
+		<tr><td><b>Days remaining</b></td><td>Under every expiry date on the Employee and Branch forms you now see "33 days remaining" (or "EXPIRED … days ago"), coloured by urgency.</td><td>Employee → Employee Documents tab</td></tr>
+		<tr><td><b>Branch overview</b></td><td>The top of every Branch form shows active employees and their Iqama status (valid / expiring / expired / no date).</td><td>Branch form</td></tr>
+		<tr><td><b>Qiwa &amp; Muqeem</b></td><td>New fields on each Branch: Qiwa establishment number + issue/expiry date, Muqeem account number + subscription start/expiry.</td><td>Branch form → Qiwa &amp; Muqeem</td></tr>
+		<tr><td><b>Company document alerts</b></td><td>Alerts for CR, VAT, Qiwa and Muqeem, kept separate from employee alerts so they are easy to tell apart.</td><td>Bell icon &amp; email</td></tr>
+		<tr><td><b>Daily bell alerts</b></td><td>Every morning the system posts reminders to your notification bell at 60, 30, 15, 7, 3, 1 and 0 days before expiry, and after expiry.</td><td>Sidebar → Notification</td></tr>
+		<tr><td><b>6 reports</b></td><td>Document Expiry Register, Employee Document Register, Branch Compliance Register, Branch Workforce Summary, Project Assignment Register, Project Location Summary. All of them export to Excel.</td><td>Sidebar → Reports</td></tr>
+		<tr><td><b>Smart search</b></td><td>Type a name, employee ID, Iqama number, passport number, phone or project and jump straight to the person or branch.</td><td>Dashboard search bar</td></tr>
+		<tr><td><b>Employee status switch</b></td><td>Look at Active, Inactive, Suspended, Left or All employees on the dashboard and in the Expiry Center.</td><td>Dashboard &amp; Expiry Center</td></tr>
+		<tr><td><b>Nitaqat Dashboard</b></td><td>Saudization per sponsoring branch against its target, Saudis needed, band and size charts, filters and CSV.</td><td>Sidebar → <b>Nitaqat Dashboard</b></td></tr>
+		<tr><td><b>Sponsor &amp; deployment history</b></td><td>Which branch sponsored each employee, on which project and location, and for how long. One sponsor at a time.</td><td>Employee → first tab; Sidebar → People</td></tr>
+		<tr><td><b>Leaver checklist</b></td><td>13-step Saudi leaver checklist (Qiwa, final exit, insurance, GOSI, assets, settlement…) created when someone is set to Left.</td><td>Employee (Left) → Leaver Checklist</td></tr>
+		<tr><td><b>Monthly management PDF</b></td><td>One-click monthly report: headcount, movements, compliance, Nitaqat, attendance, projects.</td><td>HR / Nitaqat Dashboard → <b>Monthly PDF</b></td></tr>
+		<tr><td><b>Arabic</b></td><td>Every Falcon HR screen, report, message and PDF is available in Arabic (right-to-left). Switch with <i>Switch language to AR</i>.</td><td>Sidebar → Switch language</td></tr>
+		<tr><td><b>Fixes</b></td><td>Employee forms no longer open as "Not Saved". The list sort menu no longer hides behind the list.</td><td>—</td></tr>
+	</table>
+	<h3>The colour code used everywhere</h3>
+	<table>
+		<tr><th>Status</th><th>Meaning</th><th>What to do</th></tr>
+		<tr><td><span class="pill p-exp">Expired</span></td><td>The expiry date has already passed.</td><td>Renew immediately. The employee may not be working legally.</td></tr>
+		<tr><td><span class="pill p-crit">Critical</span></td><td>Expires within the next <b>30 days</b> (today included).</td><td>Start the renewal now.</td></tr>
+		<tr><td><span class="pill p-soon">Expiring Soon</span></td><td>Expires in <b>31 to 60 days</b>.</td><td>Plan the renewal and collect the paperwork.</td></tr>
+		<tr><td><span class="pill p-ok">Valid</span></td><td>More than <b>60 days</b> left.</td><td>Nothing to do yet.</td></tr>
+	</table>
+</section>
+
+<!-- 2 -->
+<section class="chapter">
+	<div class="kicker">Chapter 2</div>
+	<h2>Finding your way around</h2>
+	<p>After you log in, the <b>Falcon HR</b> icon is on the desktop. Click it to open the HR Dashboard.</p>
+	<figure><img src="images/01-desktop.jpg"><figcaption><b>Figure 1.</b> The desktop. Falcon HR sits next to Frappe HR.</figcaption></figure>
+	<p>Since Frappe 16.54, Frappe apps have a slim <b>icon rail</b> (the "Dock") on the far left. Falcon HR has its own badge icon there, and its pages open at addresses like <code>/desk/falcon-hr/expiry-center</code>.</p>
+	<h3>The Falcon HR sidebar</h3>
+	<p>The left sidebar has everything an HR person needs in one place. Groups with a small arrow (▸) open and close when you click them.</p>
+	<table>
+		<tr><th style="width:28%">Group</th><th>What's inside</th></tr>
+		<tr><td><b>Top links</b></td><td>HR Dashboard, Expiry Center, Nitaqat Dashboard, Employee, Branch</td></tr>
+		<tr><td><b>People &amp; Organization</b></td><td>Sponsor &amp; Deployment History, Leaver Checklist, Designation, Department, Company, Accommodation (now in its own <i>Falcons Accommodation</i> module)</td></tr>
+		<tr><td><b>Attendance</b></td><td>Attendance, Employee Attendance Tool, Bulk Attendance Upload, Employee Checkin, Attendance Request, Holiday List</td></tr>
+		<tr><td><b>Shifts &amp; Roster</b></td><td>Shift Type, Shift Assignment, Shift Assignment Tool, Shift Schedule, Shift Schedule Assignment, Shift Request, Shift Location</td></tr>
+		<tr><td><b>Reports</b></td><td>The 6 Falcon reports, plus the Monthly Attendance Sheet</td></tr>
+		<tr><td><b>Frappe HR</b></td><td>Shortcuts to Leaves, Payroll, Shift &amp; Attendance, Expenses, Recruitment, Performance, Tenure, Tax &amp; Benefits, HR Setup</td></tr>
+		<tr><td><b>Tools &amp; Settings</b></td><td>Data Import, Alert Rules, Notification Log, HR Settings</td></tr>
+	</table>
+	<div class="tip"><b>Good to know:</b> links like <i>Shift Type</i> or <i>Attendance</i> open the normal Frappe HR screens. Falcon HR only gives you a shortcut, so nothing is duplicated and nothing can break.</div>
+	<div class="tip"><b>Quick search:</b> press <span class="k">Ctrl + K</span> anywhere and type the name of any screen, report or record.</div>
+</section>
+
+<!-- 3 -->
+<section class="chapter">
+	<div class="kicker">Chapter 3</div>
+	<h2>The HR Dashboard</h2>
+	<p class="lead">Your morning overview. Open it from the desktop icon or from <b>Sidebar → HR Dashboard</b>.</p>
+	<figure><img src="images/02-dashboard-overview.jpg"><figcaption><b>Figure 2.</b> HR Overview: search, filters, the four headline tiles and the tabs.</figcaption></figure>
+	<h3>The four headline tiles</h3>
+	<table>
+		<tr><th>Tile</th><th>Shows</th><th>Click it to…</th></tr>
+		<tr><td>⚫ <b>Active employees</b></td><td>Employees in the current view, plus how many have left the company.</td><td>open the matching Employee list</td></tr>
+		<tr><td>🔵 <b>Branches</b></td><td>All branches, and how many actually have staff.</td><td>open the Branch list</td></tr>
+		<tr><td>🟡 <b>Expiring in 60 days</b></td><td>Documents in Critical + Expiring Soon.</td><td>open the Expiry Center filtered to Critical</td></tr>
+		<tr><td>🔴 <b>Expired documents</b></td><td>Documents already expired, and the % of documents that are still valid.</td><td>open the Expiry Center filtered to Expired</td></tr>
+	</table>
+	<h3>Search and filters</h3>
+	<p>The bar at the top works on the whole dashboard:</p>
+	<ul>
+		<li><b>Search</b>: type at least 2 letters. You can search by name, employee ID, Iqama number, passport number, phone, project or branch. Results appear as you type, and clicking one opens the record. Press <span class="k">Esc</span> to close the results.</li>
+		<li><b>Company, Branch (sponsor), Project, Nationality</b>: pick one or more. Every tile, chart and tab recalculates for that selection.</li>
+		<li><b>Clear</b>: removes all filters.</li>
+	</ul>
+	<div class="grid2">
+		<figure><img src="images/04-dashboard-search.jpg"><figcaption><b>Figure 3.</b> Searching "abdus": results include ID, designation, branch and project.</figcaption></figure>
+		<figure><img src="images/05-dashboard-filters.jpg"><figcaption><b>Figure 4.</b> Filtered to project NOFA: 48 employees, all numbers updated.</figcaption></figure>
+	</div>
+	<h3>Active, Inactive, Suspended, Left or All</h3>
+	<p>On the right of the tabs, choose which employees to count. <b>Active</b> is the default. Pick <b>Left</b> to review people who have left, for example to cancel their Iqama or insurance, or <b>All</b> for everyone. The small number next to each button is the headcount.</p>
+	<figure><img src="images/09-dashboard-status-left.jpg"><figcaption><b>Figure 5.</b> The dashboard showing only employees who have left.</figcaption></figure>
+
+	<h3>Overview tab</h3>
+	<figure><img src="images/03-dashboard-overview-lower.jpg"><figcaption><b>Figure 6.</b> Lower half of the Overview: upcoming expiries, nationality mix, joiners and leavers.</figcaption></figure>
+	<table>
+		<tr><th style="width:26%">Card</th><th>What it shows</th><th style="width:30%">Click to open</th></tr>
+		<tr><td>Yellow banner</td><td>How many employees have <b>no Branch (sponsor)</b>. Branch figures leave them out until it's filled in.</td><td><b>Fix now</b> → list of those employees</td></tr>
+		<tr><td>Headcount by branch</td><td>Top branches by number of employees. "Other" groups the rest.</td><td>a bar → that branch's employees</td></tr>
+		<tr><td>Document health</td><td>Ring with the % of valid documents and counts per status.</td><td>a colour → Expiry Center with that status</td></tr>
+		<tr><td>Upcoming expiries</td><td>The next documents to expire in 60 days. Black = 7 days or less, red = 30 days or less, yellow = 31–60 days.</td><td>a tile → the employee or branch</td></tr>
+		<tr><td>Nationality mix</td><td>Top 5 nationalities, with numbers and %.</td><td>a nationality → those employees</td></tr>
+		<tr><td>Joiners and leavers</td><td>Employees who joined (blue) and left (orange) each month, last 12 months.</td><td>a month → who joined that month</td></tr>
+	</table>
+	<div class="tip"><b>Hover</b> over any bar, ring segment or column to see the exact number.</div>
+
+	<h3>Projects tab</h3>
+	<figure><img src="images/06-dashboard-projects.jpg"><figcaption><b>Figure 7.</b> Projects: active projects, unassigned employees, top locations and one card per project.</figcaption></figure>
+	<ul>
+		<li><b>Active projects</b>: how many projects have staff, and how many employees are assigned.</li>
+		<li><b>Not assigned to a project</b>: click to review those employees and fill in their project.</li>
+		<li><b>Top locations</b>: employees per project location. Click a bar for the full list.</li>
+		<li><b>Project cards</b>: headcount, number of sponsoring branches, Iqama expired / expiring, and the main locations. Click a card to open the <i>Project Assignment Register</i> for that project, which you can download. Use <b>Filter projects…</b> to find one quickly.</li>
+	</ul>
+
+	<h3>Documents tab</h3>
+	<figure><img src="images/07-dashboard-documents.jpg"><figcaption><b>Figure 8.</b> Status of every document type. "need action" = expired + critical.</figcaption></figure>
+	<p>Click any row to open the Expiry Center filtered to that document, for example all Iqamas.</p>
+
+	<h3>Branches tab</h3>
+	<figure><img src="images/08-dashboard-branches.jpg"><figcaption><b>Figure 9.</b> One card per branch: headcount, Iqama status and CR / VAT / Qiwa / Muqeem validity.</figcaption></figure>
+	<p>Each chip shows days left: <span class="pill p-ok">green</span> fine, <span class="pill p-soon">yellow</span> 60 days or less, <span class="pill p-crit">orange</span> 30 days or less, <span class="pill p-exp">red</span> expired, grey = not entered yet. Use <b>Filter branches…</b> to search, and click a card to open the branch.</p>
+</section>
+
+<!-- 4 -->
+<section class="chapter">
+	<div class="kicker">Chapter 4</div>
+	<h2>The Expiry Center</h2>
+	<p class="lead">One page for every document that can expire, for employees <b>and</b> for companies/branches, sorted so the most urgent is always on top.</p>
+	<figure><img src="images/10-expiry-table.jpg"><figcaption><b>Figure 10.</b> The Expiry Center (table view).</figcaption></figure>
+	<h3>How to use it, top to bottom</h3>
+	<ol class="steps">
+		<li><b>Status tiles</b>: Expired, Critical, Expiring Soon and Valid, each with a count and %. Click a tile to show only that status, and click it again to remove the filter.</li>
+		<li><b>Employee status</b>: Active / Inactive / Suspended / Left / All employees. Branch documents are shown with <i>Active</i> or <i>All</i>.</li>
+		<li><b>All / Employees / Branches</b>: show everything, only employee documents, or only company (branch) documents.</li>
+		<li><b>Table / Board</b>: switch between the list and the board (see below).</li>
+		<li><b>Document chips</b>: one chip per document type with its count. ⚠ shows how many need action. Click a chip to filter, for example to Iqama only.</li>
+		<li><b>Search</b>: name, ID, Iqama number, project, branch… Results update as you type.</li>
+		<li><b>Filters</b>: Branch (sponsor), Company, Project, Location, Nationality, Designation, <i>Expiring within</i> (already expired / 7 / 15 / 30 / 60 / 90 days) and Sort. Active filters appear as tags you can remove with ✕. <b>Clear all filters</b> resets everything.</li>
+		<li><b>Table</b>: click any row to open the employee or branch. Click a column title to sort by it. "Show 100 more" loads more rows.</li>
+	</ol>
+	<figure><img src="images/12-expiry-filtered.jpg"><figcaption><b>Figure 11.</b> Filtered to <b>Critical</b> + <b>Iqama</b>: the renewals to start this month.</figcaption></figure>
+	<h3>Board view</h3>
+	<p>The board shows four columns (Expired, Critical, Expiring Soon, Valid) with one coloured card per document. It's good for meetings and for seeing the workload at a glance. Click a card to open the record.</p>
+	<figure><img src="images/11-expiry-board.jpg"><figcaption><b>Figure 12.</b> Board view.</figcaption></figure>
+	<h3>Download</h3>
+	<p><b>Download CSV</b> saves exactly what you are looking at (with your filters) as a file that opens in Excel. It includes type, name, ID, employee status, document, number, branch, company, designation, nationality, project, location, expiry date, days left and status. For a formatted Excel file, use <b>Reports</b> (Chapter 12).</p>
+	<h3>Documents that are tracked</h3>
+	<div class="grid2">
+		<div class="card"><h4>Employee documents (7)</h4><p>Iqama · Visa · Passport · Qiwa Contract · Medical Insurance · GOSI · Driving License</p></div>
+		<div class="card"><h4>Company / branch documents (4)</h4><p>Commercial Registration (CR) · VAT Certificate · Qiwa Establishment · Muqeem Subscription</p></div>
+	</div>
+	<div class="note"><b>A document only appears once its expiry date is filled in.</b> If someone is missing, open their Employee → Employee Documents tab and enter the expiry date.</div>
+</section>
+
+<!-- 5 -->
+<section class="chapter">
+	<div class="kicker">Chapter 5</div>
+	<h2>Employee documents</h2>
+	<p>Open any employee and go to the <b>Employee Documents</b> tab. Under every expiry date you will now see how many days are left, in colour.</p>
+	<figure><img src="images/13-employee-documents.jpg"><figcaption><b>Figure 13.</b> "33 days remaining" under the Iqama Expiry Date.</figcaption></figure>
+	<h3>How to record a document</h3>
+	<ol class="steps">
+		<li>Open <b>Employee</b> and search for the person, or use the dashboard search.</li>
+		<li>Go to the <b>Employee Documents</b> tab.</li>
+		<li>Fill in the <b>number</b>, the <b>start / issue date</b> and the <b>expiry / end date</b>, then <b>Attach</b> the scan.</li>
+		<li>Click <b>Save</b> (or press <span class="k">Ctrl + S</span>). The <i>Duration (Days)</i> is calculated for you and the days-remaining line updates immediately.</li>
+	</ol>
+	<table>
+		<tr><th>Document</th><th>Number field</th><th>Expiry field (the one that is tracked)</th></tr>
+		<tr><td>Iqama</td><td>Iqama Number</td><td>Iqama Expiry Date</td></tr>
+		<tr><td>Visa</td><td>Visa Number</td><td>Visa End Date</td></tr>
+		<tr><td>Passport</td><td>Passport Number</td><td>Valid Up To</td></tr>
+		<tr><td>Qiwa Contract</td><td>Qiwa Contract Number</td><td>Qiwa Contract End Date</td></tr>
+		<tr><td>Medical Insurance</td><td>Health Insurance No</td><td>Insurance Expiry Date</td></tr>
+		<tr><td>GOSI</td><td>GOSI ID</td><td>GOSI End Date</td></tr>
+		<tr><td>Driving License</td><td>Driving License Number</td><td>Driving License Expiry Date</td></tr>
+	</table>
+	<div class="tip"><b>When a document is renewed</b>, just overwrite the expiry date with the new one and attach the new scan. The alerts restart automatically for the new date.</div>
+	<h3>Project and location</h3>
+	<p>On the Employee form, <b>Project Assigned To</b> and <b>Project Location</b> drive the Projects tab and the project reports. Please type them the same way every time. Today the same project appears as both "DELMONTE" and "DALMONTE", and the system counts those as two projects.</p>
+</section>
+
+<!-- 6 -->
+<section class="chapter">
+	<div class="kicker">Chapter 6</div>
+	<h2>Branches (sponsors / companies)</h2>
+	<p class="lead">In Falcon, a <b>Branch is a company that sponsors employees</b>. Each employee has <b>exactly one sponsoring branch at a time</b>, set in the <i>Branch</i> field on the Employee.</p>
+	<figure><img src="images/14-branch-overview.jpg"><figcaption><b>Figure 14.</b> Branch Overview at the top of every Branch form.</figcaption></figure>
+	<p>The <b>Branch Overview</b> shows active employees and their Iqama status: valid, expiring in 60 days, expired, and no Iqama date. Click any box to open exactly those employees. The <b>View</b> menu has shortcuts to <i>Employees</i> and the <i>Expiry Center</i>.</p>
+	<h3>Qiwa &amp; Muqeem (new)</h3>
+	<figure><img src="images/15-branch-qiwa-muqeem.jpg"><figcaption><b>Figure 15.</b> The new Qiwa &amp; Muqeem section, right after the legal &amp; compliance documents.</figcaption></figure>
+	<table>
+		<tr><th>Field</th><th>What to enter</th></tr>
+		<tr><td>Qiwa Establishment Number</td><td>The establishment number on the Qiwa portal</td></tr>
+		<tr><td>Qiwa Issue Date / Qiwa Expiry Date</td><td>Validity of the Qiwa establishment record (the expiry is tracked)</td></tr>
+		<tr><td>Muqeem Account Number</td><td>The company's Muqeem account</td></tr>
+		<tr><td>Muqeem Subscription Start / Expiry Date</td><td>The current Muqeem subscription period (the expiry is tracked)</td></tr>
+	</table>
+	<p>Together with <b>CR Expiry Date</b> and <b>VAT Certificate Expiry</b>, these four company documents appear in the Expiry Center, the dashboard's Branches tab, the Branch Compliance Register and the company alerts.</p>
+	<div class="warn"><b>Action needed:</b> 212 active employees have no Branch set. Until it's filled in, they're left out of branch headcounts and branch reports. See Chapter 15 for how to fill it in for everyone at once with Excel.</div>
+</section>
+
+
+<!-- NEW 7 -->
+<section class="chapter">
+	<div class="kicker">Chapter 7</div>
+	<h2>The Nitaqat Dashboard (Saudization)</h2>
+	<p class="lead">Shows, for every sponsoring branch, its Saudization % compared with the target for its Nitaqat band, and exactly how many Saudis it needs to hire. Open it from <b>Sidebar → Nitaqat Dashboard</b> or the <b>Nitaqat</b> button on the HR Dashboard.</p>
+	<figure><img src="images/34-nitaqat-dashboard.jpg"><figcaption><b>Figure N1.</b> Nitaqat Dashboard with the built-in reading guide open, the five headline tiles and the filter bar.</figcaption></figure>
+	<h3>Step 1 — Set the targets (once per branch, from Qiwa)</h3>
+	<ol class="steps">
+		<li>Open the <b>Branch</b> and scroll to the new <b>Nitaqat (Saudization)</b> section at the end.</li>
+		<li>From Qiwa, copy the <b>Nitaqat Activity</b> and the <b>Current Nitaqat Band</b> (Platinum, High / Medium / Low Green, Red).</li>
+		<li>Enter the <b>Target Saudization %</b>: the % the branch must keep for the band you want. Fill in <b>Last Checked on Qiwa</b> and save.</li>
+		<li>Not ready yet? Type a <b>Default target %</b> in the dashboard's filter bar. It is used for every branch without its own target, and remembered in your browser.</li>
+	</ol>
+	<figure><img src="images/37-branch-nitaqat-fields.jpg"><figcaption><b>Figure N2.</b> Branch → Nitaqat (Saudization) section.</figcaption></figure>
+	<h3>Step 2 — Read the dashboard</h3>
+	<table>
+		<tr><th style="width:26%">Item</th><th>How to read it</th><th style="width:24%">Click it to…</th></tr>
+		<tr><td>⚫ Overall Saudization</td><td>Saudi ÷ all active employees, company-wide.</td><td>open those employees</td></tr>
+		<tr><td>🟢 Saudi employees</td><td>Saudi headcount, and non-Saudi headcount underneath.</td><td>open the Saudi employees</td></tr>
+		<tr><td>🔴 Branches below target</td><td>Branches whose Saudization is lower than their target.</td><td>filter to those branches</td></tr>
+		<tr><td>🟡 Saudis needed</td><td>Total new Saudi hires needed so every branch reaches its target.</td><td>filter to below-target branches</td></tr>
+		<tr><td>⚪ Branches without a target</td><td>Branches with no target and no default, plus employees with no branch.</td><td>filter to those branches</td></tr>
+		<tr><td>Saudization vs target (chart)</td><td>The largest branches in your filter. The coloured bar is the actual %, the <b>black line is the target</b>: red = below, green = on target, grey = no target.</td><td>open the branch</td></tr>
+		<tr><td>Branch status (ring)</td><td>How many branches are below, on, or without a target.</td><td>filter by that status</td></tr>
+		<tr><td>Nitaqat band (chart)</td><td>Branches per band you recorded from Qiwa, plus "Not recorded".</td><td>filter by band</td></tr>
+		<tr><td>Size class (chart)</td><td>Employees per size class. Green = Saudi, grey = non-Saudi.</td><td>filter by size</td></tr>
+		<tr><td>Branch cards</td><td>Saudization %, target, a bar with the target line, headcount, Saudis, size, band and a black <b>"Hire N Saudi"</b> chip when below target.</td><td>branch name → branch; chips → employees</td></tr>
+	</table>
+	<figure><img src="images/35-nitaqat-charts.jpg"><figcaption><b>Figure N3.</b> Charts: Saudization vs target, branch status, Nitaqat band and size class.</figcaption></figure>
+	<div class="note"><b>How "Saudis needed" is calculated:</b> each new Saudi hire also increases the headcount, so the number is (target × headcount − Saudis) ÷ (1 − target), rounded up. Example: 10 employees, 1 Saudi, target 20% → <b>2</b> Saudi hires (3 of 12 = 25%).</div>
+	<h3>Filters and search</h3>
+	<p>Search (branch, company, activity) · Company · Default target % · Status · Band · Size · Sort (Saudis needed, lowest / highest Saudization, most employees, name) · Only branches with staff · <b>Clear filters</b>. <b>Download CSV</b> exports exactly the branches you are looking at. <b>How to read this page</b> opens and closes the guide panel.</p>
+	<figure><img src="images/36-nitaqat-cards.jpg"><figcaption><b>Figure N4.</b> Branch cards: target line, chips and the "Hire N Saudi" action.</figcaption></figure>
+	<div class="warn"><b>Qiwa is the official source.</b> Size classes (Micro 1–5, Small 6–49, Medium 50–499, Large 500–2,999, Giant 3,000+) and band rules are approximate guides. Always confirm your band on Qiwa.</div>
+</section>
+
+<!-- NEW 8 -->
+<section class="chapter">
+	<div class="kicker">Chapter 8</div>
+	<h2>Sponsor &amp; deployment history</h2>
+	<p class="lead">Records which branch (sponsor) each employee belonged to, on which project and location, and for how long. <b>One sponsor at a time:</b> starting a new deployment automatically ends the previous one the day before.</p>
+	<figure><img src="images/38-employee-deployment-history.jpg"><figcaption><b>Figure D1.</b> Employee → first tab → <b>Sponsor &amp; Deployment History</b>, with the <b>New Deployment</b> button.</figcaption></figure>
+	<h3>Record a transfer or a project move</h3>
+	<ol class="steps">
+		<li>Open the employee and click <b>New Deployment</b> (or <b>Create → New Deployment</b>).</li>
+		<li>The form is pre-filled with the employee, current branch, project and today's date. Change the <b>Sponsor (Branch)</b>, <b>Project</b> and/or <b>Project Location</b>, and set the <b>From Date</b>.</li>
+		<li>Choose a <b>Reason</b> (New Joiner, Sponsorship Transfer, Project Change, Location Change, Contract Renewal, Other), add remarks, and <b>Save</b>.</li>
+		<li>Done. The previous deployment closes the day before, and the employee's <b>Branch, Project and Project Location are updated automatically</b>.</li>
+	</ol>
+	<figure><img src="images/39-new-deployment-form.jpg"><figcaption><b>Figure D2.</b> New Employee Deployment: Sponsor, Work Location, Notes.</figcaption></figure>
+	<table>
+		<tr><th>Rule</th><th>What the system does</th></tr>
+		<tr><td>One current sponsor</td><td>A new current deployment ends the previous one the day before it starts.</td></tr>
+		<tr><td>No overlaps</td><td>Past deployments cannot overlap. You get a clear message naming the clashing record.</td></tr>
+		<tr><td>Duration</td><td>Counted in days, from the From Date to the To Date (or to today while current), and refreshed every night.</td></tr>
+		<tr><td>Future dates</td><td>A deployment that starts in the future updates the employee only once it begins.</td></tr>
+		<tr><td>Starting history</td><td>When Falcon HR was installed, every employee with a Branch got one deployment from their joining date, so history starts complete.</td></tr>
+	</table>
+	<figure><img src="images/40-deployment-list.jpg"><figcaption><b>Figure D3.</b> Sidebar → People &amp; Organization → <b>Sponsor &amp; Deployment History</b>: every deployment, filterable by employee, sponsor, project and status, and exportable to Excel.</figcaption></figure>
+	<div class="tip"><b>Bulk moves</b> (e.g. a whole site changes sponsor): Data Import → Employee Deployment → Insert New Records, with one row per employee (Employee ID, Sponsor (Branch), From Date, Project, Project Location, Reason).</div>
+</section>
+
+<!-- NEW 9 -->
+<section class="chapter">
+	<div class="kicker">Chapter 9</div>
+	<h2>Leaver checklist</h2>
+	<p class="lead">When someone leaves, nothing should be forgotten: Iqama, final exit, insurance, GOSI, Qiwa, assets and settlement. Falcon HR uses Frappe HR's <b>Employee Separation</b> with a ready-made <b>Falcon Leaver Checklist</b>.</p>
+	<h3>How it starts</h3>
+	<ul>
+		<li><b>Automatically:</b> when you set an employee's <b>Status = Left</b> and save, a <b>draft</b> leaver checklist is created and you see a message with a link.</li>
+		<li><b>Manually:</b> on any employee with status Left, click <b>Start Leaver Checklist</b>. If a checklist already exists, the button is <b>Leaver Checklist</b> and opens it, with its status shown at the top of the form.</li>
+	</ul>
+	<h3>Working through it</h3>
+	<ol class="steps">
+		<li>Open the checklist (from the employee, or Sidebar → People &amp; Organization → <b>Leaver Checklist</b>).</li>
+		<li>Check the dates and who does what, then click <b>Submit</b>. Frappe HR creates a <b>task for each step</b>, assigned to the HR role, with start and due dates.</li>
+		<li>Close the tasks as you go. The checklist shows progress, and is <b>Completed</b> when all tasks are done.</li>
+	</ol>
+	<figure><img src="images/41-leaver-template.jpg"><figcaption><b>Figure L1.</b> The Falcon Leaver Checklist template (HR Setup → Employee Separation Template). Edit it to change steps, owners or timing.</figcaption></figure>
+	<table>
+		<tr><th>#</th><th>Step</th><th>Starts (days after)</th><th>Takes</th></tr>
+		<tr><td>1</td><td>Confirm last working day and relieving date</td><td>0</td><td>1 day</td></tr>
+		<tr><td>2</td><td>Exit interview</td><td>0</td><td>2 days</td></tr>
+		<tr><td>3</td><td>Collect company assets (ID card, tools, laptop, phone, SIM)</td><td>0</td><td>3 days</td></tr>
+		<tr><td>4</td><td>Hand over accommodation and keys</td><td>0</td><td>3 days</td></tr>
+		<tr><td>5</td><td>Clear advances, loans and pending expenses</td><td>0</td><td>5 days</td></tr>
+		<tr><td>6</td><td>Calculate final settlement and end-of-service benefits</td><td>1</td><td>5 days</td></tr>
+		<tr><td>7</td><td>Terminate Qiwa contract</td><td>1</td><td>3 days</td></tr>
+		<tr><td>8</td><td>Issue final exit visa / transfer sponsorship (Muqeem)</td><td>1</td><td>5 days</td></tr>
+		<tr><td>9</td><td>Cancel medical insurance</td><td>2</td><td>3 days</td></tr>
+		<tr><td>10</td><td>Deregister from GOSI</td><td>2</td><td>3 days</td></tr>
+		<tr><td>11</td><td>Return passport and documents to the employee</td><td>3</td><td>2 days</td></tr>
+		<tr><td>12</td><td>Remove system and building access</td><td>3</td><td>1 day</td></tr>
+		<tr><td>13</td><td>Pay final settlement and get signed clearance</td><td>5</td><td>5 days</td></tr>
+	</table>
+	<div class="tip"><b>The monthly PDF lists every leaver</b> of the month with the state of their checklist (Not started / Draft / In Process / Completed).</div>
+</section>
+
+<!-- NEW 10 -->
+<section class="chapter">
+	<div class="kicker">Chapter 10</div>
+	<h2>Monthly management PDF</h2>
+	<p class="lead">A one-click report for management covering any of the last 12 months.</p>
+	<ol class="steps">
+		<li>On the <b>HR Dashboard</b> or the <b>Nitaqat Dashboard</b>, click <b>Monthly PDF</b>.</li>
+		<li>Pick the <b>Month</b> and <b>Company</b>, then click <b>Download PDF</b>. The file (e.g. <code>Falcon-HR-Monthly-Report-2026-10.pdf</code>) opens in a new tab, ready to save, print or email.</li>
+	</ol>
+	<figure><img src="images/42-monthly-pdf-dialog.jpg"><figcaption><b>Figure P1.</b> Choosing the month.</figcaption></figure>
+	<table>
+		<tr><th style="width:32%">Section</th><th>What it contains</th></tr>
+		<tr><td>Headcount &amp; movements</td><td>Active employees, joined and left in the month, branches with staff, employees without a branch</td></tr>
+		<tr><td>Document compliance</td><td>Expired / within 30 days / 31–60 days / valid, plus the list of documents to renew now</td></tr>
+		<tr><td>Company documents</td><td>Branch CR, VAT, Qiwa and Muqeem documents expiring within 60 days or already expired</td></tr>
+		<tr><td>Nitaqat</td><td>Overall Saudization, Saudis needed, and the branches below target</td></tr>
+		<tr><td>Attendance</td><td>Submitted attendance in the month by status, and how many employees have attendance</td></tr>
+		<tr><td>Headcount by branch / project</td><td>The largest branches and projects</td></tr>
+		<tr><td>Joiners &amp; leavers</td><td>Names and dates, with each leaver's checklist status</td></tr>
+		<tr><td>Sponsor &amp; deployment changes</td><td>Deployments that started in the month</td></tr>
+	</table>
+	<figure><img src="images/43-monthly-pdf-sample.jpg" style="max-width:520px"><figcaption><b>Figure P2.</b> First page of a monthly report. If your language is Arabic, the PDF is in Arabic and right-to-left.</figcaption></figure>
+	<div class="warn"><b>Confidential:</b> the PDF contains employee names and document dates. Share it with management only.</div>
+</section>
+
+<!-- 7 -->
+<section class="chapter">
+	<div class="kicker">Chapter 11</div>
+	<h2>Notifications &amp; alerts — who gets what</h2>
+	<p class="lead">There are three kinds of alerts. All of them go to users with the <b>HR Manager</b> or <b>HR User</b> role.</p>
+	<figure><img src="images/16-notifications-panel.jpg"><figcaption><b>Figure 16.</b> The notification bell (Sidebar → Notification) for an HR user.</figcaption></figure>
+	<h3>1 · Daily bell alerts (new)</h3>
+	<p>Every morning the system checks every document and posts a reminder to the bell when a document is:</p>
+	<table>
+		<tr><th>When</th><th>Example of the message</th></tr>
+		<tr><td>60, 30, 15, 7, 3 and 1 days before expiry</td><td>[Employee Document] Iqama · MD Tariqul Islam · expires in 60 days</td></tr>
+		<tr><td>On the expiry day</td><td>[Employee Document] Medical Insurance · Md Khokon Mia · expires TODAY</td></tr>
+		<tr><td>The day after expiry, then every 30 days while still expired</td><td>[Employee Document] Passport · … · expired 90 days ago</td></tr>
+		<tr><td>Same timing for company documents</td><td>[Company Document] Commercial Registration · Branch Sama Al- Shamukh · expires in 30 days</td></tr>
+	</table>
+	<ul>
+		<li>The tag tells you at a glance: <b>[Employee Document]</b> or <b>[Company Document]</b>.</li>
+		<li>Click the alert to open the employee or branch.</li>
+		<li>Only <b>active</b> employees get alerts, so nobody is reminded about people who have left.</li>
+		<li>Each person only gets alerts for employees and branches they are <b>allowed to see</b>, and the same alert is never sent twice on the same day.</li>
+		<li>The message does not include document numbers. Open the record to see them.</li>
+	</ul>
+	<h3>2 · Employee document alerts (already on your system)</h3>
+	<p>These were set up earlier and still work. Each sends a <b>system notification</b> and an <b>email</b> to HR, <b>15 days</b> before expiry, for: Iqama, Visa, Passport, Qiwa Contract, Medical/Health Insurance, GOSI and Driving License. Their names end in "<i>Expiry Alert - System Notification</i>" / "<i>Expiry Alert - Email</i>".</p>
+	<h3>3 · Company document alerts (new)</h3>
+	<table>
+		<tr><th>Document</th><th>System notification</th><th>Email</th></tr>
+		<tr><td>Commercial Registration (CR)</td><td>60 and 15 days before</td><td>30 days before</td></tr>
+		<tr><td>VAT Certificate</td><td>60 and 15 days before</td><td>30 days before</td></tr>
+		<tr><td>Qiwa Establishment</td><td>60 and 15 days before</td><td>30 days before</td></tr>
+		<tr><td>Muqeem Subscription</td><td>60 and 15 days before</td><td>30 days before</td></tr>
+	</table>
+	<p>They are called "<b>Company Doc - … Expiry - … Days - System/Email</b>" and the subject starts with <b>[Company Document]</b>.</p>
+	<figure><img src="images/17-alert-rules.jpg"><figcaption><b>Figure 17.</b> Sidebar → Tools &amp; Settings → <b>Alert Rules</b>: every expiry alert in one list.</figcaption></figure>
+	<h3>Changing an alert</h3>
+	<ol class="steps">
+		<li>Open <b>Alert Rules</b> and click the alert.</li>
+		<li>Change <b>Days Before or After</b> (for example 15 → 30), the <b>Recipients</b> (role or specific people), or the message.</li>
+		<li>To pause an alert, untick <b>Enabled</b>. Save.</li>
+	</ol>
+	<div class="note"><b>Emails</b> need an outgoing Email Account set up on the site (Settings → Email Account). Bell alerts work without email.</div>
+</section>
+
+<!-- 8 -->
+<section class="chapter">
+	<div class="kicker">Chapter 12</div>
+	<h2>Reports &amp; downloading to Excel</h2>
+	<p class="lead">Six ready-made reports. Open them from <b>Sidebar → Reports</b>, the <b>Reports</b> button on the dashboard, or the Expiry Center.</p>
+	<table>
+		<tr><th style="width:28%">Report</th><th>What it lists</th><th style="width:26%">Filters</th></tr>
+		<tr><td><b>Document Expiry Register</b></td><td>One row per document (employee + company): number, branch, company, project, expiry date, days left, status. Summary counts on top.</td><td>Show (All/Employee/Branch), Document, Branch, Status</td></tr>
+		<tr><td><b>Employee Document Register</b></td><td>One row per employee with <b>all 7 documents side by side</b>: number, expiry and days left for each, plus designation, nationality, branch, company, project and location. Your master document sheet.</td><td>Branch, Company, Designation, Employee Status, "Has expired document" / "Expiring in 60 days"</td></tr>
+		<tr><td><b>Branch Compliance Register</b></td><td>One row per branch: code, company, city, manager, GOSI number, and the number, expiry and days left for CR, VAT, Qiwa and Muqeem, plus a <b>Missing Documents</b> column.</td><td>Company</td></tr>
+		<tr><td><b>Branch Workforce Summary</b></td><td>Per branch: planned vs actual headcount and the gap, Saudi / non-Saudi, <b>Saudization %</b>, Iqama valid / ≤60 days / expired / missing, expired insurance, number of projects. Includes a chart.</td><td>Only branches with staff</td></tr>
+		<tr><td><b>Project Assignment Register</b></td><td>Every employee grouped by project: location, designation, branch, nationality, Iqama expiry, remarks. Includes a chart.</td><td>Project contains, Location contains, Branch</td></tr>
+		<tr><td><b>Project Location Summary</b></td><td>Per project (or per location): employees, sponsors, locations/projects, Iqama expired / expiring, main nationality.</td><td>Group by Project / Location</td></tr>
+	</table>
+	<figure><img src="images/20-report-employee-documents.jpg"><figcaption><b>Figure 18.</b> Employee Document Register: every document of every employee on one sheet. Days left are coloured.</figcaption></figure>
+	<div class="grid2">
+		<figure><img src="images/21-report-branch-workforce.jpg"><figcaption><b>Figure 19.</b> Branch Workforce Summary with chart.</figcaption></figure>
+		<figure><img src="images/23-report-branch-compliance.jpg"><figcaption><b>Figure 20.</b> Branch Compliance Register.</figcaption></figure>
+	</div>
+	<h3>How to download a report to Excel</h3>
+	<ol class="steps">
+		<li>Open the report and set the filters you want.</li>
+		<li>Click the <b>⋯</b> menu (top right) → <b>Export</b>.</li>
+		<li>Choose <b>Excel</b> (or CSV), keep "Include filters" ticked if you want them printed on top, and click <b>Export</b>. The file downloads to your computer.</li>
+	</ol>
+	<figure><img src="images/19-report-export-menu.jpg"><figcaption><b>Figure 21.</b> The ⋯ menu: Print, PDF, <b>Export</b>, Setup Auto Email.</figcaption></figure>
+	<div class="tip"><b>Get a report by email automatically:</b> ⋯ → <b>Setup Auto Email</b>, then choose the people, the frequency (daily / weekly / monthly) and the format (Excel/PDF). For example, the Document Expiry Register every Sunday morning.</div>
+	<div class="tip"><b>Columns:</b> drag column edges to resize them, click a column title to sort, and use the small boxes under the titles to filter inside the report.</div>
+</section>
+
+<!-- 9 -->
+<section class="chapter">
+	<div class="kicker">Chapter 13</div>
+	<h2>Attendance — daily, bulk and Excel upload</h2>
+	<p class="lead">Attendance uses the standard Frappe HR screens. There are several ways to record it. For <b>many employees over many days</b>, use <b>Bulk Attendance Upload</b> (method C), the easiest bulk method.</p>
+	<div class="grid2">
+		<div class="card"><h4>A · One person</h4><p>Attendance → <b>+ Add Attendance</b>. For corrections and single entries.</p></div>
+		<div class="card"><h4>B · Many people, one day</h4><p><b>Employee Attendance Tool</b>. Tick employees and mark them Present / Absent / Half Day / Work From Home.</p></div>
+		<div class="card"><h4>C · Many people, many days ⭐</h4><p><b>Bulk Attendance Upload</b>. Download a ready sheet with every employee and date, type the status, review, then import.</p></div>
+		<div class="card"><h4>E · Automatic</h4><p>From <b>Employee Checkin</b> (biometric / mobile), using the shift's auto-attendance (Chapter 14).</p></div>
+	</div>
+	<h3>B · Employee Attendance Tool</h3>
+	<figure><img src="images/25-attendance-tool.jpg"><figcaption><b>Figure 22.</b> Employee Attendance Tool.</figcaption></figure>
+	<ol class="steps">
+		<li>Sidebar → Attendance → <b>Employee Attendance Tool</b>.</li>
+		<li>Pick the <b>Date</b>, and optionally a <b>Company</b>, <b>Branch</b> or <b>Department</b> to narrow the list.</li>
+		<li>Choose the <b>Status</b> and, optionally, the <b>Shift</b> and Late Entry / Early Exit.</li>
+		<li>Tick the employees and click <b>Mark Attendance</b>. Employees already marked for that day are shown separately, so nobody is marked twice.</li>
+	</ol>
+	<h3>C · Bulk Attendance Upload (recommended) ⭐</h3>
+	<p>Sidebar → Attendance → <b>Bulk Attendance Upload</b>. This Falcon HR page replaces the old HRMS "Upload Attendance" tool, which HRMS removed in its 16.5x versions. <b>Nothing is saved until you confirm in step 4.</b></p>
+	<div class="note"><b>One-time setup so holidays are marked:</b> HR Setup → <b>Holiday List Assignment</b> → New → Applicable For <b>Company</b>, Assigned To <b>Falcon Resource Management</b>, Holiday List <b>2026</b>, Assignment Starts From <b>01-01-2026</b> → Save → <b>Submit</b>. Repeat each new year. Without it the upload still works, but Fridays and holidays are not pre-marked.</div>
+	<figure><img src="images/44-bulk-review.jpg"><figcaption><b>Figure 23.</b> Bulk Attendance Upload after uploading a file: results, the review tabs and the tick box that unlocks Import.</figcaption></figure>
+	<ol class="steps">
+		<li><b>Download the template.</b> Choose From and To dates (up to 62 days), plus optional Company and Branch, and click <b>Download Excel template</b>. You get <b>one row per active employee per day</b>, already filled with ID, name, branch, project and date. Holidays come marked <code>Holiday</code>, days already marked show their status, and dates before joining or after leaving are left out.</li>
+		<li><b>Fill in the Status column</b> in Excel: <code>Present</code>, <code>Absent</code>, <code>Half Day</code>, <code>On Leave</code> (also fill <b>Leave Type</b>) or <code>Work From Home</code>. Leave a row empty to skip it. Optional: Shift, In Time, Out Time (e.g. <code>08:05</code>). Tip: type Present once, drag it down, then change the exceptions.</li>
+		<li><b>Upload and review.</b> Click <b>Upload filled file</b>. Every row is checked and <b>nothing is saved yet</b>. Use the tabs to look through <b>Ready</b>, <b>Need fixing</b> and <b>Skipped</b>, each row with its reason. <b>Download checked file</b> gives you the same list in Excel. If something needs fixing, correct your sheet and upload it again.</li>
+		<li><b>Confirm and import.</b> Tick <b>"I have reviewed the rows…"</b>, which unlocks <b>Import</b>, then click Import and confirm. Only <b>Ready</b> rows are created and submitted; you see a progress bar and the final counts. Large months run in the background, so you can keep working.</li>
+	</ol>
+	<table>
+		<tr><th>Result</th><th>Why</th><th>What happens</th></tr>
+		<tr><td><span class="pill p-ok">Ready</span></td><td>Valid row</td><td>Attendance is created and submitted</td></tr>
+		<tr><td><span class="pill p-soon">Skipped</span></td><td>Empty status, Holiday, or that day is already marked</td><td>Nothing changes, and no duplicates are ever created</td></tr>
+		<tr><td><span class="pill p-exp">Error</span></td><td>Wrong status spelling, unknown employee ID, invalid date, On Leave without Leave Type, duplicate row…</td><td>The row is not imported; the message says what to fix. The other rows are not affected</td></tr>
+	</table>
+	<figure><img src="images/45-bulk-done.jpg"><figcaption><b>Figure 23a.</b> After importing: how many were created, skipped and need fixing.</figcaption></figure>
+	<h3>D · Uploading attendance with Data Import (any columns)</h3>
+	<p>Use this when your sheet comes from another system (a biometric export, a contractor's timesheet) with In/Out times, shifts or Late Entry flags.</p>
+	<ol class="steps">
+		<li>Sidebar → Tools &amp; Settings → <b>Data Import</b> → <b>+ Add Data Import</b>. The import opens as a 4-step wizard: <b>Config → Preview → Fix Issues → Import</b>.</li>
+		<li><b>Config:</b> Document Type <b>Attendance</b>, Import Type <b>Insert New Records</b>, and tick <b>Submit After Import</b> so the attendance is final straight away.</li>
+		<li>Click <b>Download Template</b> (right of <i>Upload file</i>), choose <b>Excel</b>, keep the columns below and download it. Fill one row per employee per day.</li>
+		<li>Drag your filled file into <b>Upload file</b> (or click to browse; a Google Sheet link also works) and click <b>Next</b>.</li>
+		<li><b>Preview</b> shows your rows as they will be imported. <b>Fix Issues</b> lists any problems per row; correct them in Excel and upload again.</li>
+		<li><b>Import:</b> start the import. When it finishes you see how many rows succeeded; download the failed rows, fix them and import just those again.</li>
+	</ol>
+	<figure><img src="images/24-data-import-new.jpg"><figcaption><b>Figure 23b.</b> The new Data Import wizard (Config step): Attendance, Insert New Records, Submit After Import, Download Template and the upload area.</figcaption></figure>
+	<table>
+		<tr><th>Column</th><th>Required?</th><th>What to put</th></tr>
+		<tr><td>Employee</td><td>Yes</td><td>The employee <b>ID</b>, e.g. <code>HR-EMP-00253</code> (not the name)</td></tr>
+		<tr><td>Attendance Date</td><td>Yes</td><td>The date, e.g. <code>2026-11-01</code></td></tr>
+		<tr><td>Status</td><td>Yes</td><td>Exactly one of: <code>Present</code>, <code>Absent</code>, <code>Half Day</code>, <code>On Leave</code>, <code>Work From Home</code></td></tr>
+		<tr><td>Company</td><td>Yes</td><td><code>Falcon Resource Management</code></td></tr>
+		<tr><td>Shift</td><td>Optional</td><td>Shift Type name, e.g. <code>Shift Standard</code></td></tr>
+		<tr><td>Leave Type</td><td>If On Leave</td><td>e.g. <code>Annual Leave</code></td></tr>
+		<tr><td>Late Entry / Early Exit</td><td>Optional</td><td><code>1</code> = yes, <code>0</code> = no</td></tr>
+		<tr><td>In Time / Out Time</td><td>Optional</td><td>e.g. <code>2026-11-01 08:05:00</code></td></tr>
+	</table>
+	<div class="tip"><b>Getting the employee IDs:</b> download the <i>Employee Document Register</i> or the Employee list (Chapter 15) and copy the ID column into your attendance sheet.</div>
+	<div class="warn"><b>One record per employee per day.</b> Importing a day that already exists for that employee is rejected. To fix a submitted day, open it, click <b>Cancel</b>, then <b>Amend</b>.</div>
+	<h3>Checking attendance</h3>
+	<div class="grid2">
+		<figure><img src="images/26-attendance-list.jpg"><figcaption><b>Figure 24.</b> Attendance list. Filter by employee, date, status or branch.</figcaption></figure>
+		<figure><img src="images/27-monthly-attendance-sheet.jpg"><figcaption><b>Figure 25.</b> Monthly Attendance Sheet (Sidebar → Reports).</figcaption></figure>
+	</div>
+	<p>The <b>Monthly Attendance Sheet</b> shows the whole month as a grid (P / A / HD / L / WFH per day) and totals per employee. Choose the month, year and company, then export it like any other report.</p>
+</section>
+
+<!-- 10 -->
+<section class="chapter">
+	<div class="kicker">Chapter 14</div>
+	<h2>Shifts &amp; the Roster</h2>
+	<p class="lead">Shifts tell the system when people are meant to work. The roster shows who works which shift on which day.</p>
+	<h3>Step 1 — Define your shifts (Shift Type)</h3>
+	<figure><img src="images/28-shift-type.jpg"><figcaption><b>Figure 26.</b> The "Shift Standard" shift (09:00–18:00).</figcaption></figure>
+	<table>
+		<tr><th style="width:38%">Field</th><th>Meaning</th></tr>
+		<tr><td>Start Time / End Time</td><td>The shift hours, e.g. 06:00–14:00. Night shifts can cross midnight.</td></tr>
+		<tr><td>Holiday List</td><td>Which days are holidays / weekly off for this shift.</td></tr>
+		<tr><td>Enable Auto Attendance</td><td>Turn attendance into Present/Absent automatically from check-ins.</td></tr>
+		<tr><td>Determine Check-in and Check-out</td><td>Use the first check-in and last check-out, or alternate IN/OUT.</td></tr>
+		<tr><td>Late Entry / Early Exit Grace Period</td><td>Minutes allowed before someone is marked late or leaving early.</td></tr>
+		<tr><td>Working Hours Threshold for Half Day / Absent</td><td>Fewer hours than this = Half Day or Absent.</td></tr>
+		<tr><td>Begin check-in before shift start</td><td>How early a check-in still counts for this shift.</td></tr>
+		<tr><td>Roster Color</td><td>The colour of this shift in the Roster.</td></tr>
+	</table>
+	<p>Create one Shift Type per pattern you run, for example <i>Morning 06–14</i>, <i>Evening 14–22</i>, <i>Night 22–06</i>, <i>Office 09–18</i>.</p>
+	<h3>Step 2 — Give people their shifts</h3>
+	<ul>
+		<li><b>Default Shift</b> on the Employee (Attendance &amp; Leaves tab) is the shift they normally work.</li>
+		<li><b>Shift Assignment Tool</b>: assign a shift to many employees for a date range in one go. Filter by company, branch, department or designation, tick the employees, and click <b>Assign Shift</b>.</li>
+		<li><b>Shift Assignment</b>: one employee, one shift, from / to dates. For exceptions.</li>
+		<li><b>Shift Schedule</b> + <b>Shift Schedule Assignment</b>: rotating patterns, e.g. a week of mornings then a week of nights, or 6 days on / 1 off. Create the pattern once and assign it to a group; the system creates the assignments for you.</li>
+	</ul>
+	<div class="grid2">
+		<figure><img src="images/29-shift-assignment-tool.jpg"><figcaption><b>Figure 27.</b> Shift Assignment Tool.</figcaption></figure>
+		<figure><img src="images/31-shift-schedule.jpg"><figcaption><b>Figure 28.</b> A new Shift Schedule (rotation pattern).</figcaption></figure>
+	</div>
+	<h3>Step 3 — Use the Roster</h3>
+	<figure><img src="images/30-roster.jpg"><figcaption><b>Figure 29.</b> Roster — month view. Open it at <code>/hr/roster</code> or from Frappe HR → Shift &amp; Attendance.</figcaption></figure>
+	<ol class="steps">
+		<li>Open the Roster and pick the <b>month</b> with the arrows. Switch between month and week with <b>View</b>.</li>
+		<li>Use the filters (Company, Department, <b>Branch</b>, Designation, Shift Type, Shift Location) to show one site or team, and <b>Search Employee</b> to find a person.</li>
+		<li><b>Click an empty day</b> in a person's row to assign a shift, or use <b>Create → Shift Assignment</b> for longer periods.</li>
+		<li><b>Drag</b> a shift to another day or person to move it, and click a shift to edit or delete it.</li>
+		<li>Shifts appear in their <i>Roster Color</i>, so gaps and double bookings are easy to spot. Weekly offs and holidays show as <b>WO</b> (from the Holiday List Assignment).</li>
+	</ol>
+	<div class="tip"><b>Recommended setup for Falcon:</b> create a Shift Type per working pattern, set each employee's Default Shift, use Shift Schedules for rotating site teams, and check the Roster weekly per Branch.</div>
+</section>
+
+<!-- 11 -->
+<section class="chapter">
+	<div class="kicker">Chapter 15</div>
+	<h2>Importing, exporting &amp; mapping all your data</h2>
+	<p class="lead">Any list in the system (Employees, Branches, Attendance…) can be exported to Excel and imported back. This is the fastest way to fill in or correct data for many records at once.</p>
+	<h3>Export (get data out)</h3>
+	<ol class="steps">
+		<li>Open the list, e.g. <b>Employee</b>, and add filters if needed (e.g. Status = Active).</li>
+		<li>Click <b>⋯</b> (or the <i>Actions</i> menu after ticking rows) → <b>Export</b>.</li>
+		<li>Choose <b>Excel</b>, tick the fields you want (always keep <b>ID</b>), and export.</li>
+	</ol>
+	<p>Or use a report (Chapter 12). The <i>Employee Document Register</i> is the best "everything about everyone" export.</p>
+	<h3>Update many records at once (mass correction)</h3>
+	<p>Example: <b>fill in the Branch (sponsor) for the 212 employees who don't have one</b>.</p>
+	<ol class="steps">
+		<li>Dashboard → yellow banner → <b>Fix now</b>. This opens the employees with no branch. Then ⋯ → <b>Export</b>, Excel, with the columns <b>ID</b>, <b>Full Name</b> and <b>Branch</b>.</li>
+		<li>In Excel, type the correct branch name in the <b>Branch</b> column. It must match the Branch name exactly; copy it from the Branch list to be safe.</li>
+		<li>Data Import → <b>+ Add Data Import</b> → Document Type <b>Employee</b>, Import Type <b>Update Existing Records</b>.</li>
+		<li>Upload your file → <b>Next</b> → check <b>Preview</b> and <b>Fix Issues</b> → <b>Import</b>. Only the columns in your file are changed.</li>
+	</ol>
+	<h3>Add new records (new employees, branches)</h3>
+	<p>Data Import → Import Type <b>Insert New Records</b> → <b>Download Template</b> → fill one row per record → upload → Next → Preview → Fix Issues → Import.</p>
+	<h3>Field map: Excel column → screen</h3>
+	<table>
+		<tr><th>Excel column (template title)</th><th>Where it appears</th></tr>
+		<tr><td>ID</td><td>Employee ID (HR-EMP-xxxxx). Needed for updates.</td></tr>
+		<tr><td>Branch</td><td>Sponsoring company. Drives branch headcounts, reports and alerts.</td></tr>
+		<tr><td>Project Assigned To / Project Location</td><td>Projects tab, project reports</td></tr>
+		<tr><td>Nationality, Employee Category (Saudi / Non-Saudi)</td><td>Nationality mix, Saudization %</td></tr>
+		<tr><td>Iqama Number / Iqama Expiry Date</td><td>Expiry Center, alerts, Branch Overview</td></tr>
+		<tr><td>Visa Number / Visa End Date</td><td>Expiry Center, alerts</td></tr>
+		<tr><td>Passport Number / Valid Up To</td><td>Expiry Center, alerts</td></tr>
+		<tr><td>Qiwa Contract Number / Qiwa Contract End Date</td><td>Expiry Center, alerts</td></tr>
+		<tr><td>Health Insurance No / Insurance Expiry Date</td><td>Expiry Center, alerts</td></tr>
+		<tr><td>GOSI ID / GOSI End Date</td><td>Expiry Center, alerts</td></tr>
+		<tr><td>Driving License Number / Driving License Expiry Date</td><td>Expiry Center, alerts</td></tr>
+		<tr><td>Status, Relieving Date</td><td>Active / Left switch, leavers chart</td></tr>
+		<tr><td>Branch: CR / VAT / Qiwa / Muqeem numbers and expiry dates, Planned Employee Count</td><td>Branch Compliance Register, Branch Workforce Summary (plan vs actual), company alerts</td></tr>
+	</table>
+	<div class="warn"><b>Dates in Excel:</b> use the format <code>YYYY-MM-DD</code> (e.g. 2027-03-31), or format the cells as Date. Text like "31/3/27" may be read wrongly.</div>
+	<div class="tip"><b>Safety net:</b> try a few rows first. Every import keeps a log, and records changed by an import show it in their timeline.</div>
+</section>
+
+<!-- 12 -->
+<section class="chapter">
+	<div class="kicker">Chapter 16</div>
+	<h2>Your daily &amp; monthly routine</h2>
+	<div class="grid2">
+		<div class="card"><h4>☀️ Every morning (5 minutes)</h4><p>1. Check the <b>bell</b> for new alerts.<br>2. Open the <b>HR Dashboard</b> and look at the yellow and red tiles.<br>3. Click <b>Expiring in 60 days</b> and start the renewals that are Critical.<br>4. Mark yesterday's attendance (tool or Bulk Attendance Upload).<br>5. Work through open <b>leaver checklist</b> tasks.</p></div>
+		<div class="card"><h4>📅 Every week</h4><p>1. Expiry Center → Board view in the HR meeting.<br>2. Roster → check next week per branch.<br>3. Dashboard → Projects tab: anyone unassigned?<br>4. Download the Document Expiry Register for management.<br>5. Record any sponsor / project moves as <b>New Deployment</b>.</p></div>
+		<div class="card"><h4>🗓️ Every month</h4><p>1. Monthly Attendance Sheet → export for payroll.<br>2. Branch Workforce Summary → planned vs actual, Saudization %.<br>3. Branch Compliance Register → CR / VAT / Qiwa / Muqeem.<br>4. Dashboard → Left → close Iqama / insurance for leavers.<br>5. <b>Nitaqat Dashboard</b>: check branches below target; update bands from Qiwa.<br>6. Download the <b>Monthly PDF</b> for management.</p></div>
+		<div class="card"><h4>🧹 Keep data clean</h4><p>• Every employee has a Branch (sponsor).<br>• Every document has an expiry date and an attachment.<br>• Projects typed the same way every time.<br>• Leavers set to <i>Left</i> with a relieving date.</p></div>
+	</div>
+</section>
+
+<!-- 13 -->
+<section class="chapter">
+	<div class="kicker">Chapter 17</div>
+	<h2>Questions &amp; troubleshooting</h2>
+	<table>
+		<tr><th style="width:36%">Question</th><th>Answer</th></tr>
+		<tr><td>An employee is missing from the Expiry Center.</td><td>They have no expiry date, or they are not Active. Fill in the date, or switch the status to <i>All employees</i>.</td></tr>
+		<tr><td>I don't receive alerts.</td><td>You need the <b>HR Manager</b> or <b>HR User</b> role, and permission for those employees or branches. Emails also need an Email Account on the site.</td></tr>
+		<tr><td>The Administrator sees each alert twice.</td><td>That's normal. Administrator sees every user's notifications; each HR user receives each alert only once.</td></tr>
+		<tr><td>Branch numbers look too low.</td><td>Many employees have no Branch set (see the yellow banner). Fill it in (Chapter 15).</td></tr>
+		<tr><td>The sidebar or icon doesn't appear after an update.</td><td>Hard-refresh the browser with <span class="k">Ctrl + Shift + R</span>.</td></tr>
+		<tr><td>A project appears twice with different spellings.</td><td>Correct the spelling on those employees (one at a time or via Excel update) so all use the same name.</td></tr>
+		<tr><td>A branch shows "No target" on the Nitaqat Dashboard.</td><td>Enter its Target Saudization % on the Branch (Nitaqat section) or type a Default target % in the dashboard filter bar.</td></tr>
+		<tr><td>I can't save a deployment for an employee.</td><td>You need permission to edit that Employee, and dates can't overlap an earlier deployment. The message names the clashing record.</td></tr>
+		<tr><td>No leaver checklist appeared.</td><td>It is created when the status changes to Left and is saved. Otherwise click <b>Start Leaver Checklist</b> on the employee.</td></tr>
+		<tr><td>Fridays and holidays are not marked in the attendance template.</td><td>Create and submit a <b>Holiday List Assignment</b> for the company (see Bulk Attendance Upload in the Attendance chapter).</td></tr>
+		<tr><td>My Excel import fails.</td><td>Open the import and go to <b>Fix Issues</b> to read the error per row, download the failed rows, fix them and import again. For attendance, Bulk Attendance Upload shows the same per-row check before saving anything. The most common causes are a wrong employee ID, a date format, or a Status spelled differently.</td></tr>
+		<tr><td>Can I change the 30 / 60 day limits?</td><td>The Alert Rules (Chapter 11) can be changed on screen. The colour limits and the daily alert days are part of the app; ask your developer.</td></tr>
+	</table>
+</section>
+
+<!-- 14 -->
+<section class="chapter">
+	<div class="kicker">Chapter 18</div>
+	<h2>Words we use</h2>
+	<table>
+		<tr><th style="width:28%">Word</th><th>Meaning in Falcon HR</th></tr>
+		<tr><td>Branch / Sponsor</td><td>The company (branch) that sponsors an employee. One employee has one sponsoring branch at a time.</td></tr>
+		<tr><td>Company</td><td>The main legal entity in the system: Falcon Resource Management.</td></tr>
+		<tr><td>Project / Project Location</td><td>Where the employee is currently working, e.g. NOFA, Riyadh.</td></tr>
+		<tr><td>Expired / Critical / Expiring Soon / Valid</td><td>Past expiry / 30 days or less / 31–60 days / more than 60 days.</td></tr>
+		<tr><td>Employee status</td><td>Active, Inactive, Suspended or Left, as set on the Employee.</td></tr>
+		<tr><td>Saudization %</td><td>Saudi employees ÷ all active employees in a branch.</td></tr>
+		<tr><td>Shift Type / Assignment / Schedule</td><td>Shift definition / one person on a shift for some dates / repeating rotation pattern.</td></tr>
+		<tr><td>Roster</td><td>The calendar of who works which shift on which day.</td></tr>
+		<tr><td>Nitaqat / Saudization</td><td>Saudi Arabia's localisation programme; the Saudization % is Saudi employees ÷ all employees of the establishment (branch).</td></tr>
+		<tr><td>Band</td><td>Platinum, High / Medium / Low Green or Red, as shown on Qiwa.</td></tr>
+		<tr><td>Deployment</td><td>A period in which an employee was sponsored by one branch and worked on a project/location.</td></tr>
+		<tr><td>Leaver checklist</td><td>Frappe HR "Employee Separation" built from the Falcon Leaver Checklist template.</td></tr>
+		<tr><td>Bell / Notification</td><td>The in-app list of alerts (Sidebar → Notification).</td></tr>
+	</table>
+	<p style="margin-top:28px;color:var(--muted);font-size:9pt">Falcon HR · app <code>falcon_hr</code> · built on Frappe HR v16 · guide version 1.3, 1 November 2026.</p>
+</section>
+
+</div></body>
+</html>

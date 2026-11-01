@@ -5,6 +5,14 @@ tracking for employees *and* branches (companies/sponsors), an HR dashboard, dow
 reports and notification-centre alerts. It only **adds** pages, reports, fields and
 alerts; it does not modify any HRMS/ERPNext doctype or code.
 
+### 📘 Documentation
+
+- **User guide (PDF)** — [docs/guide/Falcon-HR-User-Guide.pdf](docs/guide/Falcon-HR-User-Guide.pdf) — step-by-step for HR: dashboards, Expiry Center, Nitaqat, deployments, leaver checklist, alerts, reports, attendance (incl. bulk upload), shifts & roster, import/export. Opens directly on GitHub (one continuous page — zoom to fit width).
+- **User guide (HTML)** — [docs/guide/index.html](docs/guide/index.html) — same guide; download the `docs/guide` folder and open `index.html` in a browser.
+- **Project summary** — [docs/FALCON_HR_PROJECT_SUMMARY.md](docs/FALCON_HR_PROJECT_SUMMARY.md) — everything that was built, tested and changed, plus deployment steps.
+
+> Screenshots in the repository have employee names and identity numbers masked.
+
 ### Screenshots
 
 > Employee names and document numbers are masked in these images. Screenshots: Frappe 16.54 / HRMS 16.53.
