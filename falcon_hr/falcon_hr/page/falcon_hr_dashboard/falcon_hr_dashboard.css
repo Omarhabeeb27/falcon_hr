@@ -11,6 +11,23 @@
 	--fhd-warn: #fab219;
 	--fhd-serious: #ec835a;
 	--fhd-crit: #d03b3b;
+	/* This page keeps its own light look in every Desk theme, so it pins the tokens it
+	 * would otherwise inherit from a dark theme. */
+	--heading-color: #0b0b0b;
+	--text-color: #0b0b0b;
+	--text-muted: #52514e;
+	--text-light: #706f6b;
+	--ink-gray-9: #0b0b0b;
+	--ink-gray-8: #171717;
+	--ink-gray-7: #383838;
+	--ink-gray-6: #52514e;
+	--ink-gray-5: #706f6b;
+	--ink-gray-4: #898781;
+	--control-bg: #f3f3f1;
+	--border-color: #e1e0d9;
+	--card-bg: #fcfcfb;
+	--fg-color: #fcfcfb;
+	--bg-color: #f9f9f7;
 	position: relative;
 	margin: -15px -15px 0;
 	padding: 28px 28px 48px;
